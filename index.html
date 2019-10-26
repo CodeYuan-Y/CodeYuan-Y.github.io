@@ -220,10 +220,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h2><p>string类是java的基础类之一。</p>
+    <h3 id="String类"><a href="#String类" class="headerlink" title="String类"></a><strong>String类</strong></h3><p>string类是java的基础类之一。</p>
 <p>虽然可以用来拼接字符串,但是,效率并不高，原因是在每次进行拼接的时候都会产生对象，导致在操作过后产生许多无用的中间对象，如果频繁操作不仅浪费内存还会影响效率。</p>
 <p>以下是String拼接方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = -<span class="number">1</span>;i &lt; <span class="number">6</span>;i++)</span><br><span class="line">    s = s + <span class="string">","</span> + i;</span><br><span class="line">System.out.println(s);</span><br><span class="line"><span class="comment">//结果 hello,-1,0,1,2,3,4,5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;hello&quot;;</span><br><span class="line">for (int i = -1;i &lt; 6;i++)</span><br><span class="line">    s = s + &quot;,&quot; + i;</span><br><span class="line">System.out.println(s);</span><br><span class="line">//结果 hello,-1,0,1,2,3,4,5</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/#more">more >></a>
+    
     
 
     
