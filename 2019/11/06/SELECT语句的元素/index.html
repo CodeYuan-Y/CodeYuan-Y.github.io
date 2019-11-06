@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
-  <title>Mysql数据库常用命令 | CodeYuan-Y的博客</title>
+  <title>SELECT语句的元素 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="命令12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849#首先以管理员身份运行命令提示符#查看MySQL服务是否启动netstat -an|findstr &quot;3306&quot;#启动MySQL服务net start mysql57   -----57是版本#关闭MySQL服务net">
-<meta name="keywords" content="Mysql">
+  <meta name="description" content="1234567891011USE TSQL2012;SELECT 	empid,	YEAR(orderdate) AS orderyear,	--获取时间点钟的年	COUNT(*) AS numorders		--通过GROUP BY分组每组的行数量	FROM Sales.OrdersWHERE custid = 71			--仅筛选 客户ID = 71的订单			GROUP BY empid,Y">
+<meta name="keywords" content="sql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql数据库常用命令">
-<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;10&#x2F;20&#x2F;Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&#x2F;index.html">
+<meta property="og:title" content="SELECT语句的元素">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="命令12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849#首先以管理员身份运行命令提示符#查看MySQL服务是否启动netstat -an|findstr &quot;3306&quot;#启动MySQL服务net start mysql57   -----57是版本#关闭MySQL服务net">
+<meta property="og:description" content="1234567891011USE TSQL2012;SELECT 	empid,	YEAR(orderdate) AS orderyear,	--获取时间点钟的年	COUNT(*) AS numorders		--通过GROUP BY分组每组的行数量	FROM Sales.OrdersWHERE custid = 71			--仅筛选 客户ID = 71的订单			GROUP BY empid,Y">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-20T13:48:17.751Z">
+<meta property="og:updated_time" content="2019-11-06T06:49:43.647Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -186,14 +186,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Mysql数据库常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SELECT语句的元素" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Mysql数据库常用命令
+      SELECT语句的元素
     </h1>
   
 
@@ -205,8 +205,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2019-10-20T07:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
+<a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" class="archive-article-date">
+        <time datetime="2019-11-06T06:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
 </a>
 
   
@@ -219,7 +219,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">482字</span>
+      <span class="post-count">884字</span>
     </span>
   </span>
 
@@ -228,7 +228,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -239,12 +239,48 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先以管理员身份运行命令提示符</span></span><br><span class="line"><span class="comment">#查看MySQL服务是否启动</span></span><br><span class="line">netstat -an|findstr "3306"</span><br><span class="line"><span class="comment">#启动MySQL服务</span></span><br><span class="line">net <span class="keyword">start</span> mysql57   <span class="comment">-----57是版本</span></span><br><span class="line"><span class="comment">#关闭MySQL服务</span></span><br><span class="line">net <span class="keyword">stop</span> mysql57</span><br><span class="line"></span><br><span class="line"><span class="comment">#登录</span></span><br><span class="line">mysql -u username(root) -p <span class="keyword">password</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看所有数据库</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment">#选择数据库</span></span><br><span class="line"><span class="keyword">use</span> database_name；</span><br><span class="line"><span class="comment">#查看所有表</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">#创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br><span class="line"><span class="comment">#删除数据库</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> database_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Table_name(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">varchar</span>(<span class="number">12</span>),</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>),</span><br><span class="line">    age <span class="built_in">int</span>(<span class="number">3</span>),</span><br><span class="line">)</span><br><span class="line"><span class="comment">#查询表</span></span><br><span class="line"><span class="keyword">desc</span> table_name;</span><br><span class="line"><span class="comment">#查看表的创建语句</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> Table_name;</span><br><span class="line"><span class="comment">#删除表</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> table_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改表的内容</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">modify</span> +(<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">20</span>)...);</span><br><span class="line"><span class="comment">#增加字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> <span class="keyword">column</span> Tel <span class="built_in">int</span>(<span class="number">11</span>);</span><br><span class="line"><span class="comment">#删除字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">drop</span> <span class="keyword">column</span> Tel;</span><br><span class="line"><span class="comment">#字段更改名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">change</span> <span class="keyword">name</span> newName <span class="built_in">char</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">#新增字段并确定位置</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">after</span> <span class="keyword">name</span>;    <span class="comment">----将birth字段放在name后</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">before</span> <span class="keyword">name</span>;</span><br><span class="line"><span class="comment">#更改表名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">rename</span> new_table_name;</span><br></pre></td></tr></table></figure>
+    <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> TSQL2012;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	empid,</span><br><span class="line">	<span class="keyword">YEAR</span>(orderdate) <span class="keyword">AS</span> orderyear,	<span class="comment">--获取时间点钟的年</span></span><br><span class="line">	<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> numorders		<span class="comment">--通过GROUP BY分组每组的行数量	</span></span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> custid = <span class="number">71</span>			<span class="comment">--仅筛选 客户ID = 71的订单			</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> empid,<span class="keyword">YEAR</span>(orderdate)		<span class="comment">--按照 雇员ID 与 订单年度 进行分组</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt; <span class="number">1</span>			<span class="comment">--仅筛选出大于1的订单组</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empid,orderyear;		<span class="comment">--按照 雇员ID 和 订单 输出行</span></span><br></pre></td></tr></table></figure>
 
+<p><code>GROUP BY</code> 后的 <code>HAVING</code>和<code>ORDER BY</code>操作都是对于组的操作,而不是对单行操作。</p>
+<p>不参加到<code>GROUP BY</code>列表中的元素仅允许作为一个聚合函数的输入，如<code>COUNT</code>、<code>SUM</code>、<code>AVG</code>、<code>MIN</code>或<code>MAX</code>。</p>
 <a id="more"></a>
 
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#存储过程(1)</span></span><br><span class="line">DELIMITER $$</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> Find_Error <span class="built_in">INTEGER</span>;</span><br><span class="line">	<span class="keyword">DECLARE</span> CONTINUE <span class="keyword">HANDLER</span> <span class="keyword">FOR</span> SQLEXCEPTION <span class="keyword">SET</span> Find_Error = <span class="number">1</span>;<span class="comment">/*捕获事务执行异常，出现错误赋值为1*/</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*判断账号是否存在*/</span></span><br><span class="line">	IF EXISTS(<span class="keyword">SELECT</span> Stu_code <span class="keyword">FROM</span> stu_user <span class="keyword">WHERE</span> Student_code = Stu_code)</span><br><span class="line">	<span class="keyword">THEN</span></span><br><span class="line">		<span class="keyword">SET</span> Express = <span class="string">"账号已存在"</span>;<span class="comment">/*存在则赋值*/</span></span><br><span class="line">	ELSE</span><br><span class="line">		<span class="comment">/*开始事务*/</span></span><br><span class="line">		<span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line">		<span class="comment">/*插入新的信息*/</span></span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> stu_user</span><br><span class="line">		<span class="keyword">VALUES</span>(Student_code,Student_name,<span class="literal">NULL</span>,Psw,<span class="literal">NULL</span>,Grade,MR_name,Class_name,Tell,<span class="literal">NULL</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">/*判断执行过程中是否出错*/</span></span><br><span class="line">		IF Find_Error = 1</span><br><span class="line">		THEN </span><br><span class="line">			<span class="keyword">ROLLBACK</span>;<span class="comment">/*出错则回滚*/</span></span><br><span class="line">		ELSE</span><br><span class="line">			<span class="keyword">COMMIT</span>;<span class="comment">/*否则提交*/</span></span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">IF</span>;	</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">$$ DELIMITER</span><br><span class="line"></span><br><span class="line"><span class="comment">#存储过程(2)</span></span><br><span class="line">DELIMITER ||</span><br><span class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`root`</span>@<span class="string">`localhost`</span> <span class="keyword">PROCEDURE</span> <span class="string">`book_brr`</span>(<span class="keyword">IN</span> book_id <span class="built_in">CHAR</span>(<span class="number">30</span>),<span class="keyword">IN</span> brr_id <span class="built_in">CHAR</span>(<span class="number">30</span>),</span><br><span class="line"><span class="keyword">IN</span> get_tim <span class="built_in">CHAR</span>(<span class="number">30</span>),<span class="keyword">IN</span> return_tim <span class="built_in">CHAR</span>(<span class="number">30</span>),<span class="keyword">OUT</span> <span class="keyword">str</span> <span class="built_in">CHAR</span>(<span class="number">40</span>))</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> temp <span class="built_in">INT</span>;</span><br><span class="line">	<span class="keyword">DECLARE</span> t_error <span class="built_in">INTEGER</span>;</span><br><span class="line">	<span class="keyword">DECLARE</span> CONTINUE <span class="keyword">HANDLER</span> <span class="keyword">FOR</span> SQLEXCEPTION <span class="keyword">SET</span> t_error = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">SELECT</span> residue <span class="keyword">INTO</span> temp </span><br><span class="line">	<span class="keyword">FROM</span> book </span><br><span class="line">	<span class="keyword">WHERE</span>  <span class="built_in">number</span> = book_id;</span><br><span class="line">	</span><br><span class="line">	IF EXISTS(<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> borrowing <span class="keyword">WHERE</span> bookID = book_id <span class="keyword">AND</span> borrowerID = brr_id)</span><br><span class="line">	<span class="keyword">THEN</span></span><br><span class="line">		<span class="keyword">SET</span> <span class="keyword">str</span> = <span class="string">"不能重复借阅"</span>;</span><br><span class="line">	ELSEIF 	temp &lt;= 0</span><br><span class="line">	THEN</span><br><span class="line">		<span class="keyword">SET</span> <span class="keyword">str</span> = <span class="string">"没有可借阅书籍"</span>;</span><br><span class="line">	ELSE</span><br><span class="line">		<span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;</span><br><span class="line">		</span><br><span class="line">			<span class="keyword">INSERT</span> <span class="keyword">INTO</span> borrowing </span><br><span class="line">			<span class="keyword">VALUES</span> (book_id,brr_id,get_tim,return_tim);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">UPDATE</span> book </span><br><span class="line">			<span class="keyword">SET</span> num_rec = num_rec + <span class="number">1</span></span><br><span class="line">			<span class="keyword">WHERE</span> book_id = <span class="built_in">number</span>;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">UPDATE</span> book </span><br><span class="line">			<span class="keyword">SET</span>  residue = residue - <span class="number">1</span></span><br><span class="line">			<span class="keyword">WHERE</span> book_id = <span class="built_in">number</span>;</span><br><span class="line">		</span><br><span class="line">		IF t_error = 1</span><br><span class="line">		THEN </span><br><span class="line">			<span class="keyword">ROLLBACK</span>;</span><br><span class="line">		ELSE</span><br><span class="line">	    <span class="keyword">COMMIT</span>;</span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>;	</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">|| DELIMITER</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	custid,</span><br><span class="line">	empid,</span><br><span class="line">	<span class="keyword">YEAR</span>(orderdate)</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> custid = <span class="number">71</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> empid,<span class="keyword">YEAR</span>(orderdate)</span><br></pre></td></tr></table></figure>
 
+<p>像以上情况 未参与到<code>GROUP BY</code>的列表中的属性例如custid会被系统当成一个聚合函数操作，从而产生以下错误。</p>
+<p><em>选择列表中的列 ‘Sales.Orders.custid’ 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。</em></p>
+<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><p>除<code>COUNT(*)</code>之外所有聚合操作都忽略<code>NULL</code>标记。</p>
+<p>例如：一个名为qty的列，具有5行，数值为。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">30、10、NULL、10、10</span><br></pre></td></tr></table></figure>
+
+<p>表达式<code>COUNT(*)</code>将返回5、而<code>COUNT(qty)</code>将返回4。</p>
+<p>指定<code>DISTINCT</code>关键字可以去重复值。</p>
+<p><code>COUNT(DISTINCT qty)</code>将返回2。</p>
+<p><code>SUM(DISTINCT qty)</code>将返回40，<code>SUM(qty)</code>将返回60。</p>
+<p><code>AVG(DISTINCT qty)</code>将返回20，<code>AVG(qty)</code>将返回20。</p>
+<h4 id="HAVING子句"><a href="#HAVING子句" class="headerlink" title="HAVING子句"></a>HAVING子句</h4><p>以下是第一段代码执行结果</p>
+<p>empid        orderyear    numorders</p>
+<p>​    1                2007                2<br>​    1                2008                3<br>​    2                2008                2<br>​    3                2007                2<br>​    4                2008                3<br>​    5                2007                3<br>​    6                2007                3<br>​    7                2008                2<br>​    8                2007                4</p>
+<hr>
+<p>以下是去掉<code>HAVING</code>子句的执行结果</p>
+<p>empid        orderyear    numorders</p>
+<p>​    1                2006                1<br>​    1                2007                2<br>​    1                2008                3<br>​    2                2006                1<br>​    2                2007                1<br>​    2                2008                2<br>​    3                2007                2<br>​    4                2007                1<br>​    4                2008                3<br>​    5                2007                3<br>​    6                2007                3<br>​    6                2008                1<br>​    7                2007                1<br>​    7                2008                2<br>​    8                2007                4<br>​    9                2006                1</p>
+<p>比较发现表2中numorders列所有为1的组，都消失在表1中。</p>
+<p><code>HAVING</code>子句是在分组之后进行处理，所以可以在逻辑表达式中引用集合函数。</p>
+<h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><p><code>FROM</code> —- <code>WHERE</code> —- <code>GROUP BY</code>—-<code>HAVING</code> —- <code>ORDER BY</code> —- <code>SELECT</code></p>
+<h4 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h4><p>默认升序、<code>ASC</code>升序、<code>DESC</code>降序</p>
+<p>T-SQL允许在<code>ORDER BY</code>中出现<code>SELECT</code>中未出现的的元素，这意味着你无需按照输出排序。</p>
+<p>但是，如果指定了<code>DISTINCT</code>，则<code>ORDER BY</code>只能出现是出现在<code>SELECT</code>列表中的元素。此限制背后的原因是，在指定<code>DISTINCT</code>后，单个结果行可能代表多个源行，因此<code>ORDER BY</code>子句中可能会有多个值可用。</p>
+<h4 id="TOP和OFFSET-FETCH筛选"><a href="#TOP和OFFSET-FETCH筛选" class="headerlink" title="TOP和OFFSET-FETCH筛选"></a>TOP和OFFSET-FETCH筛选</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--选取最顶部5行 即 时间最近的5个订单</span></span><br><span class="line"><span class="keyword">SELECT</span> TOP(<span class="number">5</span>)</span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br><span class="line"><span class="comment">--在TOP后面加 PERCENT 代表前0.5% </span></span><br><span class="line"><span class="comment">--会向上舍入即若计算出的百分比是5.32行会变成6行</span></span><br><span class="line"><span class="keyword">SELECT</span> TOP(<span class="number">0.5</span>) <span class="keyword">PERCENT</span></span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br><span class="line"><span class="comment">--在TOP后面加上WITH TIES会要求系统除返回前5行外，还会返回与第5行(orderdate)值相同的行</span></span><br><span class="line"><span class="keyword">SELECT</span> TOP(<span class="number">5</span>) <span class="keyword">WITH</span> <span class="keyword">TIES</span></span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+
+<p><code>TOP</code>有两个缺陷，不是标准SQL和不支持跳过功能，标准SQL中有类似的筛选称为<code>OFFSET-FETCH</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">OFFSET</span> <span class="number">50</span> <span class="keyword">ROWS</span> <span class="keyword">FETCH</span> <span class="keyword">NEXT</span> <span class="number">8</span> <span class="keyword">ROWS</span> <span class="keyword">ONLY</span>;</span><br><span class="line"><span class="comment">--跳过前50行后，去接下来的8行</span></span><br></pre></td></tr></table></figure>
+
+<p><code>OFFSET FETCH</code>查询的前提是必须具有<code>ORDER BY</code>子句。</p>
+<p>如果没<code>OFFSET</code>的支持不能进行<code>FETCH</code>操作，不跳过只能是 <code>OFFSET 0 ROWS</code>。</p>
+<p>SQL中<code>ROWS</code>与<code>ROW</code>、<code>NEXT</code>与<code>FIRST</code> 可以相互替换</p>
+<p>从支持跳过来看 <code>OFFSET FETCH</code>比<code>TOP</code>更加灵活，但是<code>OFFSET FETCH</code>没有<code>PERCENT</code> 和<code>WITH TIES</code>选项。</p>
+<p>在实现时，<code>OFFSET FETCH</code>与<code>TOP</code>都能可用时尽量用<code>OFFSET FETCH</code></p>
 
     
 
@@ -291,7 +327,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="CodeYuan-Y.github.io/2019/10/20/Mysql数据库常用命令/" title="Mysql数据库常用命令" target="_blank">CodeYuan-Y.github.io/2019/10/20/Mysql数据库常用命令/</a>
+          <a href="CodeYuan-Y.github.io/2019/11/06/SELECT语句的元素/" title="SELECT语句的元素" target="_blank">CodeYuan-Y.github.io/2019/11/06/SELECT语句的元素/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -310,7 +346,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -366,7 +402,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -381,15 +417,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JDBC使用方式
-        
-      </div>
-    </a>
   
+    <a href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8A%9E%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL SERVER创建办及数据完整性</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -428,9 +460,9 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "Mysql数据库常用命令" -->
+    <!-- id: "SELECT语句的元素" -->
     var gitment = new Gitment({
-      id: "20191020152318",
+      id: "20191106144337",
       owner: 'CodeYuan-Y',
       repo: 'CodeYuan-Y.github.io',
       oauth: {
