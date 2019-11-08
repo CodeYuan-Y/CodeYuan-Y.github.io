@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="CodeYuan-Y的博客">
 <meta property="og:description" content="1234567891011USE TSQL2012;SELECT 	empid,	YEAR(orderdate) AS orderyear,	--获取时间点钟的年	COUNT(*) AS numorders		--通过GROUP BY分组每组的行数量	FROM Sales.OrdersWHERE custid = 71			--仅筛选 客户ID = 71的订单			GROUP BY empid,Y">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-06T06:57:47.216Z">
+<meta property="og:updated_time" content="2019-11-08T06:05:36.921Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -219,7 +219,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">884字</span>
+      <span class="post-count">891字</span>
     </span>
   </span>
 
@@ -267,7 +267,15 @@
 <p>​    1                2006                1<br>​    1                2007                2<br>​    1                2008                3<br>​    2                2006                1<br>​    2                2007                1<br>​    2                2008                2<br>​    3                2007                2<br>​    4                2007                1<br>​    4                2008                3<br>​    5                2007                3<br>​    6                2007                3<br>​    6                2008                1<br>​    7                2007                1<br>​    7                2008                2<br>​    8                2007                4<br>​    9                2006                1</p>
 <p>比较发现表2中numorders列所有为1的组，都消失在表1中。</p>
 <p><code>HAVING</code>子句是在分组之后进行处理，所以可以在逻辑表达式中引用集合函数。</p>
-<h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><p><code>FROM</code> —- <code>WHERE</code> —- <code>GROUP BY</code>—-<code>HAVING</code> —- <code>ORDER BY</code> —- <code>SELECT</code></p>
+<h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><p><code>FROM</code></p>
+<p><code>WHERE</code></p>
+<p><code>GROUP BY</code></p>
+<p><code>HAVING</code> </p>
+<p><code>SELECT</code></p>
+<p>​        表达式</p>
+<p>​        <code>DISTINCT</code>                </p>
+<p><code>ORDER BY</code> </p>
+<p>​        <code>TOP/OFFSET-FETCH</code></p>
 <h4 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h4><p>默认升序、<code>ASC</code>升序、<code>DESC</code>降序</p>
 <p>T-SQL允许在<code>ORDER BY</code>中出现<code>SELECT</code>中未出现的的元素，这意味着你无需按照输出排序。</p>
 <p>但是，如果指定了<code>DISTINCT</code>，则<code>ORDER BY</code>只能出现是出现在<code>SELECT</code>列表中的元素。此限制背后的原因是，在指定<code>DISTINCT</code>后，单个结果行可能代表多个源行，因此<code>ORDER BY</code>子句中可能会有多个值可用。</p>
@@ -600,11 +608,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
