@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
-  <title>Tag: java | CodeYuan-Y的博客</title>
+  <title>SELECT语句元素续 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一个热爱code的男人">
-<meta name="keywords" content="1996613nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeYuan-Y的博客">
-<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;tags&#x2F;java&#x2F;index.html">
+  <meta name="description" content="谓词和运算符123456789101112131415161718192021222324SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE orderid IN(10248,10249,10250)--获取orderid在()这个集合里面的行SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE">
+<meta name="keywords" content="sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SELECT语句元素续">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;08&#x2F;SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="一个热爱code的男人">
+<meta property="og:description" content="谓词和运算符123456789101112131415161718192021222324SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE orderid IN(10248,10249,10250)--获取orderid在()这个集合里面的行SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-08T02:44:35.183Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -185,108 +186,293 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SELECT语句元素续" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2019-10-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" target="_blank">StringBuilder及链式操作原理</a>
   
+    <h1 class="article-title" itemprop="name">
+      SELECT语句元素续
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" class="archive-article-date">
+        <time datetime="2019-11-08T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="谓词和运算符"><a href="#谓词和运算符" class="headerlink" title="谓词和运算符"></a>谓词和运算符</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">IN</span>(<span class="number">10248</span>,<span class="number">10249</span>,<span class="number">10250</span>)</span><br><span class="line"><span class="comment">--获取orderid在()这个集合里面的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">BETWEEN</span> <span class="number">10300</span> <span class="keyword">AND</span> <span class="number">10310</span>;</span><br><span class="line"><span class="comment">--获取orderid在10300到10310中间的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">empid,</span><br><span class="line">firstname,</span><br><span class="line">lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span>;</span><br><span class="line"><span class="comment">--获取lastname属性第一个字母为D的行</span></span><br><span class="line"><span class="comment">--前缀字母N的使用，代表National，用来表示字符串是一个Unicode数据类型(NCHAR或NVARCHAR)</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>其它运算符还有=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;(!=)、!&gt;和!&lt;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	empid,</span><br><span class="line">	orderdate</span><br><span class="line"> <span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"> <span class="keyword">WHERE</span> orderdate &gt;= <span class="string">'20080101'</span></span><br><span class="line">	<span class="keyword">AND</span> empid <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>);</span><br><span class="line"><span class="comment">--2008年之后 和 雇员编号是 1或3或5 的订单</span></span><br></pre></td></tr></table></figure>
+
+<p>算数运算符 +、-、*、/、%</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	productid,</span><br><span class="line">	qty,</span><br><span class="line">	unitprice,</span><br><span class="line">	discount,</span><br><span class="line">	qty * unitprice * (<span class="number">1</span> - discount) <span class="keyword">AS</span> VAL </span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderDetails</span><br></pre></td></tr></table></figure>
+
+<p>比较优先级</p>
+<p>1、（）</p>
+<p>2、*、/、%</p>
+<p>3、+、-</p>
+<p>4、=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;(!=)、!&gt;、!&lt;</p>
+<p>5、NOT</p>
+<p>6、AND</p>
+<p>7、BETWEEN、IN、NOT、OR</p>
+<p>8、=</p>
+<h4 id="CASE表达式"><a href="#CASE表达式" class="headerlink" title="CASE表达式"></a>CASE表达式</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	productid,</span><br><span class="line">	productname,</span><br><span class="line">	categoryid,</span><br><span class="line">	<span class="keyword">CASE</span> categoryid</span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'Beverages'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span> <span class="string">'Condiments'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">3</span> <span class="keyword">THEN</span> <span class="string">'Confections'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">4</span> <span class="keyword">THEN</span> <span class="string">'Dairy Products'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">5</span> <span class="keyword">THEN</span> <span class="string">'Grains/Cereals'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">6</span> <span class="keyword">THEN</span> <span class="string">'Meat/Poultry'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">7</span> <span class="keyword">THEN</span> <span class="string">'Produce'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">8</span> <span class="keyword">THEN</span> <span class="string">'Seafood'</span></span><br><span class="line">		<span class="keyword">ELSE</span> <span class="string">'Unknown Category'</span></span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">AS</span> categoryname</span><br><span class="line"><span class="keyword">FROM</span> Production.Products;</span><br><span class="line"><span class="comment">--当 categoryID = 1 时 categoryname 列显示 Beverages</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	custid,</span><br><span class="line">	val,</span><br><span class="line">	<span class="keyword">CASE</span></span><br><span class="line">		<span class="keyword">WHEN</span> val &lt; <span class="number">1000.0</span>				<span class="keyword">THEN</span> <span class="string">'lESS THAN 1000'</span></span><br><span class="line">		<span class="keyword">WHEN</span> val <span class="keyword">BETWEEN</span> <span class="number">1000.0</span> <span class="keyword">AND</span> <span class="number">3000.0</span>		<span class="keyword">THEN</span> <span class="string">'BETWEEN 1000 AND 3000'</span></span><br><span class="line">		<span class="keyword">WHEN</span> val &gt; <span class="number">3000.0</span>				<span class="keyword">THEN</span> <span class="string">'MORE THAN 3000'</span></span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">AS</span> VALUECATEGORY</span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderValues</span><br></pre></td></tr></table></figure>
+
+<h4 id="NULL标记"><a href="#NULL标记" class="headerlink" title="NULL标记"></a>NULL标记</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,</span><br><span class="line">	country,</span><br><span class="line">	region,</span><br><span class="line">	city</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers</span><br><span class="line"><span class="keyword">WHERE</span> region <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">--region = null 会返回 一个unknown结果</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="运算符和函数"><a href="#运算符和函数" class="headerlink" title="运算符和函数"></a>运算符和函数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	firstname + N<span class="string">' '</span>+ lastname <span class="keyword">AS</span> fullname </span><br><span class="line"><span class="keyword">FROM</span> HR.Employees;</span><br></pre></td></tr></table></figure>
+
+<p>通过连接fisrstname、空格、lastname生成fullname结果列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--从字符串中提取一个子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUBSTRING</span>(<span class="string">'ASDFSADF'</span>,<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line"><span class="comment">--结果是：SDFS - 从第2个位置提取其后4个字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--从左提取一个子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEFT</span>(<span class="string">'HELLOWORLD'</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">--结果是：HEl - 从左开始提取3个字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--从右提取一个子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RIGHT</span>(<span class="string">'HELLOWORLD'</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">--结果是：RLD - 从右开始提取3个字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回字符长度</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEN</span>(<span class="string">'HELLOWORLD '</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATALENGTH</span>(<span class="string">'HELLOWORLD '</span>);</span><br><span class="line"><span class="comment">--结果是:10、11  - 区别是LEN会去掉尾部空格不计，而DATALENGTH并不会</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回子串在字符串中第一次出现的位置</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CHARINDEX</span>(<span class="string">'L'</span>,<span class="string">'HELLOWORLD'</span>);</span><br><span class="line"><span class="comment">--结果是：3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回模式在字符串中第一次出现的位置</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>,<span class="string">'HELLO343WORLD'</span>);</span><br><span class="line"><span class="comment">--结果是：6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--使用某一字符串 替代 另一字符串中的 子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">REPLACE</span>(<span class="string">'1-S 3-ER'</span>,<span class="string">'-'</span>,<span class="string">':'</span>);</span><br><span class="line"><span class="comment">--结果是：1:S 3:ER</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--让某字符串重复几次</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">REPLICATE</span>(<span class="string">'ABC'</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">--结果是：ABCABCABC</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--在字符串中的某个位置去除其后几个字符并插入字符串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">STUFF</span>(<span class="string">'HELLOWORLD'</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="string">'123'</span>);</span><br><span class="line"><span class="comment">--结果是：HE123OWORLD - 去除HELLOWORLD的第3个位置加他后面 共两个字符 再 插入 123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--转大小写</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UPPER</span>(<span class="string">'abc'</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LOWER</span>(<span class="string">'ABC'</span>);</span><br><span class="line"><span class="comment">--结果是：ABC、abc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--去除左右空格</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RTRIM</span>(<span class="keyword">LTRIM</span>(<span class="string">'   ABC   '</span>));</span><br><span class="line"><span class="comment">--结果是：ABC - RTRIM去除右边空格 LTRIM去除左边空格</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--将输入值转化为字符串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">FORMAT</span>(<span class="number">1759</span>,<span class="string">'0000000'</span>);</span><br><span class="line"><span class="comment">--结果：0001759</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="LIKE谓词"><a href="#LIKE谓词" class="headerlink" title="LIKE谓词"></a>LIKE谓词</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span></span><br><span class="line"><span class="comment">--匹配以D开头的字符串</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> <span class="string">'_e%'</span></span><br><span class="line"><span class="comment">--匹配第二个字母是e</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'[ABC]%'</span></span><br><span class="line"><span class="comment">--第一个字母是ABC其中之一的</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'[A-E]%'</span></span><br><span class="line"><span class="comment">--第一个字母是A-E其中的一个</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	custid,</span><br><span class="line">	empid,</span><br><span class="line">	orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">YEAR</span>(orderdate) = <span class="number">2007</span> <span class="keyword">AND</span> <span class="keyword">MONTH</span>(orderdate) = <span class="number">2</span>;</span><br><span class="line"><span class="comment">--查询2007年2月的订单</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查询元数据"><a href="#查询元数据" class="headerlink" title="查询元数据"></a>查询元数据</h4><h5 id="目录视图"><a href="#目录视图" class="headerlink" title="目录视图"></a><strong>目录视图</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	SCHEMA_NAME(schema_id) <span class="keyword">AS</span> table_schema_name,</span><br><span class="line">	<span class="keyword">name</span> <span class="keyword">AS</span> table_name</span><br><span class="line"><span class="keyword">FROM</span> sys.tables;</span><br><span class="line"><span class="comment">--列出数据库中表的架构名称 和 表的名称</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">name</span> <span class="keyword">AS</span> columns_name,</span><br><span class="line">	TYPE_NAME(system_type_id) <span class="keyword">AS</span> columns_type,</span><br><span class="line">	max_length,</span><br><span class="line">	collation_name,</span><br><span class="line">	is_nullable</span><br><span class="line"><span class="keyword">FROM</span> sys.columns</span><br><span class="line"><span class="keyword">WHERE</span> object_id = OBJECT_ID(N<span class="string">'Sales.Orders'</span>);</span><br><span class="line"><span class="comment">--返回Sales.Orders表的：列名、数据类型、最大长度、排列规则名称、是否为空</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="信息架构视图"><a href="#信息架构视图" class="headerlink" title="信息架构视图"></a>信息架构视图</h5><p>信息架构视图是一个视图集合，其名位于<code>INFORMATION_SCHEMA</code>的架构中，并以标准方式提供元数据信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	TABLE_SCHEMA,</span><br><span class="line">	TABLE_NAME</span><br><span class="line"><span class="keyword">FROM</span> INFORMATION_SCHEMA.TABLES</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_TYPE = N<span class="string">'BASE TABLE'</span>;</span><br><span class="line"><span class="comment">--列出表的架构名称 和 表的名称</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	COLUMN_NAME,</span><br><span class="line">	DATA_TYPE,</span><br><span class="line">	CHARACTER_MAXIMUM_LENGTH,</span><br><span class="line">	COLLATION_NAME,</span><br><span class="line">	IS_NULLABLE</span><br><span class="line"><span class="keyword">FROM</span> INFORMATION_SCHEMA.COLUMNS</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA = N<span class="string">'Sales'</span></span><br><span class="line">	<span class="keyword">AND</span> TABLE_NAME = N<span class="string">'Orders'</span>;</span><br><span class="line"><span class="comment">--返回Sales.Orders表的：列名、数据类型、最大长度、排列规则名称、是否为空</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="系统存储过程和函数"><a href="#系统存储过程和函数" class="headerlink" title="系统存储过程和函数"></a>系统存储过程和函数</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">EXEC sys.sp_tables</span><br><span class="line"><span class="comment">--返回一个当前数据库中能查询到的对象列表</span></span><br><span class="line"></span><br><span class="line">EXEC sys.sp_help</span><br><span class="line">	@objname = N'Sales.Orders';</span><br><span class="line"><span class="comment">--返回Orders表的详情信息</span></span><br><span class="line"></span><br><span class="line">EXEC sys.sp_columns</span><br><span class="line">	@table_name = N'Orders',</span><br><span class="line">	@table_owner = N'Sales';</span><br><span class="line"><span class="comment">--返回Orders表中的列信息</span></span><br><span class="line"></span><br><span class="line">EXEC sys.sp_helpconstraint</span><br><span class="line">	@objname = N'Sales.Orders';</span><br><span class="line"><span class="comment">--返回Orders中的约束信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	SERVERPROPERTY(<span class="string">'ProductLevel'</span>);</span><br><span class="line"><span class="comment">--返回当前实例的产品级别</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	DATABASEPROPERTYEX(N<span class="string">'TSQL2012'</span>,<span class="string">'Collation'</span>);</span><br><span class="line"><span class="comment">--返回TSQL2012数据库的排序规则</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	OBJECTPROPERTY(OBJECT_ID(N<span class="string">'Sales.Orders'</span>),<span class="string">'TableHasPrimaryKey'</span>);</span><br><span class="line"><span class="comment">--判断Orders是否具有主键</span></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222511875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222428801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          苑勇
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="CodeYuan-Y.github.io/2019/11/08/SELECT语句元素续/" title="SELECT语句元素续" target="_blank">CodeYuan-Y.github.io/2019/11/08/SELECT语句元素续/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2019-10-20T07:37:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SELECT语句的元素</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" target="_blank">JDBC使用方式</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
+
+
+
+
   
+  <div id="gitment-ctn"></div>
   
-    </div></section>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "SELECT语句元素续" -->
+    var gitment = new Gitment({
+      id: "20191108103525",
+      owner: 'CodeYuan-Y',
+      repo: 'CodeYuan-Y.github.io',
+      oauth: {
+        client_id: '54f1ffefcd7a55adb032',
+        client_secret: 'cc7661d367a068f5bf6ee2cb19d72b1f6fb11b67',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
   
 
-    
 
 
           </div>
@@ -327,9 +513,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
