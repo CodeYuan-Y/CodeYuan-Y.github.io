@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
-  <title>StringBuilder及链式操作原理 | CodeYuan-Y的博客</title>
+  <title>SQL SERVER创建及数据完整性 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="String类string类是java的基础类之一。 虽然可以用来拼接字符串,但是,效率并不高，原因是在每次进行拼接的时候都会产生对象，导致在操作过后产生许多无用的中间对象，如果频繁操作不仅浪费内存还会影响效率。 以下是String拼接方式 12345String s = &amp;quot;hello&amp;quot;;for (int i = -1;i &amp;lt; 6;i++)    s = s + &amp;quo">
-<meta name="keywords" content="java">
+  <meta name="description" content="123456789101112131415use TSQL2012;IF OBJECT_ID(&amp;apos;dbo.Employees&amp;apos;,&amp;apos;U&amp;apos;) IS NOT NULL	DROP TABLE dbo.Employees;CREATE TABLE dbo.Employees(	empid		INT		NOT NULL,	firstname	VARCHAR(30) 	NOT NULL,	lastname	VAR">
+<meta name="keywords" content="sql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="StringBuilder及链式操作原理">
-<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;10&#x2F;26&#x2F;StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86&#x2F;index.html">
+<meta property="og:title" content="SQL SERVER创建及数据完整性">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;02&#x2F;SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="String类string类是java的基础类之一。 虽然可以用来拼接字符串,但是,效率并不高，原因是在每次进行拼接的时候都会产生对象，导致在操作过后产生许多无用的中间对象，如果频繁操作不仅浪费内存还会影响效率。 以下是String拼接方式 12345String s = &amp;quot;hello&amp;quot;;for (int i = -1;i &amp;lt; 6;i++)    s = s + &amp;quo">
+<meta property="og:description" content="123456789101112131415use TSQL2012;IF OBJECT_ID(&amp;apos;dbo.Employees&amp;apos;,&amp;apos;U&amp;apos;) IS NOT NULL	DROP TABLE dbo.Employees;CREATE TABLE dbo.Employees(	empid		INT		NOT NULL,	firstname	VARCHAR(30) 	NOT NULL,	lastname	VAR">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-26T11:33:08.379Z">
+<meta property="og:updated_time" content="2019-11-08T07:57:00.450Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -186,14 +186,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-StringBuilder及链式操作原理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SQL-SERVER创建及数据完整性" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      StringBuilder及链式操作原理
+      SQL SERVER创建及数据完整性
     </h1>
   
 
@@ -205,8 +205,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2019-10-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
+<a href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" class="archive-article-date">
+        <time datetime="2019-11-02T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
 </a>
 
   
@@ -219,7 +219,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">731字</span>
+      <span class="post-count">610字</span>
     </span>
   </span>
 
@@ -228,7 +228,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -239,29 +239,36 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="String类"><a href="#String类" class="headerlink" title="String类"></a><strong>String类</strong></h3><p>string类是java的基础类之一。</p>
-<p>虽然可以用来拼接字符串,但是,效率并不高，原因是在每次进行拼接的时候都会产生对象，导致在操作过后产生许多无用的中间对象，如果频繁操作不仅浪费内存还会影响效率。</p>
-<p>以下是String拼接方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;hello&quot;;</span><br><span class="line">for (int i = -1;i &lt; 6;i++)</span><br><span class="line">    s = s + &quot;,&quot; + i;</span><br><span class="line">System.out.println(s);</span><br><span class="line">//结果 hello,-1,0,1,2,3,4,5</span><br></pre></td></tr></table></figure>
+    <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> TSQL2012;</span><br><span class="line"></span><br><span class="line">IF OBJECT_ID('dbo.Employees','U') IS NOT NULL</span><br><span class="line">	<span class="keyword">DROP</span> <span class="keyword">TABLE</span> dbo.Employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> dbo.Employees</span><br><span class="line">(</span><br><span class="line">	empid		<span class="built_in">INT</span>		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	firstname	<span class="built_in">VARCHAR</span>(<span class="number">30</span>) 	<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	lastname	<span class="built_in">VARCHAR</span>(<span class="number">30</span>) 	<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	hiredate	<span class="built_in">DATE</span>		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	mgrid		<span class="built_in">INT</span>		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	ssn		<span class="built_in">VARCHAR</span>(<span class="number">20</span>) 	<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	salary		MONEY		<span class="keyword">NOT</span> <span class="literal">NULL</span>		</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><code>use</code> 确保创建对象时能够连接到正确的数据库</p>
+<p><code>IF</code>语句调用<code>OBJECT_ID</code>函数来检查Employees是否存已经存在于当前数据库当中，其中U代表用户表，若已经存在则返回内部对象的ID，否则返回<code>null</code>，若已经存在则则将其删除。</p>
+<p>对于每个属性，可以指定属性名称、数据类型、以及值是否可为<code>null</code>。</p>
 <a id="more"></a>
-<h3 id="StringBuffer类与StringBuilder类"><a href="#StringBuffer类与StringBuilder类" class="headerlink" title="StringBuffer类与StringBuilder类"></a><strong>StringBuffer类与StringBuilder类</strong></h3><p><code>StringBuffer</code>是为了解决<code>String</code>类大量拼接字符串时产生过多中间对象的提供的一个类。</p>
-<p><code>StringBuffer</code>与<code>StringBuilder</code>之间最大的不同在于<code>StringBuffer</code>是线程安全的而<code>StringBuilder</code>不是，其他方面二者几乎一模一样，由于<code>StringBuilder</code>不执行同步所以<code>StringBuilder</code>更快。在多数情况下使用<code>StringBuilder</code>更合适因为其效率更高，若要考虑线性安全问题则应使用<code>StringBuffer</code>。</p>
-<p>以下是<code>StringBuffer</code>拼接方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer(<span class="string">"Hello"</span>);</span><br><span class="line">stringBuffer.append(<span class="string">" World"</span>)</span><br><span class="line">    		.append(<span class="string">"!"</span>);</span><br><span class="line">System.out.println(stringBuffer);</span><br><span class="line"><span class="comment">//结果 Hello World！</span></span><br></pre></td></tr></table></figure>
 
-<p>以下是<code>StringBuilder</code>拼接方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder(<span class="number">1024</span>);<span class="comment">//链式操作  1024位容量值</span></span><br><span class="line">stringBuilder.append(<span class="string">"Mr"</span>)</span><br><span class="line">    .append(<span class="string">"."</span>)</span><br><span class="line">    .append(<span class="string">"Yuan"</span>)</span><br><span class="line">    .insert(<span class="number">0</span>,<span class="string">"Hello!"</span>);<span class="comment">//在0位置插入Hello</span></span><br><span class="line">System.out.println(stringBuilder);</span><br><span class="line"><span class="comment">//结果 Hello！Mr.Yuan</span></span><br></pre></td></tr></table></figure>
+<h4 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h4><p><strong>主键约束强制行的唯一性，不允许为<code>null</code>，约束属性的值只能出现一次，且一个表只能有一个主键</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbo.Employees </span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> PK_Employees</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span>(empid);</span><br></pre></td></tr></table></figure>
 
-<h2 id="StringBuilder的链式操作"><a href="#StringBuilder的链式操作" class="headerlink" title="StringBuilder的链式操作"></a><strong>StringBuilder的链式操作</strong></h2><p>上面对<code>StringBuffer</code>和<code>StringBuilder</code>的.<code>append()</code>操作就是一种链式操作，类似于c语言链表结构体中的 <code>Node-&gt;next = otherNode</code>或者是C++ STL库中的Lists类的<code>push_back()</code>.</p>
-<p>进行链式操作的关键是，定义<code>append()</code>方法或返回<code>this</code>，这样就可以不断调用自身的其他方法实现链式操作。</p>
-<p>以下是利用这个原理实现 游戏中的建造建筑功能</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">creatBuilders</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> StringBuilder builder = <span class="keyword">new</span> StringBuilder(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建建筑物</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> build</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> creatBuilders <span class="title">createBuilding</span><span class="params">(String build)</span></span>&#123;</span><br><span class="line">        builder.append(build+<span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除最新创建的建筑物</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  creatBuilders <span class="title">deleteLastBuilder</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span> == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            builder.deleteCharAt(builder.length()-<span class="number">1</span>);<span class="comment">//删除字符</span></span><br><span class="line">            <span class="comment">//判断" "是否与字符串中的某字符相同时停止删除</span></span><br><span class="line">            <span class="keyword">if</span>(builder.charAt((<span class="keyword">int</span>)(builder.length()-<span class="number">1</span>)) == <span class="string">' '</span>)&#123;</span><br><span class="line">                builder.deleteCharAt(builder.length()-<span class="number">1</span>);<span class="comment">//继续删除这一个空格以免影响下次操作</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除指定的建筑</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> creatBuilders <span class="title">deleteBuilder</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index = builder.indexOf(name);</span><br><span class="line">        builder.delete(index,index+name.length()+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回所有建筑物</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> String</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">getAllBuilder</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> builder.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h4><p>唯一约束强制行的唯一性，与主键约束不同，一个表内可以定义多个唯一约束，<strong>唯一约束必须为<code>NOT NULL</code></strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbo.Employees</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> UNQ_Employees_ssn</span><br><span class="line">	<span class="keyword">UNIQUE</span>(ssn);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        creatBuilders cb = <span class="keyword">new</span> creatBuilders();</span><br><span class="line">        cb.createBuilding(<span class="string">"草屋"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"城楼"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"马庐"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"炮楼"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"粮草营"</span>);</span><br><span class="line">        System.out.println(cb.getAllBuilder());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除最新创建的建筑</span></span><br><span class="line">        cb.deleteLastBuilder();</span><br><span class="line">        System.out.println(cb.getAllBuilder());</span><br><span class="line">        <span class="comment">//删除建筑</span></span><br><span class="line">        cb.deleteBuilder(<span class="string">"马庐"</span>);</span><br><span class="line">        System.out.println(cb.getAllBuilder());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">结果</span></span><br><span class="line"><span class="comment">草屋 城楼 马庐 炮楼 粮草营 </span></span><br><span class="line"><span class="comment">草屋 城楼 马庐 炮楼</span></span><br><span class="line"><span class="comment">草屋 城楼 炮楼</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> dbo.Orders</span><br><span class="line">(</span><br><span class="line">	orderid		<span class="built_in">INT</span>			<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	empid		<span class="built_in">INT</span>			<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	custid		<span class="built_in">VARCHAR</span>(<span class="number">10</span>) 		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	orderts		DATETIME2		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	qty		<span class="built_in">INT</span>			<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	<span class="keyword">CONSTRAINT</span>  PK_Orders</span><br><span class="line">		PRIMARY <span class="keyword">KEY</span>(orderid)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbo.Orders</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> FK_Orders_Employees</span><br><span class="line">	<span class="keyword">FOREIGN</span> <span class="keyword">KEY</span>(empid)</span><br><span class="line">	<span class="keyword">REFERENCES</span> dbo.Employees(empid);</span><br><span class="line"><span class="comment">--外键是 empid 连接 Employees表的empid属性，其中Orders是子表，Employees是父表</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>1、<code>StringBuilder</code>是可变对象，能够用来高效拼接；</p>
-<p>2、由于去掉了线程安全保护的功能，所以<code>StringBuilder</code>比<code>StringBuffer</code>拼接效率更高；</p>
-<p>3、<code>StringBuilder</code>可以支持链式操作，当然StringBuffer也可以；</p>
+<p>引用表Orders表中一个或多个属性指向被引用表Employees(<strong>被引用表中的属性必须是候选键</strong>，即主键or唯一约束)</p>
+<p>引用表和被引用表可以是同一张表。</p>
+<p><strong>外键列的值要存在与被引用的列中。</strong></p>
+<p>Orders.empid    ————————————&gt;     Employees.empid (empid为primary_key)。</p>
+<p>Orders.empid列中的值必须存在于Employees.empid列中。</p>
+<p><strong><code>NO ACTION</code>:当要删除或更新被引用表(父表)中的值时如果引用表(子表)相关列中存在相关列则系统会拒绝操作</strong></p>
+<p><strong><code>CASCADE</code>:级联，父表删除或更新，子表跟随删除或更新相关行</strong></p>
+<p><strong><code>SET NULL</code>:置为<code>null</code></strong></p>
+<p><strong><code>SET DEFAULT</code>:置为默认值</strong></p>
+<h4 id="CHECK约束"><a href="#CHECK约束" class="headerlink" title="CHECK约束"></a>CHECK约束</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbo.Employees</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> CHK_Employees_salary</span><br><span class="line">	<span class="keyword">CHECK</span>(salary &gt; <span class="number">0.00</span>)</span><br></pre></td></tr></table></figure>
+
+<p>插入或者修改某行中的值时要满足<code>check</code>约束</p>
+<h4 id="默认约束"><a href="#默认约束" class="headerlink" title="默认约束"></a>默认约束</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbo.Orders</span><br><span class="line">	<span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> DFT_Orders_orderts</span><br><span class="line">	<span class="keyword">DEFAULT</span>(SYSDATETIME()) <span class="keyword">FOR</span> orderts</span><br></pre></td></tr></table></figure>
+
+<p><code>SYSDATETIME()</code>这是一个用作默认值的表达式，如果插入时没有指定一个显示值，将使用该默认值，以上为例orderts在新增一行时没有指定值时，会默认插入系统时间。</p>
 
     
 
@@ -308,7 +315,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="CodeYuan-Y.github.io/2019/10/26/StringBuilder及链式操作原理/" title="StringBuilder及链式操作原理" target="_blank">CodeYuan-Y.github.io/2019/10/26/StringBuilder及链式操作原理/</a>
+          <a href="CodeYuan-Y.github.io/2019/11/02/SQL-SERVER创建及数据完整性/" title="SQL SERVER创建及数据完整性" target="_blank">CodeYuan-Y.github.io/2019/11/02/SQL-SERVER创建及数据完整性/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -327,7 +334,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -383,7 +390,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -398,18 +405,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          SQL SERVER创建及数据完整性
+          SELECT语句的元素
         
       </div>
     </a>
   
   
-    <a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JDBC使用方式</div>
+    <a href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">StringBuilder及链式操作原理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -450,9 +457,9 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "StringBuilder及链式操作原理" -->
+    <!-- id: "SQL SERVER创建及数据完整性" -->
     var gitment = new Gitment({
-      id: "20191026145359",
+      id: "20191102092002",
       owner: 'CodeYuan-Y',
       repo: 'CodeYuan-Y.github.io',
       oauth: {
