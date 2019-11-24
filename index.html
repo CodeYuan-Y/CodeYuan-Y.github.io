@@ -191,6 +191,181 @@
             
 
   
+    <article id="post-Redis数据类型String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/" target="_blank">Redis数据类型String</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/" class="archive-article-date">
+        <time datetime="2019-11-24T09:15:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Redis-字符串-String"><a href="#Redis-字符串-String" class="headerlink" title="Redis 字符串(String)"></a>Redis 字符串(String)</h2><h4 id="Redis-字符串-String-命令"><a href="#Redis-字符串-String-命令" class="headerlink" title="Redis 字符串(String) 命令"></a>Redis 字符串(String) 命令</h4><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3552.html" target="_blank" rel="noopener">Redis Setnx 命令</a></td>
+<td align="left">只有在 key 不存在时设置 key 的值。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3546.html" target="_blank" rel="noopener">Redis Getrange 命令</a></td>
+<td align="left">返回 key 中字符串值的子字符</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3555.html" target="_blank" rel="noopener">Redis Mset 命令</a></td>
+<td align="left">同时设置一个或多个 key-value 对。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3551.html" target="_blank" rel="noopener">Redis Setex 命令</a></td>
+<td align="left">将值 value 关联到 key ，并将 key 的过期时间设为 seconds (以秒为单位)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3544.html" target="_blank" rel="noopener">Redis SET 命令</a></td>
+<td align="left">设置指定 key 的值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3545.html" target="_blank" rel="noopener">Redis Get 命令</a></td>
+<td align="left">获取指定 key 的值。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3548.html" target="_blank" rel="noopener">Redis Getbit 命令</a></td>
+<td align="left">对 key 所储存的字符串值，获取指定偏移量上的位(bit)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3550.html" target="_blank" rel="noopener">Redis Setbit 命令</a></td>
+<td align="left">对 key 所储存的字符串值，设置或清除指定偏移量上的位(bit)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3561.html" target="_blank" rel="noopener">Redis Decr 命令</a></td>
+<td align="left">将 key 中储存的数字值减一。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3562.html" target="_blank" rel="noopener">Redis Decrby 命令</a></td>
+<td align="left">key 所储存的值减去给定的减量值（decrement） 。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3554.html" target="_blank" rel="noopener">Redis Strlen 命令</a></td>
+<td align="left">返回 key 所储存的字符串值的长度。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3556.html" target="_blank" rel="noopener">Redis Msetnx 命令</a></td>
+<td align="left">同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3559.html" target="_blank" rel="noopener">Redis Incrby 命令</a></td>
+<td align="left">将 key 所储存的值加上给定的增量值（increment） 。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3560.html" target="_blank" rel="noopener">Redis Incrbyfloat 命令</a></td>
+<td align="left">将 key 所储存的值加上给定的浮点增量值（increment） 。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3553.html" target="_blank" rel="noopener">Redis Setrange 命令</a></td>
+<td align="left">用 value 参数覆写给定 key 所储存的字符串值，从偏移量 offset 开始。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3557.html" target="_blank" rel="noopener">Redis Psetex 命令</a></td>
+<td align="left">这个命令和 SETEX 命令相似，但它以毫秒为单位设置 key 的生存时间，而不是像 SETEX 命令那样，以秒为单位。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3563.html" target="_blank" rel="noopener">Redis Append 命令</a></td>
+<td align="left">如果 key 已经存在并且是一个字符串， APPEND 命令将 value 追加到 key 原来的值的末尾。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3547.html" target="_blank" rel="noopener">Redis Getset 命令</a></td>
+<td align="left">将给定 key 的值设为 value ，并返回 key 的旧值(old value)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3549.html" target="_blank" rel="noopener">Redis Mget 命令</a></td>
+<td align="left">获取所有(一个或多个)给定 key 的值。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3558.html" target="_blank" rel="noopener">Redis Incr 命令</a></td>
+<td align="left">将 key 中储存的数字值增一。</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--Redis Setnx 命令 - 只有在 key 不存在时设置 key 的值。</span></span><br><span class="line">127.0.0.1:6379&gt; EXISTS akey</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; SETNX akey hello</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; SETNX akey world</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; GET akey</span><br><span class="line">"hello"</span><br><span class="line">127.0.0.1:6379&gt; SET akey world</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; GET akey</span><br><span class="line">"world"</span><br><span class="line">127.0.0.1:6379&gt; SET skey hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SETNX skey world</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; GET skey</span><br><span class="line">"hello"</span><br><span class="line"><span class="comment">#SETNX不能修改已经存在的键，但是所有的键都可以被SET修改</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Getrange 命令	返回 key 中字符串值的子字符</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey "hello world"</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; GETRANGE akey 0 4</span><br><span class="line">"hello"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Mset 命令	同时设置一个或多个 key-value 对。</span></span><br><span class="line">127.0.0.1:6379&gt; MSET key1 "hello" key2 "world"</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; GET key1</span><br><span class="line">"hello"</span><br><span class="line">127.0.0.1:6379&gt; GET key2</span><br><span class="line">"world"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Setex 命令 - 将值 value 关联到 key ，并将 key 的过期时间设为 seconds (以秒为单位)。</span></span><br><span class="line">127.0.0.1:6379&gt; SETEX akey 60 hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; TTL akey</span><br><span class="line">(integer) 51</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Getbit 命令用于对 key 所储存的字符串值，获取指定偏移量上的位(bit)。</span></span><br><span class="line"><span class="comment">--Redis Setbit 命令用于对 key 所储存的字符串值，设置或清除指定偏移量上的位(bit).</span></span><br><span class="line">127.0.0.1:6379&gt; SETBIT akey 10086 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; GETBIT akey 10086</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; GETBIT akey 100</span><br><span class="line">(integer) 0</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Decr 命令将 key 中储存的数字值减一。</span></span><br><span class="line"><span class="comment">--如果 key 不存在，那么 key 的值会先被初始化为 0 ，然后再执行 DECR 操作。</span></span><br><span class="line"><span class="comment">--如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</span></span><br><span class="line"><span class="comment">--本操作的值限制在 64 位(bit)有符号数字表示之内。</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey 10</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; DECR akey</span><br><span class="line">(integer) 9</span><br><span class="line">127.0.0.1:6379&gt; DECR akey</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; DECR akey</span><br><span class="line">(integer) 7</span><br><span class="line"><span class="comment">#对一个没有声明的进行减 默认初始为0</span></span><br><span class="line">127.0.0.1:6379&gt; DECR anot</span><br><span class="line">(integer) -1</span><br><span class="line">127.0.0.1:6379&gt; DECR anot</span><br><span class="line">(integer) -2</span><br><span class="line">127.0.0.1:6379&gt; DECR anot</span><br><span class="line">(integer) -3</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Decrby 命令将 key 所储存的值减去指定的减量值。</span></span><br><span class="line"><span class="comment">--如果 key 不存在，那么 key 的值会先被初始化为 0 ，然后再执行 DECRBY 操作。</span></span><br><span class="line"><span class="comment">--如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</span></span><br><span class="line"><span class="comment">--本操作的值限制在 64 位(bit)有符号数字表示之内。</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey 100</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; DECRBY akey 20</span><br><span class="line">(integer) 80</span><br><span class="line">127.0.0.1:6379&gt; DECRBY akey 10</span><br><span class="line">(integer) 70</span><br><span class="line"><span class="comment">#nokey之前没有声明</span></span><br><span class="line">127.0.0.1:6379&gt; DECRBY nokey 10</span><br><span class="line">(integer) -10</span><br><span class="line">127.0.0.1:6379&gt; DECRBY nokey 20</span><br><span class="line">(integer) -30</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Strlen 命令用于获取指定 key 所储存的字符串值的长度。当 key 储存的不是字符串值时，返回一个错误。</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; STRLEN akey</span><br><span class="line">(integer) 5</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Incr 命令将 key 中储存的数字值增一。</span></span><br><span class="line"><span class="comment">--如果 key 不存在，那么 key 的值会先被初始化为 0 ，然后再执行 INCR 操作。</span></span><br><span class="line"><span class="comment">--如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</span></span><br><span class="line"><span class="comment">--本操作的值限制在 64 位(bit)有符号数字表示之内。</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey 10</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; INCR akey</span><br><span class="line">(integer) 11</span><br><span class="line">127.0.0.1:6379&gt; INCR akey</span><br><span class="line">(integer) 12</span><br><span class="line"><span class="comment">#nokey之前未声明</span></span><br><span class="line">127.0.0.1:6379&gt; INCR nokey</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; INCR nokey</span><br><span class="line">(integer) 2</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Incrby 命令将 key 中储存的数字加上指定的增量值。</span></span><br><span class="line"><span class="comment">--如果 key 不存在，那么 key 的值会先被初始化为 0 ，然后再执行 INCRBY 命令。</span></span><br><span class="line"><span class="comment">--如果值包含错误的类型，或字符串类型的值不能表示为数字，那么返回一个错误。</span></span><br><span class="line"><span class="comment">--本操作的值限制在 64 位(bit)有符号数字表示之内。</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey 10</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; INCRBY akey 20</span><br><span class="line">(integer) 30</span><br><span class="line">127.0.0.1:6379&gt; INCRBY akey 10</span><br><span class="line">(integer) 40</span><br><span class="line"><span class="comment">#nokey之前不存在</span></span><br><span class="line">127.0.0.1:6379&gt; INCRBY nokey 10</span><br><span class="line">(integer) 10</span><br><span class="line">127.0.0.1:6379&gt; INCRBY nokey 20</span><br><span class="line">(integer) 30</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Incrbyfloat 命令为 key 中所储存的值加上指定的浮点数增量值。</span></span><br><span class="line"><span class="comment">--如果 key 不存在，那么 INCRBYFLOAT 会先将 key 的值设为 0 ，再执行加法操作。</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey 10.30</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; INCRBYFLOAT akey 0.5</span><br><span class="line">"10.800000000000001"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Setrange 命令用指定的字符串覆盖给定 key 所储存的字符串值，覆盖的位置从偏移量 offset 开始。</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SETRANGE akey 2 world</span><br><span class="line">(integer) 7</span><br><span class="line">127.0.0.1:6379&gt; GET akey</span><br><span class="line">"heworld"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Psetex 命令以毫秒为单位设置 key 的生存时间。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Append 命令用于为指定的 key 追加值。</span></span><br><span class="line"><span class="comment">--如果 key 已经存在并且是一个字符串， APPEND 命令将 value 追加到 key 原来的值的末尾。</span></span><br><span class="line"><span class="comment">--如果 key 不存在， APPEND 就简单地将给定 key 设为 value ，就像执行 SET key value 一样</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; APPEND akey world</span><br><span class="line">(integer) 10</span><br><span class="line">127.0.0.1:6379&gt; GET akey</span><br><span class="line">"helloworld"</span><br><span class="line">127.0.0.1:6379&gt; DEL nokey</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; APPEND nokey hello</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; GET nokey</span><br><span class="line">"hello"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Getset 命令用于设置指定 key 的值，并返回 key 旧的值。</span></span><br><span class="line">127.0.0.1:6379&gt; GETSET akey hello</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; GETSET akey world</span><br><span class="line">"hello"</span><br><span class="line">127.0.0.1:6379&gt; GET akey</span><br><span class="line">"world"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Mget 命令返回所有(一个或多个)给定 key 的值。 如果给定的 key 里面，有某个 key 不存在，那么这个 key 返回特殊值 nil </span></span><br><span class="line">127.0.0.1:6379&gt; MSET key1 hello key2 world</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; MGET someOtherKey</span><br><span class="line">1) (nil)</span><br><span class="line">127.0.0.1:6379&gt; MGET key1 key2 someOtherKey</span><br><span class="line">1) "hello"</span><br><span class="line">2) "world"</span><br><span class="line">3) (nil)</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Redis基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -935,11 +1110,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
