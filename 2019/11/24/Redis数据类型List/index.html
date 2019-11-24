@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
-  <title>Archives: 2019 | CodeYuan-Y的博客</title>
+  <title>Redis数据类型List | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一个热爱code的男人">
-<meta name="keywords" content="1996613nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeYuan-Y的博客">
-<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="Redis 列表(List) 命令   命令 描述    Redis Lindex 命令 通过索引获取列表中的元素   Redis Rpush 命令 在列表中添加一个或多个值   Redis Lrange 命令 获取列表指定范围内的元素   Redis Rpoplpush 命令 移除列表的最后一个元素，并将该元素添加到另一个列表并返回   Redis Blpop 命令 移出并获取列表的第一个元素，">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis数据类型List">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;24&#x2F;Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="一个热爱code的男人">
+<meta property="og:description" content="Redis 列表(List) 命令   命令 描述    Redis Lindex 命令 通过索引获取列表中的元素   Redis Rpush 命令 在列表中添加一个或多个值   Redis Lrange 命令 获取列表指定范围内的元素   Redis Rpoplpush 命令 移除列表的最后一个元素，并将该元素添加到另一个列表并返回   Redis Blpop 命令 移出并获取列表的第一个元素，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-24T12:05:37.587Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -185,41 +186,199 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Redis数据类型List" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      Redis数据类型List
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList/" class="archive-article-date">
         <time datetime="2019-11-24T12:04:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.4k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">11分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Redis-列表-List-命令"><a href="#Redis-列表-List-命令" class="headerlink" title="Redis 列表(List) 命令"></a>Redis 列表(List) 命令</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3580.html" target="_blank" rel="noopener">Redis Lindex 命令</a></td>
+<td align="left">通过索引获取列表中的元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3592.html" target="_blank" rel="noopener">Redis Rpush 命令</a></td>
+<td align="left">在列表中添加一个或多个值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3586.html" target="_blank" rel="noopener">Redis Lrange 命令</a></td>
+<td align="left">获取列表指定范围内的元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3591.html" target="_blank" rel="noopener">Redis Rpoplpush 命令</a></td>
+<td align="left">移除列表的最后一个元素，并将该元素添加到另一个列表并返回</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3577.html" target="_blank" rel="noopener">Redis Blpop 命令</a></td>
+<td align="left">移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3578.html" target="_blank" rel="noopener">Redis Brpop 命令</a></td>
+<td align="left">移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3579.html" target="_blank" rel="noopener">Redis Brpoplpush 命令</a></td>
+<td align="left">从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3587.html" target="_blank" rel="noopener">Redis Lrem 命令</a></td>
+<td align="left">移除列表元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3582.html" target="_blank" rel="noopener">Redis Llen 命令</a></td>
+<td align="left">获取列表长度</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3589.html" target="_blank" rel="noopener">Redis Ltrim 命令</a></td>
+<td align="left">对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3583.html" target="_blank" rel="noopener">Redis Lpop 命令</a></td>
+<td align="left">移出并获取列表的第一个元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3585.html" target="_blank" rel="noopener">Redis Lpushx 命令</a></td>
+<td align="left">将一个或多个值插入到已存在的列表头部</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3581.html" target="_blank" rel="noopener">Redis Linsert 命令</a></td>
+<td align="left">在列表的元素前或者后插入元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3590.html" target="_blank" rel="noopener">Redis Rpop 命令</a></td>
+<td align="left">移除并获取列表最后一个元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3588.html" target="_blank" rel="noopener">Redis Lset 命令</a></td>
+<td align="left">通过索引设置列表元素的值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3584.html" target="_blank" rel="noopener">Redis Lpush 命令</a></td>
+<td align="left">将一个或多个值插入到列表头部</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3593.html" target="_blank" rel="noopener">Redis Rpushx 命令</a></td>
+<td align="left">为已存在的列表添加值</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--Redis Lpush 命令将一个或多个值插入到列表头部。 如果 key 不存在，一个空列表会被创建并执行 LPUSH 操作。 当 key 存在但不是列表类型时，返回一个错误。</span></span><br><span class="line"><span class="comment">--Redis Lrange 返回列表中指定区间内的元素，区间以偏移量 START 和 END 指定。 其中 0 表示列表的第一个元素， 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</span></span><br><span class="line">127.0.0.1:6379&gt; DEL alist</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist hello</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist world</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; LRANGE alist 0 -1</span><br><span class="line">1) "world"</span><br><span class="line">2) "hello"</span><br><span class="line"><span class="comment">--Redis Rpush 命令用于将一个或多个值插入到列表的尾部(最右边)。</span></span><br><span class="line"><span class="comment">--如果列表不存在，一个空列表会被创建并执行 RPUSH 操作。 当列表存在但不是列表类型时，返回一个错误。</span></span><br><span class="line"><span class="comment">--注意：在 Redis 2.4 版本以前的 RPUSH 命令，都只接受单个 value 值。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Lindex 命令用于通过索引获取列表中的元素。你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</span></span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist hello</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist world</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist !</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; LINDEX alist 0</span><br><span class="line">"!"</span><br><span class="line">127.0.0.1:6379&gt; LINDEX alist 1</span><br><span class="line">"world"</span><br><span class="line">127.0.0.1:6379&gt; LINDEX alist 2</span><br><span class="line">"hello"</span><br><span class="line">127.0.0.1:6379&gt; LINDEX alist -1</span><br><span class="line">"hello"</span><br><span class="line">127.0.0.1:6379&gt; LINDEX alist -2</span><br><span class="line">"world"</span><br><span class="line">127.0.0.1:6379&gt; LINDEX alist -6</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; LINDEX alist -3</span><br><span class="line">"!"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Rpoplpush 命令用于移除列表的最后一个元素，并将该元素添加到另一个列表并返回</span></span><br><span class="line">127.0.0.1:6379&gt; RPUSH alist java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; RPUSH alist php</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; RPUSH alist python</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; LRANGE alist 0 -1</span><br><span class="line">1) "java"</span><br><span class="line">2) "php"</span><br><span class="line">3) "python"</span><br><span class="line">127.0.0.1:6379&gt; RPOPLPUSH alist nlist</span><br><span class="line">"python"</span><br><span class="line">127.0.0.1:6379&gt; RPOPLPUSH alist nlist</span><br><span class="line">"php"</span><br><span class="line">127.0.0.1:6379&gt; RPOPLPUSH alist nlist</span><br><span class="line">"java"</span><br><span class="line">127.0.0.1:6379&gt; LRANGE nlist 0 -1</span><br><span class="line">1) "java"</span><br><span class="line">2) "php"</span><br><span class="line">3) "python"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Blpop 命令移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</span></span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist hello</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; BLPOP alist 100</span><br><span class="line">1) "alist"</span><br><span class="line">2) "hello"</span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist world</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; BLPOP alist 100</span><br><span class="line">1) "alist"</span><br><span class="line">2) "world"</span><br><span class="line"><span class="comment">#等待了1秒</span></span><br><span class="line">127.0.0.1:6379&gt; BLPOP alist 1 </span><br><span class="line">(nil)</span><br><span class="line">(2.08s)</span><br><span class="line"><span class="comment">--Redis Brpop 命令移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Brpoplpush 命令从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</span></span><br><span class="line">127.0.0.1:6379&gt; RPUSH alist hello</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; BRPOPLPUSH alist nlist 500</span><br><span class="line">"hello"</span><br><span class="line">127.0.0.1:6379&gt; LRANGE alist 0 -1</span><br><span class="line">(empty list or <span class="keyword">set</span>)</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE nlist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"hello"</span></span><br><span class="line"><span class="comment">#等待1秒</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; BRPOPLPUSH alist nlist <span class="number">1</span></span><br><span class="line">(nil)</span><br><span class="line">(<span class="number">1.44</span>s)</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Lrem 根据参数 COUNT 的值，移除列表中与参数 VALUE 相等的元素。</span></span><br><span class="line"><span class="comment">--COUNT 的值可以是以下几种：</span></span><br><span class="line"><span class="comment">--count &gt; 0 : 从表头开始向表尾搜索，移除与 VALUE 相等的元素，数量为 COUNT 。</span></span><br><span class="line"><span class="comment">--count &lt; 0 : 从表尾开始向表头搜索，移除与 VALUE 相等的元素，数量为 COUNT 的绝对值。</span></span><br><span class="line"><span class="comment">--count = 0 : 移除表中所有与 VALUE 相等的值。</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">4</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">5</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">6</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"java"</span></span><br><span class="line"><span class="comment">#从表头向表尾删除2个go</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LREM alist <span class="number">2</span> <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"java"</span></span><br><span class="line"><span class="comment">#从表尾向表头删除-1的绝对值个go</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LREM alist <span class="number">-1</span> <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"java"</span></span><br><span class="line"><span class="comment">#删除所有go</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LREM alist <span class="number">0</span> <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"java"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Llen 命令用于返回列表的长度。 如果列表 key 不存在，则 key 被解释为一个空列表，返回 0 。 如果 key 不是列表类型，返回一个错误。</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPUSH alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPUSH alist php</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LLEN alist</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Ltrim 对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</span></span><br><span class="line"><span class="comment">--下标 0 表示列表的第一个元素，以 1 表示列表的第二个元素，以此类推。 你也可以使用负数下标，以 -1 表示列表的最后一个元素， -2 表示列表的倒数第二个元素，以此类推。</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist php</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist python</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist c<span class="comment">#</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">4</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist c</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">5</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">6</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"java"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"php"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"python"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"c#"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"c"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"go"</span></span><br><span class="line"><span class="comment">#保留了1、2、3三个元素 0与4、5被删除</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; <span class="keyword">LTRIM</span> alist <span class="number">1</span> <span class="number">3</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"php"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"python"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"c#"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Lpop 命令用于移除并返回列表的第一个元素。</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist php</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPOP alist</span><br><span class="line"><span class="string">"java"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPOP alist</span><br><span class="line"><span class="string">"php"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPOP alist</span><br><span class="line"><span class="string">"go"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Lpushx 将一个或多个值插入到已存在的列表头部，列表不存在时操作无效</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist php</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPUSHX alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPUSHX alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"java"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"php"</span></span><br><span class="line"><span class="comment">#slist之前不存在</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LPUSHX slist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Linsert 命令用于在列表的元素前或者后插入元素。 当指定元素不存在于列表中时，不执行任何操作。 当列表不存在时，被视为空列表，不执行任何操作。 如果 key 不是列表类型，返回一个错误。</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist php</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"java"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"php"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LINSERT alist <span class="keyword">BEFORE</span> <span class="string">"php"</span> <span class="string">"go"</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"java"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"php"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Rpop 命令用于移除并返回列表的最后一个元素。</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist python</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist c<span class="comment">#</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">4</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist php</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">5</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPOP alist</span><br><span class="line"><span class="string">"php"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPOP alist</span><br><span class="line"><span class="string">"go"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPOP alist</span><br><span class="line"><span class="string">"c#"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPOP alist</span><br><span class="line"><span class="string">"python"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPOP alist</span><br><span class="line"><span class="string">"java"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPOP alist</span><br><span class="line">(nil)</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Lset 通过索引来设置元素的值。</span></span><br><span class="line"><span class="comment">--当索引参数超出范围，或对一个空列表进行 LSET 时，返回一个错误。</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">java</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist php</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist python</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist c<span class="comment">#</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">4</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; RPUSH alist <span class="keyword">go</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">5</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"java"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"php"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"python"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"c#"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"go"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LSET alist <span class="number">0</span> javascript</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; LRANGE alist <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"javascript"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"php"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"python"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"c#"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"go"</span></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222511875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222428801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList/" target="_blank">Redis数据类型List</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          苑勇
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="CodeYuan-Y.github.io/2019/11/24/Redis数据类型List/" title="Redis数据类型List" target="_blank">CodeYuan-Y.github.io/2019/11/24/Redis数据类型List/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
 
-        <div class="article-info info-on-right">
-          
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -231,363 +390,130 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/" class="archive-article-date">
-        <time datetime="2019-11-24T09:15:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis数据类型String</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/" target="_blank">Redis数据类型String</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/24/Redis%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2019-11-24T08:10:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
 
-        </div>
-    	 
+
+
+
+
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/24/Redis%E5%9F%BA%E7%A1%80/" target="_blank">Redis基础</a>
+  <div id="gitment-ctn"></div>
   
-    </h1>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "Redis数据类型List" -->
+    var gitment = new Gitment({
+      id: "20191124200443",
+      owner: 'CodeYuan-Y',
+      repo: 'CodeYuan-Y.github.io',
+      oauth: {
+        client_id: '54f1ffefcd7a55adb032',
+        client_secret: 'cc7661d367a068f5bf6ee2cb19d72b1f6fb11b67',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
   
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" class="archive-article-date">
-        <time datetime="2019-11-08T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" target="_blank">SELECT语句元素续</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" class="archive-article-date">
-        <time datetime="2019-11-06T06:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" target="_blank">SELECT语句的元素</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" class="archive-article-date">
-        <time datetime="2019-11-02T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" target="_blank">SQL SERVER创建及数据完整性</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2019-10-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" target="_blank">StringBuilder及链式操作原理</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2019-10-20T07:37:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" target="_blank">JDBC使用方式</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2019-10-20T07:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">Mysql数据库常用命令</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -628,8 +554,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
