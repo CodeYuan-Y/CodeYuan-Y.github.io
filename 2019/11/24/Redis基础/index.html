@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
-  <title>Archives | CodeYuan-Y的博客</title>
+  <title>Redis基础 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一个热爱code的男人">
-<meta name="keywords" content="1996613nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeYuan-Y的博客">
-<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="Redis简介Redis与其他key-value缓存产品相比有以下三个特点 Redis支持数据持久化，可将内存中的数据保存在磁盘中，重启时可以再次加载使用 Redis不仅支持key-value数据类型，同时还提供list、set、hash、zset等数据结构的存储 Redis支持数据备份,即master-slave模式的数据备份">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis基础">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;24&#x2F;Redis%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="一个热爱code的男人">
+<meta property="og:description" content="Redis简介Redis与其他key-value缓存产品相比有以下三个特点 Redis支持数据持久化，可将内存中的数据保存在磁盘中，重启时可以再次加载使用 Redis不仅支持key-value数据类型，同时还提供list、set、hash、zset等数据结构的存储 Redis支持数据备份,即master-slave模式的数据备份">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-24T08:14:43.773Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -185,41 +186,241 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Redis基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/24/Redis%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2019-11-24T08:10:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/24/Redis%E5%9F%BA%E7%A1%80/" target="_blank">Redis基础</a>
   
+    <h1 class="article-title" itemprop="name">
+      Redis基础
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/11/24/Redis%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+        <time datetime="2019-11-24T08:10:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">10分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><h4 id="Redis与其他key-value缓存产品相比有以下三个特点"><a href="#Redis与其他key-value缓存产品相比有以下三个特点" class="headerlink" title="Redis与其他key-value缓存产品相比有以下三个特点"></a>Redis与其他<code>key-value</code>缓存产品相比有以下三个特点</h4><ul>
+<li>Redis支持数据持久化，可将内存中的数据保存在磁盘中，重启时可以再次加载使用</li>
+<li>Redis不仅支持<code>key-value</code>数据类型，同时还提供<code>list</code>、<code>set</code>、<code>hash</code>、<code>zset</code>等数据结构的存储</li>
+<li>Redis支持数据备份,即master-slave模式的数据备份</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="Redis优势"><a href="#Redis优势" class="headerlink" title="Redis优势"></a>Redis优势</h4><ul>
+<li>性能极高-读的速度:110000次/s，写的速度是:81000次/s</li>
+<li>丰富的数据类型-<code>Strings</code>、<code>Lists</code>、<code>Hashes</code>、<code>Sets</code>、<code>Ordered Sets</code></li>
+<li>原子-所有操作都是原子性</li>
+<li>丰富的特性 – Redis还支持 <code>publish/subscribe</code>, 通知, <code>key</code> 过期等等特性。 </li>
+</ul>
+<h4 id="Redis与其他key-value存储有什么不同？"><a href="#Redis与其他key-value存储有什么不同？" class="headerlink" title="Redis与其他key-value存储有什么不同？"></a>Redis与其他key-value存储有什么不同？</h4><ul>
+<li>Redis有着更为复杂的数据结构并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径。Redis的数据类型都是基于基本数据结构的同时对程序员透明，无需进行额外的抽象。</li>
+<li>Redis运行在内存中但是可以持久化到磁盘，所以在对不同数据集进行高速读写时需要权衡内存，应为数据量不能大于硬件内存。在内存数据库方面的另一个优点是， 相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单，这样Redis可以做很多内部复杂性很强的事情。 同时，在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问。</li>
+</ul>
+<h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; SET name "yuan"</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; GET name</span><br><span class="line">"yuan"</span><br><span class="line">127.0.0.1:6379&gt; DEL name</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<p> <strong>注意：</strong>一个键最大能存储512MB。 </p>
+<h4 id="Hash（哈希）"><a href="#Hash（哈希）" class="headerlink" title="Hash（哈希）"></a>Hash（哈希）</h4><p><code>Redis hash</code> 是一个键值对集合。</p>
+<p><code>Redis hash</code> 是一个string类型的field和value的映射表，hash特别适合用于<strong>存储对象</strong>。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; HMSET user:1 username root password root points 200</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; HGETALL user:1</span><br><span class="line">1) "username"</span><br><span class="line">2) "root"</span><br><span class="line">3) "password"</span><br><span class="line">4) "root"</span><br><span class="line">5) "points"</span><br><span class="line">6) "200"</span><br><span class="line">127.0.0.1:6379&gt; HGET user:1 username</span><br><span class="line">"root"</span><br></pre></td></tr></table></figure>
+
+<p>以上实例中 hash 数据类型存储了包含用户脚本信息的用户对象。 实例中我们使用了 Redis <strong>HMSET, HEGTALL</strong> 命令，<strong>user:1</strong> 为键值。每个 <code>hash</code>可以存储 2^(32 - 1)键值对(40多亿)</p>
+<h4 id="List（列表）"><a href="#List（列表）" class="headerlink" title="List（列表）"></a>List（列表）</h4><p>Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素导列表的头部（左边）或者尾部（右边）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; LPUSH alist java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist php</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; LPUSH alist python</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; LRANGE alist 0 1 	#0到1的元素</span><br><span class="line">1) "python"</span><br><span class="line">2) "php"</span><br></pre></td></tr></table></figure>
+
+<p> 列表最多可存储 2^(32 - 1) 元素 (4294967295, 每个列表可存储40多亿)。 </p>
+<h4 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h4><p>Redis的<code>Set</code>是<code>string</code>类型的无序集合。</p>
+<p>集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O(1)。</p>
+<h5 id="sadd-命令"><a href="#sadd-命令" class="headerlink" title="sadd 命令"></a>sadd 命令</h5><p>添加一个<code>string</code>元素到,<code>key</code>对应的<code>set</code>集合中，成功返回1,如果元素以及在集合中返回0,<code>key</code>对应的<code>set</code>不存在返回错误。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; SADD aset java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; SADD aset php</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; SADD aset python</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; SADD aset c#</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; SADD aset c#</span><br><span class="line">(integer) 0							<span class="comment">#注意</span></span><br><span class="line">127.0.0.1:6379&gt; SMEMBERS aset</span><br><span class="line">1) "python"</span><br><span class="line">2) "c<span class="comment">#"</span></span><br><span class="line">3) "php"</span><br><span class="line">4) "java"</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>以上实例中 c#添加了两次，但根据集合内元素的唯一性，第二次插入的元素将被忽略。</p>
+<p>集合中最大的成员数为 2^(32 - 1) (4294967295, 每个集合可存储40多亿个成员)。</p>
+<h4 id="zset-sorted-set：有序集合"><a href="#zset-sorted-set：有序集合" class="headerlink" title="zset(sorted set：有序集合)"></a>zset(sorted set：有序集合)</h4><p>Redis <code>zset</code> 和 <code>set</code> 一样也是<code>string</code>类型元素的集合,且不允许重复的成员。</p>
+<p>不同的是每个元素都会关联一个<code>double</code>类型的分数。<code>redis</code>正是通过分数来为集合中的成员进行从小到大的排序。</p>
+<p><code>zset</code>的成员是唯一的,但分数(score)却可以重复。</p>
+<h5 id="zadd-命令"><a href="#zadd-命令" class="headerlink" title="zadd 命令"></a>zadd 命令</h5><p>添加元素到集合，元素在集合中存在则更新对应score</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; ZADD azset 0 java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 2 pyhhon</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 3 php</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 4 php</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1 c#</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZRANGEBYSCORE azset 0 1000</span><br><span class="line">1) "java"</span><br><span class="line">2) "c<span class="comment">#"</span></span><br><span class="line">3) "pyhhon"</span><br><span class="line">4) "php"</span><br></pre></td></tr></table></figure>
+
+<h2 id="Redis-命令"><a href="#Redis-命令" class="headerlink" title="Redis 命令"></a>Redis 命令</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+<p>该命令用于检查服务是否启动</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> MYKEY root</span><br></pre></td></tr></table></figure>
+
+<p>该命令用于设置密码</p>
+<h2 id="Redis-键-key"><a href="#Redis-键-key" class="headerlink" title="Redis 键(key)"></a>Redis 键(key)</h2><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3528.html" target="_blank" rel="noopener">DEL key</a> 该命令用于在 key 存在是删除 key。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3529.html" target="_blank" rel="noopener">DUMP key</a> 序列化给定 key ，并返回被序列化的值。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3530.html" target="_blank" rel="noopener">EXISTS key</a> 检查给定 key 是否存在。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3531.html" target="_blank" rel="noopener">EXPIRE key</a> seconds 为给定 key 设置过期时间。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3532.html" target="_blank" rel="noopener">EXPIREAT key timestamp</a> EXPIREAT 的作用和 EXPIRE 类似，都用于为 key 设置过期时间。 不同在于 EXPIREAT 命令接受的时间参数是 UNIX 时间戳(unix timestamp)。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3533.html" target="_blank" rel="noopener">PEXPIRE key milliseconds</a> 设置 key 的过期时间亿以毫秒计。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3534.html" target="_blank" rel="noopener">PEXPIREAT key milliseconds-timestamp</a> 设置 key 过期时间的时间戳(unix timestamp) 以毫秒计</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3535.html" target="_blank" rel="noopener">KEYS pattern</a> 查找所有符合给定模式( pattern)的 key 。</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3536.html" target="_blank" rel="noopener">MOVE key db</a> 将当前数据库的 key 移动到给定的数据库 db 当中。</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3537.html" target="_blank" rel="noopener">PERSIST key</a> 移除 key 的过期时间，key 将持久保持。</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3538.html" target="_blank" rel="noopener">PTTL key</a> 以毫秒为单位返回 key 的剩余的过期时间。</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3539.html" target="_blank" rel="noopener">TTL key</a> 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3540.html" target="_blank" rel="noopener">RANDOMKEY</a> 从当前数据库中随机返回一个 key 。</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3541.html" target="_blank" rel="noopener">RENAME key newkey</a> 修改 key 的名称</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3542.html" target="_blank" rel="noopener">RENAMENX key newkey</a> 仅当 newkey 不存在时，将 key 改名为 newkey 。</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left"><a href="https://www.redis.net.cn/order/3543.html" target="_blank" rel="noopener">TYPE key</a> 返回 key 所储存的值的类型。</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--DEL key 删除键</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; DEL akey</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; GET akey</span><br><span class="line">(nil)</span><br><span class="line"></span><br><span class="line"><span class="comment">--DUMP key 序列化键</span></span><br><span class="line">127.0.0.1:6379&gt; SET akey "java,php,python"</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; DUMP akey</span><br><span class="line">"\x00\x0fjava,php,python\x06\x00\xb0\xb7\xdf\xde\x9f\xa2\xc7\x7f"</span><br><span class="line"></span><br><span class="line"><span class="comment">--EXISTS key 判断是否存在</span></span><br><span class="line">127.0.0.1:6379&gt; EXISTS akey</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; EXISTS key</span><br><span class="line">(integer) 0</span><br><span class="line"></span><br><span class="line"><span class="comment">--EXPIRE key 设置键的过期时间</span></span><br><span class="line">127.0.0.1:6379&gt; EXPIRE akey 60 	#设置60s后过期</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line"><span class="comment">--EXPIREAT与EXPIRE相似 但是前者接收的参数是UNIX时间戳</span></span><br><span class="line"><span class="comment">--PEXPIRE key milliseconds 设置 key 的过期时间亿以毫秒计。</span></span><br><span class="line"><span class="comment">--PEXPIREAT key milliseconds-timestamp 设置 key 过期时间的时间戳(unix timestamp) 以毫秒计</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--KEYS pattern 查找所有符合给定模式( pattern)的 key 。</span></span><br><span class="line">127.0.0.1:6379&gt; SET aa aa</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET ab aa</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET ac aa</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET ba aa</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET bb aa</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; KEYS a* 	#以a开头的key</span><br><span class="line">1) "azset"</span><br><span class="line">2) "alist"</span><br><span class="line">3) "ac"</span><br><span class="line">4) "aa"</span><br><span class="line">5) "ab"</span><br><span class="line">6) "aset"</span><br><span class="line"></span><br><span class="line"><span class="comment">--MOVE key db 将当前数据库的 key 移动到给定的数据库 db 当中。</span></span><br><span class="line"><span class="comment">#选择默认数据库0</span></span><br><span class="line">127.0.0.1:6379&gt; SELECT 0</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET akey key </span><br><span class="line">OK</span><br><span class="line"><span class="comment">#将akey移动到默认数据库1</span></span><br><span class="line">127.0.0.1:6379&gt; MOVE akey 1 </span><br><span class="line">(integer) 1</span><br><span class="line"><span class="comment">#akey此时并不存在默认数据库0当中</span></span><br><span class="line">127.0.0.1:6379&gt; EXISTS akey</span><br><span class="line">(integer) 0</span><br><span class="line"><span class="comment">#选择默认数据库1</span></span><br><span class="line">127.0.0.1:6379&gt; SELECT 1</span><br><span class="line">OK</span><br><span class="line"><span class="comment">#发现akey存在于默认数据库1中</span></span><br><span class="line">127.0.0.1:6379[1]&gt; EXISTS akey</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line"><span class="comment">--以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</span></span><br><span class="line"><span class="comment">--PTTL key 以毫秒为单位返回 key 的剩余的过期时间。</span></span><br><span class="line"><span class="comment">--PERSIST key 移除 key 的过期时间，key 将持久保持。</span></span><br><span class="line"><span class="comment">#设置akey的过期时间是120s</span></span><br><span class="line">127.0.0.1:6379[1]&gt; EXPIRE akey 120</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="comment">#查看akey还有多少秒过期</span></span><br><span class="line">127.0.0.1:6379[1]&gt; TTL akey</span><br><span class="line">(integer) 113</span><br><span class="line"><span class="comment">#移除akey的过期时间</span></span><br><span class="line">127.0.0.1:6379[1]&gt; PERSIST akey</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="comment">#再次查看返回-1说明不会过期</span></span><br><span class="line">127.0.0.1:6379[1]&gt; TTL akey</span><br><span class="line">(integer) -1</span><br><span class="line"></span><br><span class="line"><span class="comment">--RANDOMKEY 从当前数据库中随机返回一个 key </span></span><br><span class="line"><span class="comment">#创建一个Map集合里面有3个key</span></span><br><span class="line">127.0.0.1:6379[1]&gt; MSET fruit "apple" drink "beer" food "cookie"</span><br><span class="line">OK</span><br><span class="line"><span class="comment">#获取所有key</span></span><br><span class="line">127.0.0.1:6379[1]&gt; KEYS *</span><br><span class="line">1) "fruit"</span><br><span class="line">2) "akey"</span><br><span class="line">3) "food"</span><br><span class="line">4) "drink"</span><br><span class="line"><span class="comment">#随机获取一个key</span></span><br><span class="line">127.0.0.1:6379[1]&gt; RANDOMKEY</span><br><span class="line">"fruit"</span><br><span class="line"><span class="comment">#删除当前数据库当中的所有key</span></span><br><span class="line">127.0.0.1:6379[1]&gt; FLUSHDB</span><br><span class="line">OK</span><br><span class="line"><span class="comment">#再次随机获取一个key，发现并没有</span></span><br><span class="line">127.0.0.1:6379[1]&gt; RANDOMKEY</span><br><span class="line">(nil)</span><br><span class="line"></span><br><span class="line"><span class="comment">--RENAME key newkey 修改 key 的名称</span></span><br><span class="line">127.0.0.1:6379[1]&gt; SET oldkey hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; GET oldkey</span><br><span class="line">"hello"</span><br><span class="line">127.0.0.1:6379[1]&gt; RENAME oldkey newkey</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; GET oldkey</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379[1]&gt; GET newkey</span><br><span class="line">"hello"</span><br><span class="line"></span><br><span class="line"><span class="comment">--RENAMENX key newkey 仅当 newkey 不存在时，将 key 改名为 newkey 。</span></span><br><span class="line">127.0.0.1:6379[1]&gt; SET oldkey hello</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; SET akey hello</span><br><span class="line">OK</span><br><span class="line"><span class="comment">#akey已经存在不能再用</span></span><br><span class="line">127.0.0.1:6379[1]&gt; RENAMENX oldkey akey </span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379[1]&gt; RENAMENX oldkey nkey</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line"><span class="comment">--TYPE key 返回 key 所储存的值的类型。</span></span><br><span class="line">127.0.0.1:6379[1]&gt; TYPE akey</span><br><span class="line">string</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222511875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222428801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          苑勇
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="CodeYuan-Y.github.io/2019/11/24/Redis基础/" title="Redis基础" target="_blank">CodeYuan-Y.github.io/2019/11/24/Redis基础/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -231,277 +432,130 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/24/Redis%E5%9F%BA%E7%A1%80/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" class="archive-article-date">
-        <time datetime="2019-11-08T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SELECT语句元素续</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" target="_blank">SELECT语句元素续</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" class="archive-article-date">
-        <time datetime="2019-11-06T06:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
-</a>
 
-        </div>
-    	 
+
+
+
+
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" target="_blank">SELECT语句的元素</a>
+  <div id="gitment-ctn"></div>
   
-    </h1>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "Redis基础" -->
+    var gitment = new Gitment({
+      id: "20191124161058",
+      owner: 'CodeYuan-Y',
+      repo: 'CodeYuan-Y.github.io',
+      oauth: {
+        client_id: '54f1ffefcd7a55adb032',
+        client_secret: 'cc7661d367a068f5bf6ee2cb19d72b1f6fb11b67',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
   
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" class="archive-article-date">
-        <time datetime="2019-11-02T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" target="_blank">SQL SERVER创建及数据完整性</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2019-10-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" target="_blank">StringBuilder及链式操作原理</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2019-10-20T07:37:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" target="_blank">JDBC使用方式</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2019-10-20T07:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">Mysql数据库常用命令</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -542,8 +596,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
