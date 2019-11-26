@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
-  <title>CodeYuan-Y的博客</title>
+  <title>Redis数据类型Sorted Set | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <meta name="keywords" content="一个热爱code的男人">
-  
-  <meta name="description" content="一个热爱code的男人">
-<meta name="keywords" content="1996613nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeYuan-Y的博客">
-<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="Redis 有序集合(sorted set) 命令   命令 描述    Redis Zrevrank 命令 返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序   Redis Zlexcount 命令 在有序集合中计算指定字典区间内成员数量   Redis Zunionstore 命令 计算给定的一个或多个有序集的并集，并存储在新的 key 中   Redis Zremrang">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis数据类型Sorted Set">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;26&#x2F;Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="一个热爱code的男人">
+<meta property="og:description" content="Redis 有序集合(sorted set) 命令   命令 描述    Redis Zrevrank 命令 返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序   Redis Zlexcount 命令 在有序集合中计算指定字典区间内成员数量   Redis Zunionstore 命令 计算给定的一个或多个有序集的并集，并存储在新的 key 中   Redis Zremrang">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-26T09:42:53.474Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -188,48 +186,205 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-JDBC使用方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Redis数据类型Sorted-Set" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" target="_blank">JDBC使用方式</a>
-  
+    <h1 class="article-title" itemprop="name">
+      Redis数据类型Sorted Set
     </h1>
   
 
 
   
   
-<a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2019-10-20T07:37:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/" class="archive-article-date">
+        <time datetime="2019-11-26T09:42:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
 
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.9k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">13分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="JDBC介绍"><a href="#JDBC介绍" class="headerlink" title="JDBC介绍"></a><strong>JDBC介绍</strong></h3><p>JDBC 为数据库开发人员提供了一个标准的 API，据此可以构建更高级的工具和接口使数据库开发人员能够用纯 Java API 编写数据库应用程序。</p>
-<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a><strong>使用步骤</strong></h3><p>1、导入JDBC</p>
-<p>2、打开连接：需要使用 DriverManager.getConnection() 方法创建一个Connection 对象，它代表与数据库的物理连接</p>
-    
-    <a class="article-more-a" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/#more">more >></a>
-    
-    
+    <h2 id="Redis-有序集合-sorted-set-命令"><a href="#Redis-有序集合-sorted-set-命令" class="headerlink" title="Redis 有序集合(sorted set) 命令"></a>Redis 有序集合(sorted set) 命令</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3625.html" target="_blank" rel="noopener">Redis Zrevrank 命令</a></td>
+<td align="left">返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3614.html" target="_blank" rel="noopener">Redis Zlexcount 命令</a></td>
+<td align="left">在有序集合中计算指定字典区间内成员数量</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3627.html" target="_blank" rel="noopener">Redis Zunionstore 命令</a></td>
+<td align="left">计算给定的一个或多个有序集的并集，并存储在新的 key 中</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3621.html" target="_blank" rel="noopener">Redis Zremrangebyrank 命令</a></td>
+<td align="left">移除有序集合中给定的排名区间的所有成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3610.html" target="_blank" rel="noopener">Redis Zcard 命令</a></td>
+<td align="left">获取有序集合的成员数</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3619.html" target="_blank" rel="noopener">Redis Zrem 命令</a></td>
+<td align="left">移除有序集合中的一个或多个成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3613.html" target="_blank" rel="noopener">Redis Zinterstore 命令</a></td>
+<td align="left">计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3618.html" target="_blank" rel="noopener">Redis Zrank 命令</a></td>
+<td align="left">返回有序集合中指定成员的索引</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3612.html" target="_blank" rel="noopener">Redis Zincrby 命令</a></td>
+<td align="left">有序集合中对指定成员的分数加上增量 increment</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3617.html" target="_blank" rel="noopener">Redis Zrangebyscore 命令</a></td>
+<td align="left">通过分数返回有序集合指定区间内的成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3616.html" target="_blank" rel="noopener">Redis Zrangebylex 命令</a></td>
+<td align="left">通过字典区间返回有序集合的成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3626.html" target="_blank" rel="noopener">Redis Zscore 命令</a></td>
+<td align="left">返回有序集中，成员的分数值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3622.html" target="_blank" rel="noopener">Redis Zremrangebyscore 命令</a></td>
+<td align="left">移除有序集合中给定的分数区间的所有成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3628.html" target="_blank" rel="noopener">Redis Zscan 命令</a></td>
+<td align="left">迭代有序集合中的元素（包括元素成员和元素分值）</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3624.html" target="_blank" rel="noopener">Redis Zrevrangebyscore 命令</a></td>
+<td align="left">返回有序集中指定分数区间内的成员，分数从高到低排序</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3620.html" target="_blank" rel="noopener">Redis Zremrangebylex 命令</a></td>
+<td align="left">移除有序集合中给定的字典区间的所有成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3623.html" target="_blank" rel="noopener">Redis Zrevrange 命令</a></td>
+<td align="left">返回有序集中指定区间内的成员，通过索引，分数从高到底</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3615.html" target="_blank" rel="noopener">Redis Zrange 命令</a></td>
+<td align="left">通过索引区间返回有序集合成指定区间内的成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3611.html" target="_blank" rel="noopener">Redis Zcount 命令</a></td>
+<td align="left">计算在有序集合中指定区间分数的成员数</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3609.html" target="_blank" rel="noopener">Redis Zadd 命令</a></td>
+<td align="left">向有序集合添加一个或多个成员，或者更新已存在成员的分数</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--Redis Zadd 命令用于将一个或多个成员元素及其分数值加入到有序集当中。</span></span><br><span class="line"><span class="comment">--如果某个成员已经是有序集的成员，那么更新这个成员的分数值，并通过重新插入这个成员元素，来保证该成员在正确的位置上。</span></span><br><span class="line"><span class="comment">--分数值可以是整数值或双精度浮点数。</span></span><br><span class="line"><span class="comment">--如果有序集合 key 不存在，则创建一个空的有序集并执行 ZADD 操作。</span></span><br><span class="line"><span class="comment">--当 key 存在但不是有序集类型时，返回一个错误。</span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1 java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1 php</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 2 go</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1 WITHSCORES</span><br><span class="line">1) "java"</span><br><span class="line">2) "1"</span><br><span class="line">3) "php"</span><br><span class="line">4) "1"</span><br><span class="line">5) "go"</span><br><span class="line">6) "2"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zrange 返回有序集中，指定区间内的成员。</span></span><br><span class="line"><span class="comment">--其中成员的位置按分数值递增(从小到大)来排序。</span></span><br><span class="line"><span class="comment">--具有相同分数值的成员按字典序(lexicographical order )来排列。</span></span><br><span class="line"><span class="comment">--如果你需要成员按</span></span><br><span class="line"><span class="comment">--值递减(从大到小)来排列，请使用 ZREVRANGE 命令。</span></span><br><span class="line"><span class="comment">--下标参数 start 和 stop 都以 0 为底，也就是说，以 0 表示有序集第一个成员，以 1 表示有序集第二个成员，以此类推。</span></span><br><span class="line"><span class="comment">--你也可以使用负数下标，以 -1 表示最后一个成员， -2 表示倒数第二个成员，以此类推。</span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1 java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 2 python</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 3 go</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1 php</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 2 c#</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="comment">#按照score排序</span></span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 1 WITHSCORES</span><br><span class="line">1) "java"</span><br><span class="line">2) "1"</span><br><span class="line">3) "php"</span><br><span class="line">4) "1"</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1 WITHSCORES</span><br><span class="line"> 1) "java"</span><br><span class="line"> 2) "1"</span><br><span class="line"> 3) "php"</span><br><span class="line"> 4) "1"</span><br><span class="line"> 5) "c<span class="comment">#"</span></span><br><span class="line"> 6) "2"</span><br><span class="line"> 7) "python"</span><br><span class="line"> 8) "2"</span><br><span class="line"> 9) "go"</span><br><span class="line">10) "3"</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 1 2 WITHSCORES</span><br><span class="line">1) "php"</span><br><span class="line">2) "1"</span><br><span class="line">3) "c<span class="comment">#"</span></span><br><span class="line">4) "2"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zcount 命令用于计算有序集合中指定分数区间的成员数量</span></span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1 WITHSCORES</span><br><span class="line"> 1) "java"</span><br><span class="line"> 2) "1"</span><br><span class="line"> 3) "php"</span><br><span class="line"> 4) "1"</span><br><span class="line"> 5) "c<span class="comment">#"</span></span><br><span class="line"> 6) "2"</span><br><span class="line"> 7) "python"</span><br><span class="line"> 8) "2"</span><br><span class="line"> 9) "go"</span><br><span class="line">10) "3"</span><br><span class="line"><span class="comment">#score 0-2 有4个</span></span><br><span class="line">127.0.0.1:6379&gt; ZCOUNT azset 0 2</span><br><span class="line">(integer) 4</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zrevrange 命令返回有序集中，指定区间内的成员。</span></span><br><span class="line"><span class="comment">--其中成员的位置按分数值递减(从大到小)来排列。</span></span><br><span class="line"><span class="comment">--具有相同分数值的成员按字典序的逆序(reverse lexicographical order)排列。</span></span><br><span class="line"><span class="comment">--除了成员按分数值递减的次序排列这一点外， ZREVRANGE 命令的其他方面和 ZRANGE 命令一样。</span></span><br><span class="line">127.0.0.1:6379&gt; ZREVRANGE azset 0 -1 WITHSCORES</span><br><span class="line"> 1) "go"</span><br><span class="line"> 2) "3"</span><br><span class="line"> 3) "python"</span><br><span class="line"> 4) "2"</span><br><span class="line"> 5) "c<span class="comment">#"</span></span><br><span class="line"> 6) "2"</span><br><span class="line"> 7) "php"</span><br><span class="line"> 8) "1"</span><br><span class="line"> 9) "java"</span><br><span class="line">10) "1"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zremrangebylex 命令用于移除有序集合中给定的字典区间的所有成员</span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 0 java 0 go 0 python 0 go 0 php 0 c#</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1</span><br><span class="line">1) "c<span class="comment">#"</span></span><br><span class="line">2) "go"</span><br><span class="line">3) "java"</span><br><span class="line">4) "php"</span><br><span class="line">5) "python"</span><br><span class="line">127.0.0.1:6379&gt; ZREMRANGEBYLEX azset [php [python</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1</span><br><span class="line">1) "c<span class="comment">#"</span></span><br><span class="line">2) "go"</span><br><span class="line">3) "java"</span><br><span class="line">127.0.0.1:6379&gt; ZREMRANGEBYLEX azset [0 (go</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1</span><br><span class="line">1) "go"</span><br><span class="line">2) "java"</span><br><span class="line">                                      </span><br><span class="line"><span class="comment">--Redis Zrevrangebyscore 返回有序集中指定分数区间内的所有的成员。有序集成员按分数值递减(从大到小)的次序排列。</span></span><br><span class="line"><span class="comment">--具有相同分数值的成员按字典序的逆序(reverse lexicographical order )排列。</span></span><br><span class="line"><span class="comment">--除了成员按分数值递减的次序排列这一点外， ZREVRANGEBYSCORE 命令的其他方面和 ZRANGEBYSCORE 命令一样。</span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1000 java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 2000 php</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 3000 python</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 4000 go</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZREVRANGEBYSCORE azset +inf -inf</span><br><span class="line">1) "go"</span><br><span class="line">2) "python"</span><br><span class="line">3) "php"</span><br><span class="line">4) "java"</span><br><span class="line">127.0.0.1:6379&gt; ZREVRANGEBYSCORE azset 2000 1000</span><br><span class="line">1) "php"</span><br><span class="line">2) "java"</span><br><span class="line">                                      </span><br><span class="line"><span class="comment">--Redis Zscan 命令用于迭代有序集合中的元素（包括元素成员和元素分值）- 游标                           </span></span><br><span class="line">127.0.0.1:6379&gt; ZSCAN azset 0 match p*</span><br><span class="line">1) "0"</span><br><span class="line">2) 1) "php"</span><br><span class="line">   2) "2000"</span><br><span class="line">   3) "python"</span><br><span class="line">   4) "3000"                                      </span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zremrangebyscore 命令用于移除有序集中，指定分数（score）区间内的所有成员。                 127.0.0.1:6379&gt; ZRANGE azset 0 -1 WITHSCORES</span></span><br><span class="line"> 1) "c<span class="comment">#"</span></span><br><span class="line"> 2) "1000"</span><br><span class="line"> 3) "java"</span><br><span class="line"> 4) "2000"</span><br><span class="line"> 5) "php"</span><br><span class="line"> 6) "2000"</span><br><span class="line"> 7) "python"</span><br><span class="line"> 8) "3000"</span><br><span class="line"> 9) "go"</span><br><span class="line">10) "4000"</span><br><span class="line">127.0.0.1:6379&gt; ZREMRANGEBYSCORE azset 1000 2000</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1 WITHSCORES</span><br><span class="line">1) "python"</span><br><span class="line">2) "3000"</span><br><span class="line">3) "go"</span><br><span class="line">4) "4000"     </span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zscore 命令返回有序集中，成员的分数值。 如果成员元素不是有序集 key 的成员，或 key 不存在，返回 nil 。</span></span><br><span class="line">127.0.0.1:6379&gt; ZSCORE azset go</span><br><span class="line">"4000"</span><br><span class="line">                                      </span><br><span class="line"><span class="comment">--Redis Zrangebylex 通过字典区间返回有序集合的成员</span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 0 java 0 php 0 c# 1 python 2 go</span><br><span class="line">(integer) 5     </span><br><span class="line">127.0.0.1:6379&gt; ZRANGEBYLEX azset - [p</span><br><span class="line">1) "c<span class="comment">#"</span></span><br><span class="line">2) "java"</span><br><span class="line">127.0.0.1:6379&gt; ZRANGEBYLEX azset  [d (w</span><br><span class="line">1) "java"</span><br><span class="line">2) "php"</span><br><span class="line">3) "python"</span><br><span class="line">4) "go"   </span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zrangebyscore 返回有序集合中指定分数区间的成员列表。有序集成员按分数值递增(从小到大)次序排列。</span></span><br><span class="line"><span class="comment">--具有相同分数值的成员按字典序来排列(该属性是有序集提供的，不需要额外的计算)。</span></span><br><span class="line"><span class="comment">--默认情况下，区间的取值使用闭区间 (小于等于或大于等于)，你也可以通过给参数前增加 ( 符号来使用可选的开区间 (小于或大于)。                                  </span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1000 java 2000 python 3000 php 4000 go</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; ZRANGEBYSCORE azset -inf +inf</span><br><span class="line">1) "java"</span><br><span class="line">2) "python"</span><br><span class="line">3) "php"</span><br><span class="line">4) "go"</span><br><span class="line">127.0.0.1:6379&gt; ZRANGEBYSCORE azset -inf 3000</span><br><span class="line">1) "java"</span><br><span class="line">2) "python"</span><br><span class="line">3) "php"</span><br><span class="line">127.0.0.1:6379&gt; ZRANGEBYSCORE azset -inf 3000 WITHSCORES</span><br><span class="line">1) "java"</span><br><span class="line">2) "1000"</span><br><span class="line">3) "python"</span><br><span class="line">4) "2000"</span><br><span class="line">5) "php"</span><br><span class="line">6) "3000"</span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zincrby 命令对有序集合中指定成员的分数加上增量 increment</span></span><br><span class="line"><span class="comment">--可以通过传递一个负数值 increment ，让分数减去相应的值，比如 ZINCRBY key -5 member ，就是让 member 的 score 值减去 5 。</span></span><br><span class="line"><span class="comment">--当 key 不存在，或分数不是 key 的成员时， ZINCRBY key increment member 等同于 ZADD key increment member 。</span></span><br><span class="line"><span class="comment">--当 key 不是有序集类型时，返回一个错误。</span></span><br><span class="line"><span class="comment">--分数值可以是整数值或双精度浮点数。</span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 100 java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZINCRBY azset 100 java</span><br><span class="line">"200"    </span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zrank 返回有序集中指定成员的排名。其中有序集成员按分数值递增(从小到大)顺序排列。</span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 100 java 300 php 200 go</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; ZRANK azset java</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; ZRANK azset php</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; ZRANK azset go</span><br><span class="line">(integer) 1</span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zinterstore 命令计算给定的一个或多个有序集的交集，其中给定 key 的数量必须以 numkeys 参数指定，并将该交集(结果集)储存到 destination 。</span></span><br><span class="line"><span class="comment">--默认情况下，结果集中某个成员的分数值是所有给定集下该成员分数值之和。                                 127.0.0.1:6379&gt; ZADD azset 70 java</span></span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 70 php</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 70 go</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD bzset 95 go</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD bzset 65 java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZADD bzset 85 php</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZINTERSTORE dzset 2 azset bzset</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE dzset 0 -1 WITHSCORES</span><br><span class="line">1) "java"</span><br><span class="line">2) "135"</span><br><span class="line">3) "php"</span><br><span class="line">4) "155"</span><br><span class="line">5) "go"</span><br><span class="line">6) "165"</span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zrem 命令用于移除有序集中的一个或多个成员，不存在的成员将被忽略。</span></span><br><span class="line"><span class="comment">--当 key 存在但不是有序集类型时，返回一个错误。</span></span><br><span class="line">127.0.0.1:6379&gt; ZRANGE dzset 0 -1 WITHSCORES</span><br><span class="line">1) "java"</span><br><span class="line">2) "135"</span><br><span class="line">3) "php"</span><br><span class="line">4) "155"</span><br><span class="line">5) "go"</span><br><span class="line">6) "165"</span><br><span class="line">127.0.0.1:6379&gt; ZREM dzset java</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE dzset 0 -1 WITHSCORES</span><br><span class="line">1) "php"</span><br><span class="line">2) "155"</span><br><span class="line">3) "go"</span><br><span class="line">4) "165"         </span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Zcard 命令用于计算集合中元素的数量。                                    </span></span><br><span class="line">127.0.0.1:6379&gt; ZRANGE dzset 0 -1 WITHSCORES</span><br><span class="line">1) "php"</span><br><span class="line">2) "155"</span><br><span class="line">3) "go"</span><br><span class="line">4) "165"</span><br><span class="line">127.0.0.1:6379&gt; ZCARD dzset</span><br><span class="line">(integer) 2    </span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zremrangebyrank 命令用于移除有序集中，指定排名(rank)区间内的所有成员。                     </span></span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 100 java 200 php 300 go 400 c#</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; ZREMRANGEBYRANK azset 0 1</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; ZRANGE azset 0 -1 WITHSCORES</span><br><span class="line">1) "go"</span><br><span class="line">2) "300"</span><br><span class="line">3) "c<span class="comment">#"</span></span><br><span class="line">4) "400"</span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zunionstore 命令计算给定的一个或多个有序集的并集，其中给定 key 的数量必须以 numkeys 参数指定，并将该并集(结果集)储存到 destination 。</span></span><br><span class="line"><span class="comment">--默认情况下，结果集中某个成员的分数值是所有给定集下该成员分数值之和 。                               127.0.0.1:6379&gt; ZADD azset 1000 java 2000 php 3000 go</span></span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; ZADD bzset 1500 java 2500 python 3000 go</span><br><span class="line">(integer) 3</span><br><span class="line"><span class="comment">#并集：dzset = bzset * 3 + azset * 1                                    </span></span><br><span class="line">127.0.0.1:6379&gt; ZUNIONSTORE dzset 2 azset bzset WEIGHTS 1 3</span><br><span class="line">(integer) 4                                    </span><br><span class="line">127.0.0.1:6379&gt; ZRANGE dzset 0 -1 WITHSCORES</span><br><span class="line">1) "php"</span><br><span class="line">2) "2000"</span><br><span class="line">3) "java"</span><br><span class="line">4) "5500"</span><br><span class="line">5) "python"</span><br><span class="line">6) "7500"</span><br><span class="line">7) "go"</span><br><span class="line">8) "12000"     </span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zlexcount 命令在计算有序集合中指定字典区间内成员数量。                                    </span></span><br><span class="line">127.0.0.1:6379&gt; ZRANGE dzset 0 -1 WITHSCORES</span><br><span class="line">1) "php"</span><br><span class="line">2) "2000"</span><br><span class="line">3) "java"</span><br><span class="line">4) "5500"</span><br><span class="line">5) "python"</span><br><span class="line">6) "7500"</span><br><span class="line">7) "go"</span><br><span class="line">8) "12000"</span><br><span class="line">127.0.0.1:6379&gt; ZLEXCOUNT dzset [a [w</span><br><span class="line">(integer) 4    </span><br><span class="line">                                    </span><br><span class="line"><span class="comment">--Redis Zrevrank 命令返回有序集中成员的排名。其中有序集成员按分数值递减(从大到小)排序。</span></span><br><span class="line"><span class="comment">--排名以 0 为底，也就是说， 分数值最大的成员排名为 0 。</span></span><br><span class="line"><span class="comment">--使用 ZRANK 命令可以获得成员按分数值递增(从小到大)排列的排名。                                    </span></span><br><span class="line">127.0.0.1:6379&gt; ZRANGE dzset 0 -1 WITHSCORES</span><br><span class="line">1) "php"</span><br><span class="line">2) "2000"</span><br><span class="line">3) "java"</span><br><span class="line">4) "5500"</span><br><span class="line">5) "python"</span><br><span class="line">6) "7500"</span><br><span class="line">7) "go"</span><br><span class="line">8) "12000"</span><br><span class="line">127.0.0.1:6379&gt; ZREVRANK dzset php</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; ZREVRANK dzset java</span><br><span class="line">(integer) 2     </span><br><span class="line">127.0.0.1:6379&gt; ZREVRANK dzset go</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+
 
     
 
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222511875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222428801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          苑勇
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="CodeYuan-Y.github.io/2019/11/26/Redis数据类型Sorted-Set/" title="Redis数据类型Sorted Set" target="_blank">CodeYuan-Y.github.io/2019/11/26/Redis数据类型Sorted-Set/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
     
 
   </div>
@@ -241,7 +396,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
         		</li>
       		
 		</ul>
@@ -250,16 +405,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis数据类型Set</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -280,100 +495,37 @@
 
 
 
-  
-    <article id="post-Mysql数据库常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">Mysql数据库常用命令</a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2019-10-20T07:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
 
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先以管理员身份运行命令提示符</span></span><br><span class="line"><span class="comment">#查看MySQL服务是否启动</span></span><br><span class="line">netstat -an|findstr "3306"</span><br><span class="line"><span class="comment">#启动MySQL服务</span></span><br><span class="line">net <span class="keyword">start</span> mysql57   <span class="comment">-----57是版本</span></span><br><span class="line"><span class="comment">#关闭MySQL服务</span></span><br><span class="line">net <span class="keyword">stop</span> mysql57</span><br><span class="line"></span><br><span class="line"><span class="comment">#登录</span></span><br><span class="line">mysql -u username(root) -p <span class="keyword">password</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看所有数据库</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment">#选择数据库</span></span><br><span class="line"><span class="keyword">use</span> database_name；</span><br><span class="line"><span class="comment">#查看所有表</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">#创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br><span class="line"><span class="comment">#删除数据库</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> database_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Table_name(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">varchar</span>(<span class="number">12</span>),</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>),</span><br><span class="line">    age <span class="built_in">int</span>(<span class="number">3</span>),</span><br><span class="line">)</span><br><span class="line"><span class="comment">#查询表</span></span><br><span class="line"><span class="keyword">desc</span> table_name;</span><br><span class="line"><span class="comment">#查看表的创建语句</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> Table_name;</span><br><span class="line"><span class="comment">#删除表</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> table_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改表的内容</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">modify</span> +(<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">20</span>)...);</span><br><span class="line"><span class="comment">#增加字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> <span class="keyword">column</span> Tel <span class="built_in">int</span>(<span class="number">11</span>);</span><br><span class="line"><span class="comment">#删除字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">drop</span> <span class="keyword">column</span> Tel;</span><br><span class="line"><span class="comment">#字段更改名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">change</span> <span class="keyword">name</span> newName <span class="built_in">char</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">#新增字段并确定位置</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">after</span> <span class="keyword">name</span>;    <span class="comment">----将birth字段放在name后</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">before</span> <span class="keyword">name</span>;</span><br><span class="line"><span class="comment">#更改表名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">rename</span> new_table_name;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
 
   
+  <div id="gitment-ctn"></div>
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
   
+  <script>
+    <!-- id: "Redis数据类型Sorted Set" -->
+    var gitment = new Gitment({
+      id: "20191126174202",
+      owner: 'CodeYuan-Y',
+      repo: 'CodeYuan-Y.github.io',
+      oauth: {
+        client_id: '54f1ffefcd7a55adb032',
+        client_secret: 'cc7661d367a068f5bf6ee2cb19d72b1f6fb11b67',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
+  
+
 
 
           </div>
@@ -413,8 +565,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

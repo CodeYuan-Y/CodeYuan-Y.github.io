@@ -191,6 +191,181 @@
             
 
   
+    <article id="post-Redis数据类型Sorted-Set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/" target="_blank">Redis数据类型Sorted Set</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/" class="archive-article-date">
+        <time datetime="2019-11-26T09:42:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Redis-有序集合-sorted-set-命令"><a href="#Redis-有序集合-sorted-set-命令" class="headerlink" title="Redis 有序集合(sorted set) 命令"></a>Redis 有序集合(sorted set) 命令</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3625.html" target="_blank" rel="noopener">Redis Zrevrank 命令</a></td>
+<td align="left">返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3614.html" target="_blank" rel="noopener">Redis Zlexcount 命令</a></td>
+<td align="left">在有序集合中计算指定字典区间内成员数量</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3627.html" target="_blank" rel="noopener">Redis Zunionstore 命令</a></td>
+<td align="left">计算给定的一个或多个有序集的并集，并存储在新的 key 中</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3621.html" target="_blank" rel="noopener">Redis Zremrangebyrank 命令</a></td>
+<td align="left">移除有序集合中给定的排名区间的所有成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3610.html" target="_blank" rel="noopener">Redis Zcard 命令</a></td>
+<td align="left">获取有序集合的成员数</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3619.html" target="_blank" rel="noopener">Redis Zrem 命令</a></td>
+<td align="left">移除有序集合中的一个或多个成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3613.html" target="_blank" rel="noopener">Redis Zinterstore 命令</a></td>
+<td align="left">计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3618.html" target="_blank" rel="noopener">Redis Zrank 命令</a></td>
+<td align="left">返回有序集合中指定成员的索引</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3612.html" target="_blank" rel="noopener">Redis Zincrby 命令</a></td>
+<td align="left">有序集合中对指定成员的分数加上增量 increment</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3617.html" target="_blank" rel="noopener">Redis Zrangebyscore 命令</a></td>
+<td align="left">通过分数返回有序集合指定区间内的成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3616.html" target="_blank" rel="noopener">Redis Zrangebylex 命令</a></td>
+<td align="left">通过字典区间返回有序集合的成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3626.html" target="_blank" rel="noopener">Redis Zscore 命令</a></td>
+<td align="left">返回有序集中，成员的分数值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3622.html" target="_blank" rel="noopener">Redis Zremrangebyscore 命令</a></td>
+<td align="left">移除有序集合中给定的分数区间的所有成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3628.html" target="_blank" rel="noopener">Redis Zscan 命令</a></td>
+<td align="left">迭代有序集合中的元素（包括元素成员和元素分值）</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3624.html" target="_blank" rel="noopener">Redis Zrevrangebyscore 命令</a></td>
+<td align="left">返回有序集中指定分数区间内的成员，分数从高到低排序</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3620.html" target="_blank" rel="noopener">Redis Zremrangebylex 命令</a></td>
+<td align="left">移除有序集合中给定的字典区间的所有成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3623.html" target="_blank" rel="noopener">Redis Zrevrange 命令</a></td>
+<td align="left">返回有序集中指定区间内的成员，通过索引，分数从高到底</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3615.html" target="_blank" rel="noopener">Redis Zrange 命令</a></td>
+<td align="left">通过索引区间返回有序集合成指定区间内的成员</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3611.html" target="_blank" rel="noopener">Redis Zcount 命令</a></td>
+<td align="left">计算在有序集合中指定区间分数的成员数</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3609.html" target="_blank" rel="noopener">Redis Zadd 命令</a></td>
+<td align="left">向有序集合添加一个或多个成员，或者更新已存在成员的分数</td>
+</tr>
+</tbody></table>
+    
+    <a class="article-more-a" href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Redis数据类型Set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1256,96 +1431,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JDBC使用方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" target="_blank">JDBC使用方式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2019-10-20T07:37:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="JDBC介绍"><a href="#JDBC介绍" class="headerlink" title="JDBC介绍"></a><strong>JDBC介绍</strong></h3><p>JDBC 为数据库开发人员提供了一个标准的 API，据此可以构建更高级的工具和接口使数据库开发人员能够用纯 Java API 编写数据库应用程序。</p>
-<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a><strong>使用步骤</strong></h3><p>1、导入JDBC</p>
-<p>2、打开连接：需要使用 DriverManager.getConnection() 方法创建一个Connection 对象，它代表与数据库的物理连接</p>
-    
-    <a class="article-more-a" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/">展开全文 >></a>
     </p>
     
 
