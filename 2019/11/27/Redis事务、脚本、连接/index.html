@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
-  <title>SELECT语句的元素 | CodeYuan-Y的博客</title>
+  <title>Redis事务、脚本、连接 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1234567891011USE TSQL2012;SELECT 	empid,	YEAR(orderdate) AS orderyear,	--获取时间点钟的年	COUNT(*) AS numorders		--通过GROUP BY分组每组的行数量	FROM Sales.OrdersWHERE custid = 71			--仅筛选 客户ID = 71的订单			GROUP BY empid,Y">
-<meta name="keywords" content="sql">
+  <meta name="description" content="Redis 事务Redis 事务可以一次执行多个命令，并且带有以下两个重要保证:  事务是一个单独隔离操作：事务中所有命令都会序列化，按顺序地执行。事务在执行过程中，不会被其他客户端发来的请求打断。 事务是一个原子操作：事务中的命令要么全被执行，要么全都不被执行。  一个事务会经历以下三个阶段  开始事务 命令入队 执行事务">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SELECT语句的元素">
-<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0&#x2F;index.html">
+<meta property="og:title" content="Redis事务、脚本、连接">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2019&#x2F;11&#x2F;27&#x2F;Redis%E4%BA%8B%E5%8A%A1%E3%80%81%E8%84%9A%E6%9C%AC%E3%80%81%E8%BF%9E%E6%8E%A5&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="1234567891011USE TSQL2012;SELECT 	empid,	YEAR(orderdate) AS orderyear,	--获取时间点钟的年	COUNT(*) AS numorders		--通过GROUP BY分组每组的行数量	FROM Sales.OrdersWHERE custid = 71			--仅筛选 客户ID = 71的订单			GROUP BY empid,Y">
+<meta property="og:description" content="Redis 事务Redis 事务可以一次执行多个命令，并且带有以下两个重要保证:  事务是一个单独隔离操作：事务中所有命令都会序列化，按顺序地执行。事务在执行过程中，不会被其他客户端发来的请求打断。 事务是一个原子操作：事务中的命令要么全被执行，要么全都不被执行。  一个事务会经历以下三个阶段  开始事务 命令入队 执行事务">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-08T06:10:57.837Z">
+<meta property="og:updated_time" content="2019-11-27T07:58:47.677Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -186,14 +186,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SELECT语句的元素" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Redis事务、脚本、连接" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      SELECT语句的元素
+      Redis事务、脚本、连接
     </h1>
   
 
@@ -205,8 +205,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" class="archive-article-date">
-        <time datetime="2019-11-06T06:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
+<a href="/2019/11/27/Redis%E4%BA%8B%E5%8A%A1%E3%80%81%E8%84%9A%E6%9C%AC%E3%80%81%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
+        <time datetime="2019-11-27T07:58:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
 </a>
 
   
@@ -219,7 +219,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">891字</span>
+      <span class="post-count">1.8k字</span>
     </span>
   </span>
 
@@ -228,7 +228,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -239,56 +239,115 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> TSQL2012;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	empid,</span><br><span class="line">	<span class="keyword">YEAR</span>(orderdate) <span class="keyword">AS</span> orderyear,	<span class="comment">--获取时间点钟的年</span></span><br><span class="line">	<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> numorders		<span class="comment">--通过GROUP BY分组每组的行数量	</span></span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> custid = <span class="number">71</span>			<span class="comment">--仅筛选 客户ID = 71的订单			</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> empid,<span class="keyword">YEAR</span>(orderdate)		<span class="comment">--按照 雇员ID 与 订单年度 进行分组</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt; <span class="number">1</span>			<span class="comment">--仅筛选出大于1的订单组</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empid,orderyear;		<span class="comment">--按照 雇员ID 和 订单 输出行</span></span><br></pre></td></tr></table></figure>
-
-<p><code>GROUP BY</code> 后的 <code>HAVING</code>和<code>ORDER BY</code>操作都是对于组的操作,而不是对单行操作。</p>
-<p>不参加到<code>GROUP BY</code>列表中的元素仅允许作为一个聚合函数的输入，如<code>COUNT</code>、<code>SUM</code>、<code>AVG</code>、<code>MIN</code>或<code>MAX</code>。</p>
+    <h2 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h2><p>Redis 事务可以一次执行多个命令，并且带有以下两个重要保证:</p>
+<ul>
+<li>事务是一个单独隔离操作：事务中所有命令都会序列化，按顺序地执行。事务在执行过程中，不会被其他客户端发来的请求打断。</li>
+<li>事务是一个原子操作：事务中的命令要么全被执行，要么全都不被执行。</li>
+</ul>
+<p>一个事务会经历以下三个阶段</p>
+<ol>
+<li>开始事务</li>
+<li>命令入队</li>
+<li>执行事务</li>
+</ol>
 <a id="more"></a>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	custid,</span><br><span class="line">	empid,</span><br><span class="line">	<span class="keyword">YEAR</span>(orderdate)</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> custid = <span class="number">71</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> empid,<span class="keyword">YEAR</span>(orderdate)</span><br></pre></td></tr></table></figure>
+<h4 id="Redis-事务-命令"><a href="#Redis-事务-命令" class="headerlink" title="Redis 事务 命令"></a>Redis 事务 命令</h4><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3639.html" target="_blank" rel="noopener">Redis Exec 命令</a></td>
+<td align="left">执行所有事务块内的命令。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3642.html" target="_blank" rel="noopener">Redis Watch 命令</a></td>
+<td align="left">监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3638.html" target="_blank" rel="noopener">Redis Discard 命令</a></td>
+<td align="left">取消事务，放弃执行事务块内的所有命令。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3641.html" target="_blank" rel="noopener">Redis Unwatch 命令</a></td>
+<td align="left">取消 WATCH 命令对所有 key 的监视。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3640.html" target="_blank" rel="noopener">Redis Multi 命令</a></td>
+<td align="left">标记一个事务块的开始。</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--MULTI 标记一个事务块的开始。</span></span><br><span class="line"><span class="comment">--EXEC 执行所有事务块内的命令。</span></span><br><span class="line">127.0.0.1:6379&gt; MULTI</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET lan java</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; GET lan</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1000 java 200 php 600 go</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; ZREVRANGE azset 0 -1 WITHSCORES</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; EXEC</span><br><span class="line">1) OK</span><br><span class="line">2) "java"</span><br><span class="line">3) (integer) 0</span><br><span class="line">4) 1) "java"</span><br><span class="line">   2) "1000"</span><br><span class="line">   3) "go"</span><br><span class="line">   4) "600"</span><br><span class="line">   5) "php"</span><br><span class="line">   6) "200"</span><br><span class="line">   </span><br><span class="line"><span class="comment">--DISCARD 取消事务，放弃执行事务块内的所有命令。   </span></span><br><span class="line">127.0.0.1:6379&gt; MULTI</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET lan java</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; GET lan</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; ZADD azset 1000 java 200 php 600 go</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; DISCARD</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; EXEC</span><br><span class="line">(error) ERR EXEC without MULTI   </span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Watch 命令用于监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断</span></span><br><span class="line">127.0.0.1:6379&gt; set key1 java</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; WATCH key1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; MULTI</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set key2 php</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; get key2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; EXEC</span><br><span class="line">1) OK</span><br><span class="line">2) "php"</span><br><span class="line"><span class="comment">---------------------------------------</span></span><br><span class="line">127.0.0.1:6379&gt; SET key1 value1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; WATCH key1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; MULTI</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set key2 value2</span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这一步暂停下，打开第二个客户端去修改key1的值，然后再exec</span></span><br><span class="line">127.0.0.1:6379&gt; exec</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; </span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Unwatch 命令用于取消 WATCH 命令对所有 key 的监视。</span></span><br><span class="line">127.0.0.1:6379&gt; SET key1 java</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; WATCH key1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; UNWATCH</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; MULTI</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SET key2 php</span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line"><span class="comment">#在执行之前另一个客户端执行一个SET key1</span></span><br><span class="line">127.0.0.1:6379&gt; EXEC</span><br><span class="line">1) OK</span><br></pre></td></tr></table></figure>
 
-<p>像以上情况 未参与到<code>GROUP BY</code>的列表中的属性例如custid会被系统当成一个聚合函数操作，从而产生以下错误。</p>
-<p><em>选择列表中的列 ‘Sales.Orders.custid’ 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。</em></p>
-<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><p>除<code>COUNT(*)</code>之外所有聚合操作都忽略<code>NULL</code>标记。</p>
-<p>例如：一个名为qty的列，具有5行，数值为。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">30、10、NULL、10、10</span><br></pre></td></tr></table></figure>
+<h2 id="Redis-脚本"><a href="#Redis-脚本" class="headerlink" title="Redis 脚本"></a>Redis 脚本</h2><p> Redis 脚本使用 Lua 解释器来执行脚本。 Reids 2.6 版本通过内嵌支持 Lua 环境。执行脚本的常用命令为 <strong>EVAL</strong>。 </p>
+<h4 id="Redis-脚本-命令"><a href="#Redis-脚本-命令" class="headerlink" title="Redis 脚本 命令"></a>Redis 脚本 命令</h4><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3647.html" target="_blank" rel="noopener">Redis Script kill 命令</a></td>
+<td align="left">杀死当前正在运行的 Lua 脚本。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3648.html" target="_blank" rel="noopener">Redis Script Load 命令</a></td>
+<td align="left">将脚本 script 添加到脚本缓存中，但并不立即执行这个脚本。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3643.html" target="_blank" rel="noopener">Redis Eval 命令</a></td>
+<td align="left">执行 Lua 脚本。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3644.html" target="_blank" rel="noopener">Redis Evalsha 命令</a></td>
+<td align="left">执行 Lua 脚本。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3645.html" target="_blank" rel="noopener">Redis Script Exists 命令</a></td>
+<td align="left">查看指定的脚本是否已经被保存在缓存当中。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3646.html" target="_blank" rel="noopener">Redis Script Flush 命令</a></td>
+<td align="left">从脚本缓存中移除所有脚本。</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--redis Eval 命令基本语法如下：</span></span><br><span class="line">EVAL script numkeys key [key ...] arg [arg ...] </span><br><span class="line"><span class="comment">--参数说明：</span></span><br><span class="line"><span class="comment">--script： 参数是一段 Lua 5.1 脚本程序。脚本不必(也不应该)定义为一个 Lua 函数。</span></span><br><span class="line"><span class="comment">--numkeys： 用于指定键名参数的个数。</span></span><br><span class="line"><span class="comment">--key [key ...]： 从 EVAL 的第三个参数开始算起，表示在脚本中所用到的那些 Redis 键(key)，这些键名参数可以在 Lua 中通过全局变量 KEYS 数组，用 1 为基址的形式访问( KEYS[1] ， KEYS[2] ，以此类推)。</span></span><br><span class="line"><span class="comment">--arg [arg ...]： 附加参数，在 Lua 中通过全局变量 ARGV 数组访问，访问的形式和 KEYS 变量类似( ARGV[1] 、 ARGV[2] ，诸如此类)。</span></span><br><span class="line">127.0.0.1:6379&gt; EVAL "return &#123;KEYS[1],KEYS[2],ARGV[1],ARGV[2]&#125;" 2 key1 key2 java php</span><br><span class="line">1) "key1"</span><br><span class="line">2) "key2"</span><br><span class="line">3) "java"</span><br><span class="line">4) "php"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Script Load 命令用于将脚本 script 添加到脚本缓存中，但并不立即执行这个脚本。</span></span><br><span class="line"><span class="comment">--EVAL 命令也会将脚本添加到脚本缓存中，但是它会立即对输入的脚本进行求值。</span></span><br><span class="line"><span class="comment">--如果给定的脚本已经在缓存里面了，那么不执行任何操作。</span></span><br><span class="line"><span class="comment">--在脚本被加入到缓存之后，通过 EVALSHA 命令，可以使用脚本的 SHA1 校验和来调用这个脚本。</span></span><br><span class="line"><span class="comment">--脚本可以在缓存中保留无限长的时间，直到执行 SCRIPT FLUSH 为止。</span></span><br><span class="line">127.0.0.1:6379&gt; SCRIPT LOAD "return 'php is the best langues '"</span><br><span class="line">"c21cb8da7d1d4ba28ca7ab0024d41184e35c5d2f"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Script kill 命令用于杀死当前正在运行的 Lua 脚本，当且仅当这个脚本没有执行过任何写操作时，这个命令才生效。</span></span><br><span class="line"><span class="comment">--这个命令主要用于终止运行时间过长的脚本，比如一个因为 BUG 而发生无限循环的脚本。</span></span><br><span class="line"><span class="comment">--SCRIPT KILL 执行之后，当前正在运行的脚本会被杀死，执行这个脚本的客户端会从 EVAL 命令的阻塞当中退出，并收到一个错误作为返</span></span><br><span class="line">127.0.0.1:6379&gt; SCRIPT KILL</span><br><span class="line">(error) NOTBUSY No scripts in execution right now.</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Evalsha 命令根据给定的 sha1 校验码，执行缓存在服务器中的脚本。</span></span><br><span class="line">127.0.0.1:6379&gt; EVALSHA "c21cb8da7d1d4ba28ca7ab0024d41184e35c5d2f" 0</span><br><span class="line">"php is the best langues</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Script Exists 命令 - 查看指定的脚本是否已经被保存在缓存当中。</span></span><br><span class="line"><span class="comment">--Redis Script Flush 命令用于清除所有 Lua 脚本缓存。</span></span><br><span class="line">127.0.0.1:6379&gt; SCRIPT LOAD "return 'php is the best langues '"</span><br><span class="line">"c21cb8da7d1d4ba28ca7ab0024d41184e35c5d2f"</span><br><span class="line">127.0.0.1:6379&gt; SCRIPT EXISTS c21cb8da7d1d4ba28ca7ab0024d41184e35c5d2f</span><br><span class="line">1) (integer) 1</span><br><span class="line">127.0.0.1:6379&gt; SCRIPT FLUSH</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SCRIPT EXISTS c21cb8da7d1d4ba28ca7ab0024d41184e35c5d2f</span><br><span class="line">1) (integer) 0</span><br></pre></td></tr></table></figure>
 
-<p>表达式<code>COUNT(*)</code>将返回5、而<code>COUNT(qty)</code>将返回4。</p>
-<p>指定<code>DISTINCT</code>关键字可以去重复值。</p>
-<p><code>COUNT(DISTINCT qty)</code>将返回2。</p>
-<p><code>SUM(DISTINCT qty)</code>将返回40，<code>SUM(qty)</code>将返回60。</p>
-<p><code>AVG(DISTINCT qty)</code>将返回20，<code>AVG(qty)</code>将返回20。</p>
-<h4 id="HAVING子句"><a href="#HAVING子句" class="headerlink" title="HAVING子句"></a>HAVING子句</h4><p>以下是第一段代码执行结果</p>
-<p>empid        orderyear    numorders</p>
-<p>​    1                2007                2<br>​    1                2008                3<br>​    2                2008                2<br>​    3                2007                2<br>​    4                2008                3<br>​    5                2007                3<br>​    6                2007                3<br>​    7                2008                2<br>​    8                2007                4</p>
-<hr>
-<p>以下是去掉<code>HAVING</code>子句的执行结果</p>
-<p>empid        orderyear    numorders</p>
-<p>​    1                2006                1<br>​    1                2007                2<br>​    1                2008                3<br>​    2                2006                1<br>​    2                2007                1<br>​    2                2008                2<br>​    3                2007                2<br>​    4                2007                1<br>​    4                2008                3<br>​    5                2007                3<br>​    6                2007                3<br>​    6                2008                1<br>​    7                2007                1<br>​    7                2008                2<br>​    8                2007                4<br>​    9                2006                1</p>
-<p>比较发现表2中numorders列所有为1的组，都消失在表1中。</p>
-<p><code>HAVING</code>子句是在分组之后进行处理，所以可以在逻辑表达式中引用集合函数。</p>
-<h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><p>—-<code>FROM</code></p>
-<p>—-<code>WHERE</code></p>
-<p>—-<code>GROUP BY</code></p>
-<p>—-<code>HAVING</code> </p>
-<p>—-<code>SELECT</code></p>
-<p>————-表达式</p>
-<p>————-<code>DISTINCT</code>                </p>
-<p>—-<code>ORDER BY</code> </p>
-<p>————<code>TOP/OFFSET-FETCH</code></p>
-<h4 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h4><p>默认升序、<code>ASC</code>升序、<code>DESC</code>降序</p>
-<p>T-SQL允许在<code>ORDER BY</code>中出现<code>SELECT</code>中未出现的的元素，这意味着你无需按照输出排序。</p>
-<p>但是，如果指定了<code>DISTINCT</code>，则<code>ORDER BY</code>只能出现是出现在<code>SELECT</code>列表中的元素。此限制背后的原因是，在指定<code>DISTINCT</code>后，单个结果行可能代表多个源行，因此<code>ORDER BY</code>子句中可能会有多个值可用。</p>
-<h4 id="TOP和OFFSET-FETCH筛选"><a href="#TOP和OFFSET-FETCH筛选" class="headerlink" title="TOP和OFFSET-FETCH筛选"></a>TOP和OFFSET-FETCH筛选</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--选取最顶部5行 即 时间最近的5个订单</span></span><br><span class="line"><span class="keyword">SELECT</span> TOP(<span class="number">5</span>)</span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br><span class="line"><span class="comment">--在TOP后面加 PERCENT 代表前0.5% </span></span><br><span class="line"><span class="comment">--会向上舍入即若计算出的百分比是5.32行会变成6行</span></span><br><span class="line"><span class="keyword">SELECT</span> TOP(<span class="number">0.5</span>) <span class="keyword">PERCENT</span></span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br><span class="line"><span class="comment">--在TOP后面加上WITH TIES会要求系统除返回前5行外，还会返回与第5行(orderdate)值相同的行</span></span><br><span class="line"><span class="keyword">SELECT</span> TOP(<span class="number">5</span>) <span class="keyword">WITH</span> <span class="keyword">TIES</span></span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
+<h2 id="Redis-连接"><a href="#Redis-连接" class="headerlink" title="Redis 连接"></a>Redis 连接</h2><p> Redis 连接命令主要是用于连接 redis 服务。 </p>
+<h4 id="Redis-连接-命令"><a href="#Redis-连接-命令" class="headerlink" title="Redis 连接 命令"></a>Redis 连接 命令</h4><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3650.html" target="_blank" rel="noopener">Redis Echo 命令</a></td>
+<td align="left">打印字符串</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3653.html" target="_blank" rel="noopener">Redis Select 命令</a></td>
+<td align="left">切换到指定的数据库</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3651.html" target="_blank" rel="noopener">Redis Ping 命令</a></td>
+<td align="left">查看服务是否运行</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3652.html" target="_blank" rel="noopener">Redis Quit 命令</a></td>
+<td align="left">关闭当前连接</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3649.html" target="_blank" rel="noopener">Redis Auth 命令</a></td>
+<td align="left">验证密码是否正确</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--Redis Auth 命令用于检测给定的密码和配置文件中的密码是否相符</span></span><br><span class="line">127.0.0.1:6379&gt; CONFIG SET requirepass "root"</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; AUTH root</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Echo 命令用于打印给定的字符串。</span></span><br><span class="line">"key"</span><br><span class="line">127.0.0.1:6379&gt; ECHO hello</span><br><span class="line">"hello"</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Ping 命令使用客户端向 Redis 服务器发送一个 PING ，如果服务器运作正常的话，会返回一个 PONG 。</span></span><br><span class="line"><span class="comment">--通常用于测试与服务器的连接是否仍然生效，或者用于测量延迟值。</span></span><br><span class="line">127.0.0.1:6379&gt; PING</span><br><span class="line">PONG</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Quit 命令用于关闭与当前客户端与redis服务的连接。</span></span><br><span class="line"><span class="comment">--一旦所有等待中的回复(如果有的话)顺利写入到客户端，连接就会被关闭。</span></span><br><span class="line">命令窗口关闭</span><br><span class="line"></span><br><span class="line"><span class="comment">--Redis Select 命令用于切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值。</span></span><br><span class="line">127.0.0.1:6379&gt; SET db_number 0</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; SELECT 1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; GET db_number</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379[1]&gt; SET db_number 1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379[1]&gt; GET db_number</span><br><span class="line">"1"</span><br></pre></td></tr></table></figure>
 
-<p><code>TOP</code>有两个缺陷，不是标准SQL和不支持跳过功能，标准SQL中有类似的筛选称为<code>OFFSET-FETCH</code></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	*</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderdate <span class="keyword">DESC</span></span><br><span class="line"><span class="keyword">OFFSET</span> <span class="number">50</span> <span class="keyword">ROWS</span> <span class="keyword">FETCH</span> <span class="keyword">NEXT</span> <span class="number">8</span> <span class="keyword">ROWS</span> <span class="keyword">ONLY</span>;</span><br><span class="line"><span class="comment">--跳过前50行后，去接下来的8行</span></span><br></pre></td></tr></table></figure>
-
-<p><code>OFFSET FETCH</code>查询的前提是必须具有<code>ORDER BY</code>子句。</p>
-<p>如果没<code>OFFSET</code>的支持不能进行<code>FETCH</code>操作，不跳过只能是 <code>OFFSET 0 ROWS</code>。</p>
-<p>SQL中<code>ROWS</code>与<code>ROW</code>、<code>NEXT</code>与<code>FIRST</code> 可以相互替换</p>
-<p>从支持跳过来看 <code>OFFSET FETCH</code>比<code>TOP</code>更加灵活，但是<code>OFFSET FETCH</code>没有<code>PERCENT</code> 和<code>WITH TIES</code>选项。</p>
-<p>在实现时，<code>OFFSET FETCH</code>与<code>TOP</code>都能可用时尽量用<code>OFFSET FETCH</code></p>
 
     
 
@@ -335,7 +394,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="CodeYuan-Y.github.io/2019/11/06/SELECT语句的元素/" title="SELECT语句的元素" target="_blank">CodeYuan-Y.github.io/2019/11/06/SELECT语句的元素/</a>
+          <a href="CodeYuan-Y.github.io/2019/11/27/Redis事务、脚本、连接/" title="Redis事务、脚本、连接" target="_blank">CodeYuan-Y.github.io/2019/11/27/Redis事务、脚本、连接/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -354,7 +413,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
         		</li>
       		
 		</ul>
@@ -410,7 +469,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2019/11/27/Redis%E4%BA%8B%E5%8A%A1%E3%80%81%E8%84%9A%E6%9C%AC%E3%80%81%E8%BF%9E%E6%8E%A5/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -425,18 +484,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SELECT语句元素续
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/02/SQL-SERVER%E5%88%9B%E5%BB%BA%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SQL SERVER创建及数据完整性</div>
+    <a href="/2019/11/26/Redis-HyperLogLog%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis HyperLogLog与发布订阅</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -477,9 +527,9 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "SELECT语句的元素" -->
+    <!-- id: "Redis事务、脚本、连接" -->
     var gitment = new Gitment({
-      id: "20191106144337",
+      id: "20191127155801",
       owner: 'CodeYuan-Y',
       repo: 'CodeYuan-Y.github.io',
       oauth: {
