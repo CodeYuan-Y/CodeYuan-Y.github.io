@@ -191,6 +191,97 @@
             
 
   
+    <article id="post-SELECT语句的元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" target="_blank">SELECT语句的元素</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" class="archive-article-date">
+        <time datetime="2019-11-06T06:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> TSQL2012;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	empid,</span><br><span class="line">	<span class="keyword">YEAR</span>(orderdate) <span class="keyword">AS</span> orderyear,	<span class="comment">--获取时间点钟的年</span></span><br><span class="line">	<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> numorders		<span class="comment">--通过GROUP BY分组每组的行数量	</span></span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> custid = <span class="number">71</span>			<span class="comment">--仅筛选 客户ID = 71的订单			</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> empid,<span class="keyword">YEAR</span>(orderdate)		<span class="comment">--按照 雇员ID 与 订单年度 进行分组</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt; <span class="number">1</span>			<span class="comment">--仅筛选出大于1的订单组</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empid,orderyear;		<span class="comment">--按照 雇员ID 和 订单 输出行</span></span><br></pre></td></tr></table></figure>
+
+<p><code>GROUP BY</code> 后的 <code>HAVING</code>和<code>ORDER BY</code>操作都是对于组的操作,而不是对单行操作。</p>
+<p>不参加到<code>GROUP BY</code>列表中的元素仅允许作为一个聚合函数的输入，如<code>COUNT</code>、<code>SUM</code>、<code>AVG</code>、<code>MIN</code>或<code>MAX</code>。</p>
+    
+    <a class="article-more-a" href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SQL-SERVER创建及数据完整性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -668,11 +759,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,6 +772,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
             
             <div class="clearfix"></div>
