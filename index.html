@@ -191,6 +191,94 @@
             
 
   
+    <article id="post-子查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" target="_blank">子查询</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
+        <time datetime="2019-12-05T02:26:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="4-1-自包含子查询"><a href="#4-1-自包含子查询" class="headerlink" title="4.1 自包含子查询"></a>4.1 自包含子查询</h3><h4 id="4-1-1-自包含标量子查询示例"><a href="#4-1-1-自包含标量子查询示例" class="headerlink" title="4.1.1 自包含标量子查询示例"></a>4.1.1 自包含标量子查询示例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--获取订单号最大的订单的信息</span></span><br><span class="line"><span class="keyword">DECLARE</span> @maxid <span class="built_in">INT</span> = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = @maxid</span><br><span class="line"></span><br><span class="line"><span class="comment">#嵌入式代码实现-标量子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"><span class="comment">#标量子查询返回多个值,查询会失效</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回有姓氏以字母B开头的任意雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span></span><br><span class="line"><span class="comment">#先执行以上内容，发现以B开头的雇员只有一个，所以以下执行正常	 </span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span>)</span><br><span class="line"><span class="comment">--返回有姓氏中含有a的雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span></span><br><span class="line"><span class="comment">#先执行以上代码发现姓氏中有a的雇员有三个所以导致下面查询无效</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span>)</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-联接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,7 +327,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -1377,94 +1465,6 @@
 
 
   
-    <article id="post-SELECT语句元素续" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" target="_blank">SELECT语句元素续</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" class="archive-article-date">
-        <time datetime="2019-11-08T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="谓词和运算符"><a href="#谓词和运算符" class="headerlink" title="谓词和运算符"></a>谓词和运算符</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">IN</span>(<span class="number">10248</span>,<span class="number">10249</span>,<span class="number">10250</span>)</span><br><span class="line"><span class="comment">--获取orderid在()这个集合里面的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">BETWEEN</span> <span class="number">10300</span> <span class="keyword">AND</span> <span class="number">10310</span>;</span><br><span class="line"><span class="comment">--获取orderid在10300到10310中间的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">empid,</span><br><span class="line">firstname,</span><br><span class="line">lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span>;</span><br><span class="line"><span class="comment">--获取lastname属性第一个字母为D的行</span></span><br><span class="line"><span class="comment">--前缀字母N的使用，代表National，用来表示字符串是一个Unicode数据类型(NCHAR或NVARCHAR)</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1594,10 +1594,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
             
             <div class="clearfix"></div>
