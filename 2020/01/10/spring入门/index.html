@@ -5,20 +5,28 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://CodeYuan-Y.github.io">
-  <title>Archives: 2019/10 | CodeYuan-Y的博客</title>
+  <link rel="dns-prefetch" href="CodeYuan-Y.github.io">
+  <title>spring入门 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一个热爱code的男人">
-<meta name="keywords" content="1996613nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeYuan-Y的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;archives&#x2F;2019&#x2F;10&#x2F;index.html">
+  <meta name="description" content="IOC即Inversion of Control，翻译过来就是控制反转。啥是控制反转啊？控制反转指的就是将对象的创建权反转给（交给）了Spring，其作用是实现了程序的解耦合。也可这样解释：获取对象的方式变了，对象创建的控制权不是”使用者”，而是”框架”或者”容器”。用更通俗的话来说，IoC就是指对象的创建，并不是在代码中用new操作new出来的，而是通过Spring进行配置创建的。 Spring">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring入门">
+<meta property="og:url" content="CodeYuan-Y.github.io&#x2F;2020&#x2F;01&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="一个热爱code的男人">
+<meta property="og:description" content="IOC即Inversion of Control，翻译过来就是控制反转。啥是控制反转啊？控制反转指的就是将对象的创建权反转给（交给）了Spring，其作用是实现了程序的解耦合。也可这样解释：获取对象的方式变了，对象创建的控制权不是”使用者”，而是”框架”或者”容器”。用更通俗的话来说，IoC就是指对象的创建，并不是在代码中用new操作new出来的，而是通过Spring进行配置创建的。 Spring">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;123.jpg">
+<meta property="og:image" content="&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;201908312028340.png">
+<meta property="og:image" content="&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;20190831202842469.png">
+<meta property="og:image" content="&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;124.png">
+<meta property="og:image" content="&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;20190831202906279.png">
+<meta property="og:image" content="&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;125.png">
+<meta property="og:updated_time" content="2020-01-10T07:55:20.922Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="&#x2F;10&#x2F;spring%E5%85%A5%E9%97%A8&#x2F;123.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
   
@@ -185,41 +193,172 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-spring入门" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2019-10-26T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/26/StringBuilder%E5%8F%8A%E9%93%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E5%8E%9F%E7%90%86/" target="_blank">StringBuilder及链式操作原理</a>
   
+    <h1 class="article-title" itemprop="name">
+      spring入门
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/01/10/spring%E5%85%A5%E9%97%A8/" class="archive-article-date">
+        <time datetime="2020-01-10T07:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-10</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h3><p>即Inversion of Control，翻译过来就是控制反转。啥是控制反转啊？控制反转指的就是将对象的创建权反转给（交给）了Spring，其作用是实现了程序的解耦合。也可这样解释：获取对象的方式变了，对象创建的控制权不是”使用者”，而是”框架”或者”容器”。用更通俗的话来说，IoC就是指对象的创建，并不是在代码中用new操作new出来的，而是通过Spring进行配置创建的。</p>
+<h3 id="Spring的IoC的底层实现原理"><a href="#Spring的IoC的底层实现原理" class="headerlink" title="Spring的IoC的底层实现原理"></a>Spring的IoC的底层实现原理</h3><p>这里先给出结论：Spring的IoC的底层实现原理是<strong>工厂设计模式+反射+XML配置文件</strong>。 就拿持久层（也即dao层，data access object，数据访问对象）的开发来说，官方推荐做法是先创建一个接口，然后再创建接口对应的实现类。所以，这里，我会以dao层的开发为例来证明Spring的IoC的底层实现原理就是工厂设计模式+反射+XML配置文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*首先，创建一个Userdao接口。*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*然后，再创建Userdao接口的一个实现类（UserDaoImpl.java）。*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    balabala......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*接着，我们在service层中调用dao层，核心代码如下：*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    balabala......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时我们便可发现一个缺点：service层和dao层耦合度太高了，即接口和实现类有耦合（它俩之间的联系过于紧密），一旦切换底层实现类，那么就需要修改源代码，这真的不是一个好的程序设计，好的程序设计应当满足OCP原则（也即开闭原则），即在尽量不修改程序源代码的基础上对程序进行扩展。说到这里，我就不得不稍微讲一下面向对象设计的七大原则了，它不必强记，重在理解。</p>
+<p><img src="/10/spring%E5%85%A5%E9%97%A8/123.jpg" alt> </p>
+<p>出现的这个问题该如何解决呢？解决方法是使用工厂设计模式进行解耦合操作。所以，我们需要创建一个工厂类，在工厂类中提供一个方法，返回实现类的对象。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 提供返回实现类对象的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> UserDao <span class="title">getUserDao</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserDaoImpl();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 这样，在service层中调用dao层的核心代码就变为了下面的样子 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UserDao dao = BeanFactory.getUserDao();</span><br><span class="line">dao.add();</span><br></pre></td></tr></table></figure>
+
+<p> 如若这样做，会发现又产生了一个缺点：现在接口和实现类之间是没有耦合了，但是service层和工厂类耦合了。如果真正想实现程序之间的解耦合，那么就需要使用到工厂设计模式+反射+XML配置文件了。所以，我们这里提供一个XML配置文件，并且该配置文件中有如下配置信息。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"userDao"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.meimeixia.dao.impl.UserDaoImpl"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 然后再来创建一个工厂类，在工厂类中提供一个返回实现类对象的方法，但并不是直接new实现类，而是使用SAX解析配置文件，根据标签bean中的id属性值得到对应的class属性值，使用反射创建实现类对象。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getBean</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1.使用SAX解析得到配置文件内容</span></span><br><span class="line">        <span class="comment">// 直接根据id值userDao得到class属性值</span></span><br><span class="line">        String classvalue = <span class="string">"class属性值"</span>;</span><br><span class="line">        <span class="comment">// 2.使用反射得到对象</span></span><br><span class="line">        Class clazz = Class.forName(classvalue);</span><br><span class="line">        UserDaoImpl userDaoImpl = (UserDaoImpl)lazz.newInstance();</span><br><span class="line">        <span class="keyword">return</span> userDaoImpl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Spring的IoC入门"><a href="#Spring的IoC入门" class="headerlink" title="Spring的IoC入门"></a>Spring的IoC入门</h3><h4 id="下载Spring的开发包"><a href="#下载Spring的开发包" class="headerlink" title="下载Spring的开发包"></a>下载Spring的开发包</h4><p>Spring的官网是<a href="https://spring.io/，Spring的开发包的下载地址是https://repo.spring.io/libs-release-local/org/springframework/spring/，上面说过，我下载的是spring-framework-4.2.4.RELEASE这个版本的Spring。解压缩之后，可发现Spring开发包的目录结构如下。" target="_blank" rel="noopener">https://spring.io/，Spring的开发包的下载地址是https://repo.spring.io/libs-release-local/org/springframework/spring/，上面说过，我下载的是spring-framework-4.2.4.RELEASE这个版本的Spring。解压缩之后，可发现Spring开发包的目录结构如下。</a></p>
+<p> <img src="/10/spring%E5%85%A5%E9%97%A8/201908312028340.png" alt="在这里插入图片描述"> </p>
+<p> <img src="/10/spring%E5%85%A5%E9%97%A8/20190831202842469.png" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bean -- 处理Bean的jar</span><br><span class="line">context -- 处理spring上下文的jar</span><br><span class="line">core -- Spring 核心jar</span><br><span class="line">expression -- Spring 表达式</span><br></pre></td></tr></table></figure>
+
+<p> 那么日志的输出级别有几种呢？有如下5种。 </p>
+<p><img src="/10/spring%E5%85%A5%E9%97%A8/124.png" alt></p>
+<h3 id="创建接口和实现类"><a href="#创建接口和实现类" class="headerlink" title="创建接口和实现类"></a>创建接口和实现类</h3><p>首先，在src目录下创建一个包，并在该包下创建一个名为UserDao的接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户管理的dao层的接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 然后，在包下创建UserDao接口的一个实现类——UserDaoImpl.java。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.meimeixia.spring.demo01;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户管理的dao层接口的实现类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> liayun</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"UserDaoImpl中的save方法执行了......"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="将实现类交给Spring管理"><a href="#将实现类交给Spring管理" class="headerlink" title="将实现类交给Spring管理"></a>将实现类交给Spring管理</h3><p>首先，我们需要创建Spring的配置文件，Spring配置文件的名称和位置没有固定要求，一般建议把该文件放到src目录下面，名称可随便写，官方建议写成applicationContext.xml。然后我们还需要在配置文件中引入约束，Spring学习阶段的约束是schema约束。那么问题来了，这个约束又该怎么写呢？可参考docs\spring-framework-reference\html目录下的xsd-configuration.html文件，在其内容最后面找到如下内容。</p>
+<p> <img src="/10/spring%E5%85%A5%E9%97%A8/20190831202906279.png" alt="在这里插入图片描述"> </p>
+<p>​        将其复制黏贴到配置文件applicationContext.xml中，这样applicationContext.xml文件的内容就是下面的样子了。 </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">    xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans </span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line">        </span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>最后，咱还要将实现类交给Spring来管理，即在配置文件中配置对象的创建。 </code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">    xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">    xsi:schemaLocation=<span class="string">"</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans </span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line">        </span><br><span class="line">	&lt;!-- Spring入门的配置 --&gt;</span><br><span class="line">	&lt;bean id="userDao" class="路径.UserDaoImpl"&gt;&lt;/bean&gt;</span><br><span class="line">	</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写测试类"><a href="#编写测试类" class="headerlink" title="编写测试类"></a>编写测试类</h3><p>我们要在Spring中写代码来实现获取applicationContext.xml文件中配置的对象，这段代码不要求大家重点掌握，只是用在测试中而已。这段代码主要用来解析Spring配置文件得到对象，但这个过程不需要我们写代码来实现了，Spring已经封装了一个对象来帮我们进行了这些操作，这个对象叫ApplicationContext，它就能实现这个功能。于是，我们需要在所在包下创建一个单元测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.yy.spring.dao.studentDao;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">springTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//先要创建Spring的工厂</span></span><br><span class="line">        ApplicationContext applicationContext = <span class="keyword">new</span> 			       			 ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">        <span class="comment">// classpath就是类路径，src目录下的文件最终要编译到类路径下</span></span><br><span class="line">        studentDao studentDao = (studentDao) applicationContext.getBean(<span class="string">"studentDao"</span>);</span><br><span class="line">        studentDao.save();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Spring-IoC和DI的区别"><a href="#Spring-IoC和DI的区别" class="headerlink" title="Spring IoC和DI的区别"></a>Spring IoC和DI的区别</h3><p>IoC上面我已经讲过了，它指的就是将对象的创建权反转给（交给）了Spring。那DI又是什么鬼呢？DI，即Dependency Injection，翻译过来就是依赖注入，它指的就是Spring在管理某个类的时候会将该类依赖的属性注入（设置）进来，也就是说在创建对象的过程中，向类里面的属性中设置值。注意：依赖注入不能单独存在，须在控制反转基础之上完成，用更通俗点的话来说，就是注入类里面的属性值，不能直接注入，须创建类的对象再完成注入。</p>
+<p>在applicationContext中给Student类中的各个属性注入值</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">       xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">       xsi:schemaLocation=<span class="string">"</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans</span></span><br><span class="line"><span class="string">        http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span><br><span class="line">        &lt;bean id="studentDao" class="com.yy.spring.dao.Impl.studentDaoImpl"&gt;&lt;/bean&gt;</span><br><span class="line">        &lt;bean id=<span class="string">"Student"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.yy.spring.domain.Student"</span>&gt;</span><br><span class="line">                &lt;property name="id" value="1"&gt;&lt;/property&gt;</span><br><span class="line">                &lt;property name="name" value="苑勇"&gt;&lt;/property&gt;</span><br><span class="line">                &lt;property name="age" value="21"&gt;&lt;/property&gt;</span><br><span class="line">        &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在测试类中测得</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student student = (Student)applicationContext.getBean(<span class="string">"Student"</span>);</span><br><span class="line">System.out.println(student.getName()+<span class="string">"   "</span> +student.getAge());</span><br></pre></td></tr></table></figure>
+
+<p><img src="/10/spring%E5%85%A5%E9%97%A8/125.png" alt></p>
+<h3 id="ApplicationContext：新版本的工厂类"><a href="#ApplicationContext：新版本的工厂类" class="headerlink" title="ApplicationContext：新版本的工厂类"></a>ApplicationContext：新版本的工厂类</h3><p>ApplicationContext是新版本的工厂类，它在加载配置文件的时候，就会将Spring所管理的类都实例化。</p>
+<p>除了通过ClassPathXmlApplicationContext来加载文件还可以通过磁盘加载获取 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext applicationContext = </span><br><span class="line">	<span class="keyword">new</span> FileSystemXmlApplicationContext(<span class="string">"C:\\applicationContext.xml"</span>);</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222511875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222428801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          苑勇
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="CodeYuan-Y.github.io/2020/01/10/spring入门/" title="spring入门" target="_blank">CodeYuan-Y.github.io/2020/01/10/spring入门/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -231,105 +370,130 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http:CodeYuan-Y.github.io/2020/01/10/spring%E5%85%A5%E9%97%A8/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2019-10-20T07:37:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">子查询</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/20/JDBC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/" target="_blank">JDBC使用方式</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2019-10-20T07:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
-</a>
 
-        </div>
-    	 
+
+
+
+
+
+
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">Mysql数据库常用命令</a>
+  <div id="gitment-ctn"></div>
   
-    </h1>
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "spring入门" -->
+    var gitment = new Gitment({
+      id: "20200110154324",
+      owner: 'CodeYuan-Y',
+      repo: 'CodeYuan-Y.github.io',
+      oauth: {
+        client_id: '54f1ffefcd7a55adb032',
+        client_secret: 'cc7661d367a068f5bf6ee2cb19d72b1f6fb11b67',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
   
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -370,8 +534,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
@@ -441,6 +605,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
@@ -449,15 +617,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
               </li>
             
             <div class="clearfix"></div>
