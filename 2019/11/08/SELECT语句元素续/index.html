@@ -237,6 +237,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h4 id="谓词和运算符"><a href="#谓词和运算符" class="headerlink" title="谓词和运算符"></a>谓词和运算符</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">IN</span>(<span class="number">10248</span>,<span class="number">10249</span>,<span class="number">10250</span>)</span><br><span class="line"><span class="comment">--获取orderid在()这个集合里面的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">BETWEEN</span> <span class="number">10300</span> <span class="keyword">AND</span> <span class="number">10310</span>;</span><br><span class="line"><span class="comment">--获取orderid在10300到10310中间的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">empid,</span><br><span class="line">firstname,</span><br><span class="line">lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span>;</span><br><span class="line"><span class="comment">--获取lastname属性第一个字母为D的行</span></span><br><span class="line"><span class="comment">--前缀字母N的使用，代表National，用来表示字符串是一个Unicode数据类型(NCHAR或NVARCHAR)</span></span><br></pre></td></tr></table></figure>
@@ -593,11 +596,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">

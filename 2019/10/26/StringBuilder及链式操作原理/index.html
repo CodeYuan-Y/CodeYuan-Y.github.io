@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="CodeYuan-Y的博客">
 <meta property="og:description" content="String类string类是java的基础类之一。 虽然可以用来拼接字符串,但是,效率并不高，原因是在每次进行拼接的时候都会产生对象，导致在操作过后产生许多无用的中间对象，如果频繁操作不仅浪费内存还会影响效率。 以下是String拼接方式 12345String s = &amp;quot;hello&amp;quot;;for (int i = -1;i &amp;lt; 6;i++)    s = s + &amp;quo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-26T11:33:08.379Z">
+<meta property="og:updated_time" content="2020-03-24T06:47:37.077Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -237,14 +237,17 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="String类"><a href="#String类" class="headerlink" title="String类"></a><strong>String类</strong></h3><p>string类是java的基础类之一。</p>
+    <h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a><strong>String类</strong></h2><p>string类是java的基础类之一。</p>
 <p>虽然可以用来拼接字符串,但是,效率并不高，原因是在每次进行拼接的时候都会产生对象，导致在操作过后产生许多无用的中间对象，如果频繁操作不仅浪费内存还会影响效率。</p>
 <p>以下是String拼接方式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;hello&quot;;</span><br><span class="line">for (int i = -1;i &lt; 6;i++)</span><br><span class="line">    s = s + &quot;,&quot; + i;</span><br><span class="line">System.out.println(s);</span><br><span class="line">//结果 hello,-1,0,1,2,3,4,5</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="StringBuffer类与StringBuilder类"><a href="#StringBuffer类与StringBuilder类" class="headerlink" title="StringBuffer类与StringBuilder类"></a><strong>StringBuffer类与StringBuilder类</strong></h3><p><code>StringBuffer</code>是为了解决<code>String</code>类大量拼接字符串时产生过多中间对象的提供的一个类。</p>
+<h2 id="StringBuffer类与StringBuilder类"><a href="#StringBuffer类与StringBuilder类" class="headerlink" title="StringBuffer类与StringBuilder类"></a><strong>StringBuffer类与StringBuilder类</strong></h2><p><code>StringBuffer</code>是为了解决<code>String</code>类大量拼接字符串时产生过多中间对象的提供的一个类。</p>
 <p><code>StringBuffer</code>与<code>StringBuilder</code>之间最大的不同在于<code>StringBuffer</code>是线程安全的而<code>StringBuilder</code>不是，其他方面二者几乎一模一样，由于<code>StringBuilder</code>不执行同步所以<code>StringBuilder</code>更快。在多数情况下使用<code>StringBuilder</code>更合适因为其效率更高，若要考虑线性安全问题则应使用<code>StringBuffer</code>。</p>
 <p>以下是<code>StringBuffer</code>拼接方式</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer(<span class="string">"Hello"</span>);</span><br><span class="line">stringBuffer.append(<span class="string">" World"</span>)</span><br><span class="line">    		.append(<span class="string">"!"</span>);</span><br><span class="line">System.out.println(stringBuffer);</span><br><span class="line"><span class="comment">//结果 Hello World！</span></span><br></pre></td></tr></table></figure>
@@ -259,7 +262,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        creatBuilders cb = <span class="keyword">new</span> creatBuilders();</span><br><span class="line">        cb.createBuilding(<span class="string">"草屋"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"城楼"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"马庐"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"炮楼"</span>)</span><br><span class="line">                .createBuilding(<span class="string">"粮草营"</span>);</span><br><span class="line">        System.out.println(cb.getAllBuilder());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除最新创建的建筑</span></span><br><span class="line">        cb.deleteLastBuilder();</span><br><span class="line">        System.out.println(cb.getAllBuilder());</span><br><span class="line">        <span class="comment">//删除建筑</span></span><br><span class="line">        cb.deleteBuilder(<span class="string">"马庐"</span>);</span><br><span class="line">        System.out.println(cb.getAllBuilder());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">结果</span></span><br><span class="line"><span class="comment">草屋 城楼 马庐 炮楼 粮草营 </span></span><br><span class="line"><span class="comment">草屋 城楼 马庐 炮楼</span></span><br><span class="line"><span class="comment">草屋 城楼 炮楼</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>1、<code>StringBuilder</code>是可变对象，能够用来高效拼接；</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>1、<code>StringBuilder</code>是可变对象，能够用来高效拼接；</p>
 <p>2、由于去掉了线程安全保护的功能，所以<code>StringBuilder</code>比<code>StringBuffer</code>拼接效率更高；</p>
 <p>3、<code>StringBuilder</code>可以支持链式操作，当然StringBuffer也可以；</p>
 
@@ -577,11 +580,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">

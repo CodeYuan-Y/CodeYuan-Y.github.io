@@ -237,6 +237,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> TSQL2012;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	empid,</span><br><span class="line">	<span class="keyword">YEAR</span>(orderdate) <span class="keyword">AS</span> orderyear,	<span class="comment">--获取时间点钟的年</span></span><br><span class="line">	<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> numorders		<span class="comment">--通过GROUP BY分组每组的行数量	</span></span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> custid = <span class="number">71</span>			<span class="comment">--仅筛选 客户ID = 71的订单			</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> empid,<span class="keyword">YEAR</span>(orderdate)		<span class="comment">--按照 雇员ID 与 订单年度 进行分组</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt; <span class="number">1</span>			<span class="comment">--仅筛选出大于1的订单组</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> empid,orderyear;		<span class="comment">--按照 雇员ID 和 订单 输出行</span></span><br></pre></td></tr></table></figure>
@@ -604,11 +607,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">

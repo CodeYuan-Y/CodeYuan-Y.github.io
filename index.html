@@ -218,6 +218,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="4-1-自包含子查询"><a href="#4-1-自包含子查询" class="headerlink" title="4.1 自包含子查询"></a>4.1 自包含子查询</h3><h4 id="4-1-1-自包含标量子查询示例"><a href="#4-1-1-自包含标量子查询示例" class="headerlink" title="4.1.1 自包含标量子查询示例"></a>4.1.1 自包含标量子查询示例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--获取订单号最大的订单的信息</span></span><br><span class="line"><span class="keyword">DECLARE</span> @maxid <span class="built_in">INT</span> = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = @maxid</span><br><span class="line"></span><br><span class="line"><span class="comment">#嵌入式代码实现-标量子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"><span class="comment">#标量子查询返回多个值,查询会失效</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回有姓氏以字母B开头的任意雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span></span><br><span class="line"><span class="comment">#先执行以上内容，发现以B开头的雇员只有一个，所以以下执行正常	 </span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span>)</span><br><span class="line"><span class="comment">--返回有姓氏中含有a的雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span></span><br><span class="line"><span class="comment">#先执行以上代码发现姓氏中有a的雇员有三个所以导致下面查询无效</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span>)</span><br></pre></td></tr></table></figure>
@@ -306,6 +309,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="交叉联接"><a href="#交叉联接" class="headerlink" title="交叉联接"></a>交叉联接</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	C.custid,</span><br><span class="line">	E.empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C</span><br><span class="line">	<span class="keyword">CROSS</span> <span class="keyword">JOIN</span> HR.Employees <span class="keyword">AS</span> E</span><br><span class="line"><span class="comment">--ANSI SQL-92语法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	C.custid,</span><br><span class="line">	E.empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C,HR.Employees <span class="keyword">AS</span> E</span><br><span class="line"><span class="comment">--ANSI SQL-89语法</span></span><br><span class="line"><span class="comment">--两者之间没有逻辑或性能差异，但建议使用ANSI SQL-92语法</span></span><br></pre></td></tr></table></figure>
@@ -394,6 +400,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h2><p>Redis 事务可以一次执行多个命令，并且带有以下两个重要保证:</p>
@@ -492,6 +501,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis-HyperLogLog"><a href="#Redis-HyperLogLog" class="headerlink" title="Redis HyperLogLog"></a>Redis HyperLogLog</h2><ul>
@@ -585,6 +597,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis-有序集合-sorted-set-命令"><a href="#Redis-有序集合-sorted-set-命令" class="headerlink" title="Redis 有序集合(sorted set) 命令"></a>Redis 有序集合(sorted set) 命令</h2><table>
@@ -760,6 +775,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis-集合-Set-命令"><a href="#Redis-集合-Set-命令" class="headerlink" title="Redis 集合(Set) 命令"></a>Redis 集合(Set) 命令</h2><table>
@@ -915,6 +933,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis-哈希-Hash-命令"><a href="#Redis-哈希-Hash-命令" class="headerlink" title="Redis 哈希(Hash) 命令"></a>Redis 哈希(Hash) 命令</h2><table>
@@ -1062,6 +1083,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis-列表-List-命令"><a href="#Redis-列表-List-命令" class="headerlink" title="Redis 列表(List) 命令"></a>Redis 列表(List) 命令</h2><table>
@@ -1225,6 +1249,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis-字符串-String"><a href="#Redis-字符串-String" class="headerlink" title="Redis 字符串(String)"></a>Redis 字符串(String)</h2><h4 id="Redis-字符串-String-命令"><a href="#Redis-字符串-String-命令" class="headerlink" title="Redis 字符串(String) 命令"></a>Redis 字符串(String) 命令</h4><table>
@@ -1400,6 +1427,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><h4 id="Redis与其他key-value缓存产品相比有以下三个特点"><a href="#Redis与其他key-value缓存产品相比有以下三个特点" class="headerlink" title="Redis与其他key-value缓存产品相比有以下三个特点"></a>Redis与其他<code>key-value</code>缓存产品相比有以下三个特点</h4><ul>
@@ -1581,11 +1611,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">

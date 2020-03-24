@@ -237,6 +237,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> TSQL2012;</span><br><span class="line"></span><br><span class="line">IF OBJECT_ID('dbo.Employees','U') IS NOT NULL</span><br><span class="line">	<span class="keyword">DROP</span> <span class="keyword">TABLE</span> dbo.Employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> dbo.Employees</span><br><span class="line">(</span><br><span class="line">	empid		<span class="built_in">INT</span>		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	firstname	<span class="built_in">VARCHAR</span>(<span class="number">30</span>) 	<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	lastname	<span class="built_in">VARCHAR</span>(<span class="number">30</span>) 	<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	hiredate	<span class="built_in">DATE</span>		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	mgrid		<span class="built_in">INT</span>		<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	ssn		<span class="built_in">VARCHAR</span>(<span class="number">20</span>) 	<span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	salary		MONEY		<span class="keyword">NOT</span> <span class="literal">NULL</span>		</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
@@ -584,11 +587,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -237,6 +237,9 @@
   
   </header>
   
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
     <h3 id="交叉联接"><a href="#交叉联接" class="headerlink" title="交叉联接"></a>交叉联接</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	C.custid,</span><br><span class="line">	E.empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C</span><br><span class="line">	<span class="keyword">CROSS</span> <span class="keyword">JOIN</span> HR.Employees <span class="keyword">AS</span> E</span><br><span class="line"><span class="comment">--ANSI SQL-92语法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	C.custid,</span><br><span class="line">	E.empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C,HR.Employees <span class="keyword">AS</span> E</span><br><span class="line"><span class="comment">--ANSI SQL-89语法</span></span><br><span class="line"><span class="comment">--两者之间没有逻辑或性能差异，但建议使用ANSI SQL-92语法</span></span><br></pre></td></tr></table></figure>
@@ -582,11 +585,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
