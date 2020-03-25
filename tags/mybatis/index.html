@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CodeYuan-Y.github.io">
-  <title>子查询 | CodeYuan-Y的博客</title>
+  <title>Tag: mybatis | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="4.1 自包含子查询4.1.1 自包含标量子查询示例1234567891011121314151617181920212223242526272829--获取订单号最大的订单的信息DECLARE @maxid INT = (SELECT MAX(orderid) FROM Sales.Orders)SELECT orderid,orderdate,empid,custidFROM Sales.Or">
-<meta name="keywords" content="sql">
-<meta property="og:type" content="article">
-<meta property="og:title" content="子查询">
-<meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2019&#x2F;12&#x2F;05&#x2F;%E5%AD%90%E6%9F%A5%E8%AF%A2&#x2F;index.html">
+  <meta name="description" content="一个热爱code的男人">
+<meta name="keywords" content="1996613nba">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CodeYuan-Y的博客">
+<meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;tags&#x2F;mybatis&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="4.1 自包含子查询4.1.1 自包含标量子查询示例1234567891011121314151617181920212223242526272829--获取订单号最大的订单的信息DECLARE @maxid INT = (SELECT MAX(orderid) FROM Sales.Orders)SELECT orderid,orderdate,empid,custidFROM Sales.Or">
+<meta property="og:description" content="一个热爱code的男人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-24T06:48:19.723Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -186,321 +185,65 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-子查询" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-n">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/03/25/%E4%B8%80%E6%96%87%E5%8D%B3Mybatis/" class="archive-article-date">
+        <time datetime="2020-03-25T10:23:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+
+        </div>
+    	 
   
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2020/03/25/%E4%B8%80%E6%96%87%E5%8D%B3Mybatis/" target="_blank">一文即Mybatis</a>
   
-    <h1 class="article-title" itemprop="name">
-      子查询
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-        <time datetime="2019-12-05T02:26:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.5k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">7分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-    <div id="toc-article" class="toc-article">
-        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-        <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-自包含子查询"><span class="toc-number">1.</span> <span class="toc-text">4.1 自包含子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-自包含标量子查询示例"><span class="toc-number">1.1.</span> <span class="toc-text">4.1.1 自包含标量子查询示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2-自包含多值查询"><span class="toc-number">1.2.</span> <span class="toc-text">4.1.2 自包含多值查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-相关子查询"><span class="toc-number">2.</span> <span class="toc-text">4.2 相关子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-EXISTS-谓词"><span class="toc-number">2.1.</span> <span class="toc-text">4.2.1 EXISTS 谓词</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-超越子查询基础知识"><span class="toc-number">3.</span> <span class="toc-text">4.3 超越子查询基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-返回前一个或下一个值"><span class="toc-number">3.1.</span> <span class="toc-text">4.3.1 返回前一个或下一个值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-使用运行聚合"><span class="toc-number">3.2.</span> <span class="toc-text">4.3.2 使用运行聚合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#练习"><span class="toc-number">4.</span> <span class="toc-text">练习</span></a></li></ol>
-         </div>
-   <script type="text/javascript">
-    function showToc(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:block");
-        show_toc_btn.setAttribute("style","display:none");
-        };
-    function showBtn(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:none");
-        show_toc_btn.setAttribute("style","display:block");
-        };
-   </script>
-      
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="4-1-自包含子查询"><a href="#4-1-自包含子查询" class="headerlink" title="4.1 自包含子查询"></a>4.1 自包含子查询</h3><h4 id="4-1-1-自包含标量子查询示例"><a href="#4-1-1-自包含标量子查询示例" class="headerlink" title="4.1.1 自包含标量子查询示例"></a>4.1.1 自包含标量子查询示例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--获取订单号最大的订单的信息</span></span><br><span class="line"><span class="keyword">DECLARE</span> @maxid <span class="built_in">INT</span> = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = @maxid</span><br><span class="line"></span><br><span class="line"><span class="comment">#嵌入式代码实现-标量子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"><span class="comment">#标量子查询返回多个值,查询会失效</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回有姓氏以字母B开头的任意雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span></span><br><span class="line"><span class="comment">#先执行以上内容，发现以B开头的雇员只有一个，所以以下执行正常	 </span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span>)</span><br><span class="line"><span class="comment">--返回有姓氏中含有a的雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span></span><br><span class="line"><span class="comment">#先执行以上代码发现姓氏中有a的雇员有三个所以导致下面查询无效</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span>)</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h4 id="4-1-2-自包含多值查询"><a href="#4-1-2-自包含多值查询" class="headerlink" title="4.1.2 自包含多值查询"></a>4.1.2 自包含多值查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--返回姓氏以D开头的雇员所在的订单号</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid <span class="keyword">IN</span> (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span>)</span><br><span class="line"><span class="comment">#连接查询</span></span><br><span class="line"><span class="keyword">SELECT</span> O.orderid <span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O <span class="keyword">JOIN</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">		<span class="keyword">ON</span> O.empid = E.empid</span><br><span class="line"><span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回有美国客户的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O</span><br><span class="line"><span class="keyword">WHERE</span> O.custid <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		C.custid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C</span><br><span class="line">	<span class="keyword">WHERE</span> C.country = <span class="string">'USA'</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">#NOT IN 即可查询非美国用户</span></span><br><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O</span><br><span class="line"><span class="keyword">WHERE</span> O.custid <span class="keyword">NOT</span> <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		C.custid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C</span><br><span class="line">	<span class="keyword">WHERE</span> C.country = <span class="string">'USA'</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--创建一个dbo.Orders表 里面存储Sales.Orders中偶数的订单号</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> dbo.Orders(orderid <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">CONSTRAINT</span> PK_Orders PRIMARY <span class="keyword">KEY</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dbo.Orders(orderid)</span><br><span class="line">		<span class="keyword">SELECT</span> orderid</span><br><span class="line">		<span class="keyword">FROM</span> Sales.Orders</span><br><span class="line">		<span class="keyword">WHERE</span> orderid % <span class="number">2</span> = <span class="number">0</span></span><br><span class="line"><span class="comment">--获取dbo.Nums表中介于dbo.Orders表中订单号最大与最小之间的值且不存在于dbo.Orders表中</span></span><br><span class="line"><span class="comment">--其实最终结果就是Sales.Orders表中订单号为单数的订单号</span></span><br><span class="line"><span class="keyword">SELECT</span> n</span><br><span class="line"><span class="keyword">FROM</span> dbo.Nums</span><br><span class="line"><span class="keyword">WHERE</span> n <span class="keyword">BETWEEN</span> (<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(O.orderid) <span class="keyword">FROM</span> dbo.Orders <span class="keyword">AS</span> O)</span><br><span class="line">		<span class="keyword">AND</span> (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(O.orderid) <span class="keyword">FROM</span> dbo.Orders <span class="keyword">AS</span> O)</span><br><span class="line">	<span class="keyword">AND</span> n <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> O.orderid <span class="keyword">FROM</span> dbo.Orders <span class="keyword">AS</span> O)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-2-相关子查询"><a href="#4-2-相关子查询" class="headerlink" title="4.2 相关子查询"></a>4.2 相关子查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--先从O1中取一个custid在子查询中获取这个custid的最大orderid·</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,orderid,orderdate,empid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O1</span><br><span class="line"><span class="keyword">WHERE</span> O1.orderid = (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		<span class="keyword">MAX</span>(O2.orderid)</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O2</span><br><span class="line">	<span class="keyword">WHERE</span> O2.custid = O1.custid</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--从O1取一行数据，然后根据这行查询结果的custid在子查询中获取这个用户的的所有订单值的总和，用这行查询的订单值除以总的订单值再乘100获取这个订单值在用户总订单值中的百分比占比</span></span><br><span class="line"><span class="comment">--CAST(....AS NUMERIC(5,2))表示这个百分比占比总共有五位其中小数点后占了两位符合百分比的规则</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	orderid,custid,val,</span><br><span class="line">	<span class="keyword">CAST</span>(<span class="number">100.</span> * O1.val / (<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(O2.val)</span><br><span class="line">						<span class="keyword">FROM</span> Sales.OrderValues <span class="keyword">AS</span> O2</span><br><span class="line">						<span class="keyword">WHERE</span> O2.custid = O1.custid)</span><br><span class="line">						<span class="keyword">AS</span> <span class="built_in">NUMERIC</span>(<span class="number">5</span>,<span class="number">2</span>)) <span class="keyword">AS</span> pct</span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderValues <span class="keyword">AS</span> O1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> custid,orderid</span><br><span class="line"><span class="comment">#下面是查询结果将custid = 1或2的pct值相加结果是100</span></span><br><span class="line">orderid     custid      val                                     pct</span><br><span class="line"><span class="comment">----------- ----------- --------------------------------------- -----------------</span></span><br><span class="line"><span class="number">10643</span>       <span class="number">1</span>           <span class="number">814.50</span>                                  <span class="number">19.06</span></span><br><span class="line"><span class="number">10692</span>       <span class="number">1</span>           <span class="number">878.00</span>                                  <span class="number">20.55</span></span><br><span class="line"><span class="number">10702</span>       <span class="number">1</span>           <span class="number">330.00</span>                                  <span class="number">7.72</span></span><br><span class="line"><span class="number">10835</span>       <span class="number">1</span>           <span class="number">845.80</span>                                  <span class="number">19.79</span></span><br><span class="line"><span class="number">10952</span>       <span class="number">1</span>           <span class="number">471.20</span>                                  <span class="number">11.03</span></span><br><span class="line"><span class="number">11011</span>       <span class="number">1</span>           <span class="number">933.50</span>                                  <span class="number">21.85</span></span><br><span class="line"><span class="number">10308</span>       <span class="number">2</span>           <span class="number">88.80</span>                                   <span class="number">6.33</span></span><br><span class="line"><span class="number">10625</span>       <span class="number">2</span>           <span class="number">479.75</span>                                  <span class="number">34.20</span></span><br><span class="line"><span class="number">10759</span>       <span class="number">2</span>           <span class="number">320.00</span>                                  <span class="number">22.81</span></span><br><span class="line"><span class="number">10926</span>       <span class="number">2</span>           <span class="number">514.40</span>                                  <span class="number">36.67</span></span><br><span class="line"><span class="number">10365</span>       <span class="number">3</span>           <span class="number">403.20</span>                                  <span class="number">5.74</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-2-1-EXISTS-谓词"><a href="#4-2-1-EXISTS-谓词" class="headerlink" title="4.2.1 EXISTS 谓词"></a>4.2.1 EXISTS 谓词</h4><p>谓词<code>EXISTS</code>可接受一个查询作为输入。如果子查询作为任意行，谓词返回<code>true</code>否则返回<code>false</code></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--先获取一个西班牙客户的的信息，然后判断这个西班牙客户是否有订单存在，有的话返回客户信息                   </span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,companyname</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C</span><br><span class="line"><span class="keyword">WHERE</span> country = N<span class="string">'Spain'</span></span><br><span class="line">	<span class="keyword">AND</span>  <span class="keyword">EXISTS</span>(</span><br><span class="line">		<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O</span><br><span class="line">		<span class="keyword">WHERE</span> O.custid = C.custid</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-3-超越子查询基础知识"><a href="#4-3-超越子查询基础知识" class="headerlink" title="4.3 超越子查询基础知识"></a>4.3 超越子查询基础知识</h3><h4 id="4-3-1-返回前一个或下一个值"><a href="#4-3-1-返回前一个或下一个值" class="headerlink" title="4.3.1 返回前一个或下一个值"></a>4.3.1 返回前一个或下一个值</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--O1先查询出一行然后在O2中查询在O1订单之前运费最高额</span></span><br><span class="line"><span class="comment">--返回的结果就是每一单之前的运费最高额</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	orderid,orderdate,empid,custid,</span><br><span class="line">	(</span><br><span class="line">		<span class="keyword">SELECT</span></span><br><span class="line">			<span class="keyword">MAX</span>(freight)</span><br><span class="line">		<span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O2</span><br><span class="line">		<span class="keyword">WHERE</span> O2.orderdate &lt; O1.orderdate</span><br><span class="line">	)<span class="keyword">AS</span> premaxfreight</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O1</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-3-2-使用运行聚合"><a href="#4-3-2-使用运行聚合" class="headerlink" title="4.3.2 使用运行聚合"></a>4.3.2 使用运行聚合</h4><p>运行聚合是随着时间积累值得聚合</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--返回每年和之前总的qty，最后按照年排序</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	orderyear,qty,</span><br><span class="line">	(</span><br><span class="line">		<span class="keyword">SELECT</span></span><br><span class="line">			<span class="keyword">SUM</span>(O2.qty)</span><br><span class="line">		<span class="keyword">FROM</span> Sales.OrderTotalsByYear <span class="keyword">AS</span> O2</span><br><span class="line">		<span class="keyword">WHERE</span> O2.orderyear &lt;= O2.orderyear</span><br><span class="line">	) <span class="keyword">AS</span> runqty</span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderTotalsByYear <span class="keyword">AS</span> O1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> orderyear</span><br></pre></td></tr></table></figure>
-
-<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--4.5.1</span></span><br><span class="line"><span class="comment">#活动最后一天下得所有订单</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	orderid,orderdate,custid,empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O1</span><br><span class="line"><span class="keyword">WHERE</span> O1.orderdate = (</span><br><span class="line">	<span class="keyword">SELECT</span> </span><br><span class="line">		<span class="keyword">MAX</span>(O2.orderdate)</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O2</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--4.5.2</span></span><br><span class="line"><span class="comment">#查询数量最多的客户的所有订单</span></span><br><span class="line"><span class="comment">#最内层用TOP查询订单最多的有多少单，次内层根据订单数量将选出有这么多订单的用户id，最外层根据用户id将他们所有的订单信息查出来</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,orderid,orderdate,empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O1</span><br><span class="line"><span class="keyword">WHERE</span> O1.custid <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		custid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O2</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> custid</span><br><span class="line">	<span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(O2.orderid) = (</span><br><span class="line">		<span class="keyword">SELECT</span> </span><br><span class="line">			TOP(<span class="number">1</span>) <span class="keyword">WITH</span> <span class="keyword">TIES</span> <span class="keyword">COUNT</span>(O3.orderid)</span><br><span class="line">		<span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O3</span><br><span class="line">		<span class="keyword">GROUP</span> <span class="keyword">BY</span> O3.custid</span><br><span class="line">		<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(O3.orderid) <span class="keyword">DESC</span></span><br><span class="line">	)</span><br><span class="line">)</span><br><span class="line"><span class="comment">--4.5.3</span></span><br><span class="line"><span class="comment">#返回2008年5月1日或之后没有下单的雇员</span></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	empid,firstname,lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees </span><br><span class="line"><span class="keyword">WHERE</span> empid <span class="keyword">NOT</span> <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> </span><br><span class="line">		empid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders</span><br><span class="line">	<span class="keyword">WHERE</span> orderdate &gt; <span class="string">'20080501'</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">--4.5.4</span></span><br><span class="line"><span class="comment">#返回有客户但是没有雇员的国家</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">DISTINCT</span> country</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers</span><br><span class="line"><span class="keyword">WHERE</span> country <span class="keyword">NOT</span> <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		country</span><br><span class="line">	<span class="keyword">FROM</span> HR.Employees</span><br><span class="line">)</span><br><span class="line"><span class="comment">--4.5.5</span></span><br><span class="line"><span class="comment">#返回客户活动最后一天下的所有订单</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,orderid,orderdate ,empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O1</span><br><span class="line"><span class="keyword">WHERE</span> orderdate = (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		<span class="keyword">MAX</span>(O2.orderdate)</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O2</span><br><span class="line">	<span class="keyword">WHERE</span> O1.custid = O2.custid</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">--4.5.6</span></span><br><span class="line"><span class="comment">#返回2007年下单但是2008年没有下单的客户</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,companyname</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers</span><br><span class="line"><span class="keyword">WHERE</span> custid <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		custid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders</span><br><span class="line">	<span class="keyword">WHERE</span> orderdate &gt;= <span class="string">'20070101'</span> <span class="keyword">AND</span> orderdate &lt; <span class="string">'20080101'</span> </span><br><span class="line">) <span class="keyword">AND</span> custid <span class="keyword">NOT</span> <span class="keyword">IN</span>(</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		custid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders</span><br><span class="line">	<span class="keyword">WHERE</span> orderdate &gt;= <span class="string">'20080101'</span> <span class="keyword">AND</span> orderdate &lt; <span class="string">'20090101'</span> </span><br><span class="line">)</span><br><span class="line"><span class="comment">--4.5.7</span></span><br><span class="line"><span class="comment">#返回订购了产品12的用户</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">DISTINCT</span></span><br><span class="line">	C.custid,companyname</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C <span class="keyword">JOIN</span> Sales.Orders <span class="keyword">AS</span> O <span class="keyword">ON</span> C.custid = O.custid</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">IN</span>(</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		orderid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.OrderDetails</span><br><span class="line">	<span class="keyword">WHERE</span> productid = <span class="number">12</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">#使用exists的另一种方法</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,companyname</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span>(</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		custid</span><br><span class="line">	<span class="keyword">FROM</span> Sales.Orders <span class="keyword">AS</span> O</span><br><span class="line">	<span class="keyword">WHERE</span> C.custid = O.custid <span class="keyword">AND</span> <span class="keyword">EXISTS</span>(</span><br><span class="line">		<span class="keyword">SELECT</span> </span><br><span class="line">			*</span><br><span class="line">		<span class="keyword">FROM</span> Sales.OrderDetails <span class="keyword">AS</span> OD</span><br><span class="line">		<span class="keyword">WHERE</span> productid = <span class="number">12</span> <span class="keyword">AND</span> O.orderid = OD.orderid</span><br><span class="line">	)</span><br><span class="line">)</span><br><span class="line"><span class="comment">--4.5.7</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,ordermonth,qty,(</span><br><span class="line">		<span class="keyword">SELECT</span></span><br><span class="line">			<span class="keyword">SUM</span>(CO2.qty)</span><br><span class="line">		<span class="keyword">FROM</span> Sales.CustOrders <span class="keyword">AS</span> CO2</span><br><span class="line">		<span class="keyword">WHERE</span> CO1.custid = CO2.custid</span><br><span class="line">			<span class="keyword">AND</span> CO2.ordermonth &lt;= CO1.ordermonth</span><br><span class="line">	  )</span><br><span class="line"><span class="keyword">FROM</span> Sales.CustOrders <span class="keyword">AS</span> CO1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> custid,ordermonth</span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-    <div class="page-reward">
-      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
-        <div class="tooltip tooltip-east">
-          <span class="tooltip-item">
-            赏
-          </span>
-          <span class="tooltip-content">
-            <span class="tooltip-text">
-              <span class="tooltip-inner">
-                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
-                    class="icon icon-quo-right"></i></p>
-                <div class="reward-box">
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222511875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
-                    <span class="reward-type">支付宝</span>
-                  </div>
-                  
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222428801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
-                    <span class="reward-type">微信</span>
-                  </div>
-                  
-                </div>
-              </span>
-            </span>
-          </span>
-        </div>
-      </a>
-    </div>
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          苑勇
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="http://CodeYuan-Y.github.io/2019/12/05/子查询/" title="子查询" target="_blank">http://CodeYuan-Y.github.io/2019/12/05/子查询/</a>
-        </li>
-        <li>
-          <strong>版权声明： </strong>
-          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
-        </li>
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://codeyuan-y.github.io/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2020/03/25/%E4%B8%80%E6%96%87%E5%8D%B3Mybatis/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          一文即Mybatis
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/12/02/%E8%81%94%E6%8E%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">联接</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-自包含子查询"><span class="toc-number">1.</span> <span class="toc-text">4.1 自包含子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-自包含标量子查询示例"><span class="toc-number">1.1.</span> <span class="toc-text">4.1.1 自包含标量子查询示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2-自包含多值查询"><span class="toc-number">1.2.</span> <span class="toc-text">4.1.2 自包含多值查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-相关子查询"><span class="toc-number">2.</span> <span class="toc-text">4.2 相关子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-EXISTS-谓词"><span class="toc-number">2.1.</span> <span class="toc-text">4.2.1 EXISTS 谓词</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-超越子查询基础知识"><span class="toc-number">3.</span> <span class="toc-text">4.3 超越子查询基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-返回前一个或下一个值"><span class="toc-number">3.1.</span> <span class="toc-text">4.3.1 返回前一个或下一个值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-使用运行聚合"><span class="toc-number">3.2.</span> <span class="toc-text">4.3.2 使用运行聚合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#练习"><span class="toc-number">4.</span> <span class="toc-text">练习</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-  
-  <div id="gitment-ctn"></div>
-  
-    <!-- 中文 -->
-    <link rel="stylesheet" href="/lib/gitment.css">
-    <script src="/lib/gitment.js"></script>
-  
-  <script>
-    <!-- id: "子查询" -->
-    var gitment = new Gitment({
-      id: "20191205102603",
-      owner: 'CodeYuan-Y',
-      repo: 'CodeYuan-Y.github.io',
-      oauth: {
-        client_id: '54f1ffefcd7a55adb032',
-        client_secret: 'cc7661d367a068f5bf6ee2cb19d72b1f6fb11b67',
-      },
-    })
-    gitment.render('gitment-ctn')
-  </script>
-
-
+    </div></section>
   
 
+    
 
 
           </div>
@@ -541,9 +284,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
