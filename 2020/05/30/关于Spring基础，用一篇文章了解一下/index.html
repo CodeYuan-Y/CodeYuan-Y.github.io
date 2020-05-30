@@ -18,11 +18,8 @@
 <meta property="og:site_name" content="CodeYuan-Y的博客">
 <meta property="og:description" content="Spring介绍优点 Spring是一个免费开源的框架（容器） Spring是一个轻量级、非入侵式的框架：从框架的角度可以理解为：无需继承框架提供的任何类这样我们在更换框架时，之前写过的代码几乎可以继续使用。  反转控制（IoC)、面向切面编程（AOP） 支持事务的处理，对框架整合支持">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2020&#x2F;05&#x2F;30&#x2F;%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B&#x2F;1219227-20170930225010356-45057485.gif">
-<meta property="og:image" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2020&#x2F;05&#x2F;30&#x2F;%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B&#x2F;20190831202906279.png">
-<meta property="og:updated_time" content="2020-05-30T13:04:52.433Z">
+<meta property="og:updated_time" content="2020-05-30T13:11:14.212Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2020&#x2F;05&#x2F;30&#x2F;%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B&#x2F;1219227-20170930225010356-45057485.gif">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
   
@@ -277,7 +274,8 @@
 </ul>
 <a id="more"></a>
 
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p><img src="/2020/05/30/%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/1219227-20170930225010356-45057485.gif" alt></p>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3>
+
 <h3 id="框架结构"><a href="#框架结构" class="headerlink" title="框架结构"></a>框架结构</h3><ul>
 <li><p><strong>Data Access/Integration层</strong>包含有JDBC、ORM、OXM、JMS和Transaction模块。</p>
 </li>
@@ -305,7 +303,8 @@
 <h2 id="Spring-Ioc-与-DI"><a href="#Spring-Ioc-与-DI" class="headerlink" title="Spring Ioc 与 DI"></a>Spring Ioc 与 DI</h2><p><strong>IoC：Inverse of Control（控制反转）</strong> : 它不是什么技术，而是一种<strong>设计思想</strong>，就是<strong>将原本在程序中手动创建对象的控制权，交由Spring框架来管理。</strong> </p>
 <p> <strong>DI：Dependency Injection（依赖注入）</strong> ： 指 Spring 创建对象的过程中，<strong>将对象依赖属性（简单值，集合，对象）通过配置设值给该对象</strong> 。</p>
 <h3 id="创建第一个Ioc程序"><a href="#创建第一个Ioc程序" class="headerlink" title="创建第一个Ioc程序"></a>创建第一个Ioc程序</h3><p>​    首先，我们需要创建Spring的配置文件，Spring配置文件的名称和位置没有固定要求，一般建议把该文件放到src目录下面，名称可随便写，官方建议写成<code>applicationContext.xml</code>。然后我们还需要在配置文件中引入约束，Spring学习阶段的约束是schema约束。那么问题来了，这个约束又该怎么写呢？可参考<code>docs\spring-framework-reference\html</code>目录下的<code>xsd-configuration.html</code>文件，在其内容最后面找到如下内容。</p>
-<p><img src="/2020/05/30/%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/20190831202906279.png" alt="在这里插入图片描述"> </p>
+ 
+
 <p>​        将其复制黏贴到配置文件<code>applicationContext.xml</code>中，这样<code>applicationContext.xml</code>文件的内容就是下面的样子了。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -1055,11 +1054,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
