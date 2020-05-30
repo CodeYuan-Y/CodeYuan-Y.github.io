@@ -191,6 +191,184 @@
             
 
   
+    <article id="post-Redis数据类型String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/" target="_blank">Redis数据类型String</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/" class="archive-article-date">
+        <time datetime="2019-11-24T09:15:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Redis-字符串-String"><a href="#Redis-字符串-String" class="headerlink" title="Redis 字符串(String)"></a>Redis 字符串(String)</h2><h4 id="Redis-字符串-String-命令"><a href="#Redis-字符串-String-命令" class="headerlink" title="Redis 字符串(String) 命令"></a>Redis 字符串(String) 命令</h4><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3552.html" target="_blank" rel="noopener">Redis Setnx 命令</a></td>
+<td align="left">只有在 key 不存在时设置 key 的值。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3546.html" target="_blank" rel="noopener">Redis Getrange 命令</a></td>
+<td align="left">返回 key 中字符串值的子字符</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3555.html" target="_blank" rel="noopener">Redis Mset 命令</a></td>
+<td align="left">同时设置一个或多个 key-value 对。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3551.html" target="_blank" rel="noopener">Redis Setex 命令</a></td>
+<td align="left">将值 value 关联到 key ，并将 key 的过期时间设为 seconds (以秒为单位)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3544.html" target="_blank" rel="noopener">Redis SET 命令</a></td>
+<td align="left">设置指定 key 的值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3545.html" target="_blank" rel="noopener">Redis Get 命令</a></td>
+<td align="left">获取指定 key 的值。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3548.html" target="_blank" rel="noopener">Redis Getbit 命令</a></td>
+<td align="left">对 key 所储存的字符串值，获取指定偏移量上的位(bit)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3550.html" target="_blank" rel="noopener">Redis Setbit 命令</a></td>
+<td align="left">对 key 所储存的字符串值，设置或清除指定偏移量上的位(bit)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3561.html" target="_blank" rel="noopener">Redis Decr 命令</a></td>
+<td align="left">将 key 中储存的数字值减一。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3562.html" target="_blank" rel="noopener">Redis Decrby 命令</a></td>
+<td align="left">key 所储存的值减去给定的减量值（decrement） 。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3554.html" target="_blank" rel="noopener">Redis Strlen 命令</a></td>
+<td align="left">返回 key 所储存的字符串值的长度。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3556.html" target="_blank" rel="noopener">Redis Msetnx 命令</a></td>
+<td align="left">同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3559.html" target="_blank" rel="noopener">Redis Incrby 命令</a></td>
+<td align="left">将 key 所储存的值加上给定的增量值（increment） 。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3560.html" target="_blank" rel="noopener">Redis Incrbyfloat 命令</a></td>
+<td align="left">将 key 所储存的值加上给定的浮点增量值（increment） 。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3553.html" target="_blank" rel="noopener">Redis Setrange 命令</a></td>
+<td align="left">用 value 参数覆写给定 key 所储存的字符串值，从偏移量 offset 开始。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3557.html" target="_blank" rel="noopener">Redis Psetex 命令</a></td>
+<td align="left">这个命令和 SETEX 命令相似，但它以毫秒为单位设置 key 的生存时间，而不是像 SETEX 命令那样，以秒为单位。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3563.html" target="_blank" rel="noopener">Redis Append 命令</a></td>
+<td align="left">如果 key 已经存在并且是一个字符串， APPEND 命令将 value 追加到 key 原来的值的末尾。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3547.html" target="_blank" rel="noopener">Redis Getset 命令</a></td>
+<td align="left">将给定 key 的值设为 value ，并返回 key 的旧值(old value)。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3549.html" target="_blank" rel="noopener">Redis Mget 命令</a></td>
+<td align="left">获取所有(一个或多个)给定 key 的值。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3558.html" target="_blank" rel="noopener">Redis Incr 命令</a></td>
+<td align="left">将 key 中储存的数字值增一。</td>
+</tr>
+</tbody></table>
+    
+    <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BString/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Redis基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -960,11 +1138,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,6 +1151,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
