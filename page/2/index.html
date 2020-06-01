@@ -191,6 +191,172 @@
             
 
   
+    <article id="post-Redis数据类型List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList/" target="_blank">Redis数据类型List</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList/" class="archive-article-date">
+        <time datetime="2019-11-24T12:04:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Redis-列表-List-命令"><a href="#Redis-列表-List-命令" class="headerlink" title="Redis 列表(List) 命令"></a>Redis 列表(List) 命令</h2><table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3580.html" target="_blank" rel="noopener">Redis Lindex 命令</a></td>
+<td align="left">通过索引获取列表中的元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3592.html" target="_blank" rel="noopener">Redis Rpush 命令</a></td>
+<td align="left">在列表中添加一个或多个值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3586.html" target="_blank" rel="noopener">Redis Lrange 命令</a></td>
+<td align="left">获取列表指定范围内的元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3591.html" target="_blank" rel="noopener">Redis Rpoplpush 命令</a></td>
+<td align="left">移除列表的最后一个元素，并将该元素添加到另一个列表并返回</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3577.html" target="_blank" rel="noopener">Redis Blpop 命令</a></td>
+<td align="left">移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3578.html" target="_blank" rel="noopener">Redis Brpop 命令</a></td>
+<td align="left">移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3579.html" target="_blank" rel="noopener">Redis Brpoplpush 命令</a></td>
+<td align="left">从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3587.html" target="_blank" rel="noopener">Redis Lrem 命令</a></td>
+<td align="left">移除列表元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3582.html" target="_blank" rel="noopener">Redis Llen 命令</a></td>
+<td align="left">获取列表长度</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3589.html" target="_blank" rel="noopener">Redis Ltrim 命令</a></td>
+<td align="left">对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3583.html" target="_blank" rel="noopener">Redis Lpop 命令</a></td>
+<td align="left">移出并获取列表的第一个元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3585.html" target="_blank" rel="noopener">Redis Lpushx 命令</a></td>
+<td align="left">将一个或多个值插入到已存在的列表头部</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3581.html" target="_blank" rel="noopener">Redis Linsert 命令</a></td>
+<td align="left">在列表的元素前或者后插入元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3590.html" target="_blank" rel="noopener">Redis Rpop 命令</a></td>
+<td align="left">移除并获取列表最后一个元素</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3588.html" target="_blank" rel="noopener">Redis Lset 命令</a></td>
+<td align="left">通过索引设置列表元素的值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3584.html" target="_blank" rel="noopener">Redis Lpush 命令</a></td>
+<td align="left">将一个或多个值插入到列表头部</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.redis.net.cn/order/3593.html" target="_blank" rel="noopener">Redis Rpushx 命令</a></td>
+<td align="left">为已存在的列表添加值</td>
+</tr>
+</tbody></table>
+    
+    <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BList/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Redis数据类型String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CodeYuan-Y.github.io">
-  <title>CodeYuan-Y的博客</title>
+  <title>Spring于Mybatis整合 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <meta name="keywords" content="菜鸟弱鸡">
-  
-  <meta name="description" content="菜鸟弱鸡">
-<meta name="keywords" content="1996613nba">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeYuan-Y的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;index.html">
+  <meta name="description" content="什么是 MyBatis-Spring？​        MyBatis-Spring 会帮助你将 MyBatis 代码无缝地整合到 Spring 中。它将允许 MyBatis 参与到 Spring 的事务管理之中，创建映射器 mapper 和 SqlSession 并注入到 bean 中，以及将 Mybatis 的异常转换为 Spring 的 DataAccessException。最终，可以做到">
+<meta name="keywords" content="spring,mybatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring于Mybatis整合">
+<meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2020&#x2F;06&#x2F;01&#x2F;Spring%E4%BA%8EMybatis%E6%95%B4%E5%90%88&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="菜鸟弱鸡">
+<meta property="og:description" content="什么是 MyBatis-Spring？​        MyBatis-Spring 会帮助你将 MyBatis 代码无缝地整合到 Spring 中。它将允许 MyBatis 参与到 Spring 的事务管理之中，创建映射器 mapper 和 SqlSession 并注入到 bean 中，以及将 Mybatis 的异常转换为 Spring 的 DataAccessException。最终，可以做到">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-06-01T13:03:19.917Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -188,25 +186,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-Spring于Mybatis整合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Spring于Mybatis整合" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/06/01/Spring%E4%BA%8EMybatis%E6%95%B4%E5%90%88/" target="_blank">Spring于Mybatis整合</a>
-  
+    <h1 class="article-title" itemprop="name">
+      Spring于Mybatis整合
     </h1>
   
 
 
   
   
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/06/01/Spring%E4%BA%8EMybatis%E6%95%B4%E5%90%88/" class="archive-article-date">
         <time datetime="2020-06-01T12:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
 </a>
@@ -214,12 +212,57 @@
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">11分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
   
   <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-MyBatis-Spring？"><span class="toc-number">1.</span> <span class="toc-text">什么是 MyBatis-Spring？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要配置"><span class="toc-number">2.</span> <span class="toc-text">主要配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置一个数据源"><span class="toc-number">2.1.</span> <span class="toc-text">配置一个数据源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建SqlSessionFactory"><span class="toc-number">2.2.</span> <span class="toc-text">创建SqlSessionFactory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册SqlSessionTemplate"><span class="toc-number">2.3.</span> <span class="toc-text">注册SqlSessionTemplate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个简单的实例"><span class="toc-number">3.</span> <span class="toc-text">创建一个简单的实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#另一种实现方式"><span class="toc-number">4.</span> <span class="toc-text">另一种实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">5.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启Spring的事务管理"><span class="toc-number">5.1.</span> <span class="toc-text">开启Spring的事务管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后配置事务的通知"><span class="toc-number">5.2.</span> <span class="toc-text">然后配置事务的通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后将其织入AOP"><span class="toc-number">5.3.</span> <span class="toc-text">最后将其织入AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个小例子"><span class="toc-number">5.4.</span> <span class="toc-text">一个小例子</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
 <!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
@@ -251,13 +294,157 @@
 <td align="left">Java 6+</td>
 </tr>
 </tbody></table>
-    
-    <a class="article-more-a" href="/2020/06/01/Spring%E4%BA%8EMybatis%E6%95%B4%E5%90%88/#more">more >></a>
-    
-    
+<a id="more"></a>
+
+<p>在maven中需要添加MyBatis-Spring依赖，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    除了mybatis-Spring依赖外，还需要添加Spring的事务依赖，因为ORM框架中肯定会出现很多事务相关的内容，所以这是后面是必不可免的！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-tx<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="主要配置"><a href="#主要配置" class="headerlink" title="主要配置"></a>主要配置</h2><p>​    整合过程中我们应该把所有的配置放在Spring的配置文件中，也可以配置使用Mybatis配置文件，但是一般是用作辅助。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置一个数据源"><a href="#配置一个数据源" class="headerlink" title="配置一个数据源"></a>配置一个数据源</h3><p>首先创建一个jdbc.properties文件，里面存储一些连接数据库的信息。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">jdbc.driver</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="meta">jdbc.url</span>=<span class="string">jdbc:mysql://localhost:3306/mybatis</span></span><br><span class="line"><span class="meta">jdbc.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">jdbc.password</span>=<span class="string">1996613nba</span></span><br></pre></td></tr></table></figure>
+
+<p>然后加载配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:jdbc.properties"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>创建数据源</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置数据源：数据源有非常多，可以使用第三方的(比如说c3p0、druid等连接池)，也可使使用Spring的--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driver&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建SqlSessionFactory"><a href="#创建SqlSessionFactory" class="headerlink" title="创建SqlSessionFactory"></a>创建<code>SqlSessionFactory</code></h3><p>​    在基础的 MyBatis 用法中，是通过 <code>SqlSessionFactoryBuilder</code> 来创建 <code>SqlSessionFactory</code> 的。而在 <code>MyBatis-Spring</code> 中，则使用 <code>SqlSessionFactoryBean</code>来创建。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--使用 SqlSessionFactoryBean来创建 SqlSessionFactory--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置数据源--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置类型别名--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"typeAliasesPackage"</span> <span class="attr">value</span>=<span class="string">"com.mybatis.pojo"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--扫描mapper--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mapperLocations"</span> <span class="attr">value</span>=<span class="string">"classpath:com/mybatis/mapper/*.xml"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--扫描mybatis配置文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span> <span class="attr">value</span>=<span class="string">"classpath:mybatis-config.xml"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    在这个<code>&lt;bean&gt;</code>标签中可以配置原来<code>mybatis-config.xml</code>中的一些配置，比如数据源、别名等，甚至可以导入原来的mybatis配置文件。</p>
+<h3 id="注册SqlSessionTemplate"><a href="#注册SqlSessionTemplate" class="headerlink" title="注册SqlSessionTemplate"></a>注册<code>SqlSessionTemplate</code></h3><p>​    在 MyBatis 中，你可以使用 <code>SqlSessionFactory</code> 来创建 <code>SqlSession</code>。一旦你获得一个 session 之后，你可以使用它来执行映射了的语句，提交或回滚连接，最后，当不再需要它的时候，你可以关闭 session。使用 MyBatis-Spring 之后，你不再需要直接使用 <code>SqlSessionFactory</code> 了，因为你的 bean 可以被注入一个线程安全的 <code>SqlSession</code>，它能基于 Spring 的事务配置来自动提交、回滚、关闭 session。</p>
+<p>​    <code>SqlSessionTemplate</code> 是 MyBatis-Spring 的核心。作为 <code>SqlSession</code> 的一个实现，这意味着可以使用它无缝代替你代码中已经在使用的 <code>SqlSession</code>。<code>SqlSessionTemplate</code> 是线程安全的，可以被多个 DAO 或映射器所共享使用。</p>
+<p>​    当调用 SQL 方法时（包括由 <code>getMapper()</code> 方法返回的映射器中的方法），<code>SqlSessionTemplate</code> 将会保证使用的 <code>SqlSession</code> 与当前 Spring 的事务相关。此外，它管理 session 的生命周期，包含必要的关闭、提交或回滚操作。另外，它也负责将 MyBatis 的异常翻译成 Spring 中的 <code>DataAccessExceptions</code>。</p>
+<p>​    由于模板可以参与到 Spring 的事务管理中，并且由于其是线程安全的，可以供多个映射器类使用，你应该<strong>总是</strong>用 <code>SqlSessionTemplate</code> 来替换 MyBatis 默认的 <code>DefaultSqlSession</code> 实现。在同一应用程序中的不同类之间混杂使用可能会引起数据一致性的问题。</p>
+<p>​    可以使用 <code>SqlSessionFactory</code> 作为构造方法的参数来创建 <code>SqlSessionTemplate</code> 对象。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注册sqlSessionTemplate , 关联sqlSessionFactory--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSession"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionTemplate"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--利用构造器注入--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">ref</span>=<span class="string">"sqlSessionFactory"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建一个简单的实例"><a href="#创建一个简单的实例" class="headerlink" title="创建一个简单的实例"></a>创建一个简单的实例</h2><p>创建一个pojo类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mybatis.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：苑勇</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/5/30 21:57</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>：User实体类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建Mapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mybatis;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mybatis.pojo.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：苑勇</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/5/30 21:56</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>：User接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">select</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建一个Mapper实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mybatis;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mybatis.pojo.User;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.spring.SqlSessionTemplate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：苑勇</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/5/30 22:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserMapperImpl</span>  <span class="keyword">implements</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * sqlSession不用我们自己创建了，Spring来管理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> SqlSessionTemplate sqlSession;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSqlSession</span><span class="params">(SqlSessionTemplate sqlSession)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sqlSession = sqlSession;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">select</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">        <span class="keyword">return</span> mapper.select();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建<code>mapper.xml</code>文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.mybatis.UserMapper"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--虽然返回的值是List&lt;User&gt; Mybatis会根据实际情况将返回值判断是User或List&lt;User&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"select"</span> <span class="attr">resultType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">        select * from user where 1 = 1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注入 <code>SqlSessionTemplate</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注册bean实现--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userMapperImpl"</span> <span class="attr">class</span>=<span class="string">"com.mybatis.UserMapperImpl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sqlSession"</span> <span class="attr">ref</span>=<span class="string">"sqlSession"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试类进行测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.mybatis.pojo.User;</span><br><span class="line"><span class="keyword">import</span> com.mybatis.UserMapper;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：苑勇</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/5/30 22:29</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisSpringTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">        UserMapper mapper = (UserMapper) context.getBean(<span class="string">"userMapperImpl"</span>);</span><br><span class="line">        List&lt;User&gt; user = mapper.select();</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">JDBC Connection [com.mysql.jdbc.JDBC4Connection@3c7c886c] will not be managed by Spring</span><br><span class="line">==&gt;  Preparing: select * from user where 1 = 1 </span><br><span class="line">==&gt; Parameters: </span><br><span class="line">&lt;==    Columns: id, username, birthday, sex, address</span><br><span class="line">&lt;==        Row: 1, CodeYuan-Y, null, 男, 山东青岛</span><br><span class="line">&lt;==        Row: 10, 张三, 2014-07-10, 1, 北京市</span><br><span class="line">&lt;==        Row: 16, 张小明, null, 1, 河南郑州</span><br><span class="line">&lt;==        Row: 22, 陈小明, null, 1, 河南郑州</span><br><span class="line">&lt;==        Row: 24, 张三丰, null, 1, 河南郑州</span><br><span class="line">&lt;==        Row: 25, 陈小明, null, 1, 河南郑州</span><br><span class="line">&lt;==        Row: 26, 王五, null, null, null</span><br><span class="line">&lt;==        Row: 35, CodeYuan-Y, 2020-03-23, 男, 青岛市</span><br><span class="line">&lt;==      Total: 8</span><br><span class="line">Closing non transactional SqlSession</span><br></pre></td></tr></table></figure>
+
+<h2 id="另一种实现方式"><a href="#另一种实现方式" class="headerlink" title="另一种实现方式"></a>另一种实现方式</h2><p>​    <code>SqlSessionDaoSupport</code> 是一个抽象的支持类，用来为你提供 <code>SqlSession</code>。调用 <code>getSqlSession()</code> 方法你会得到一个 <code>SqlSessionTemplate</code>。</p>
+<p>​    然后我们可以将上面的<code>UserMapperImpl</code>类改为以下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mybatis;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mybatis.pojo.User;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.spring.SqlSessionTemplate;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.spring.support.SqlSessionDaoSupport;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：苑勇</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/5/30 22:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserMapperImpl</span> <span class="keyword">extends</span> <span class="title">SqlSessionDaoSupport</span> <span class="keyword">implements</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">select</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UserMapper mapper = getSqlSession().getMapper(UserMapper.class);</span><br><span class="line">        <span class="keyword">return</span> mapper.select();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    然后可以把<code>applicationContext.xml</code>中的关于<code>SqlSessionTemplate</code>的<code>bean</code>去掉，而且注册bean应改为以下方式。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注册bean实现--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userMapperImpl"</span> <span class="attr">class</span>=<span class="string">"com.mybatis.UserMapperImpl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sqlSessionFactory"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>Spring在不同的事务管理API之上定义了一个抽象层，使得开发人员不必了解底层的事务管理API就可以使用Spring的事务管理机制。Spring支持编程式事务管理和声明式的事务管理。</p>
+<p><strong>编程式事务管理</strong></p>
+<ul>
+<li>将事务管理代码嵌到业务方法中来控制事务的提交和回滚</li>
+<li>缺点：必须在每个事务操作业务逻辑中包含额外的事务管理代码</li>
+</ul>
+<p><strong>声明式事务管理</strong></p>
+<ul>
+<li>一般情况下比编程式事务好用。</li>
+<li>将事务管理代码从业务方法中分离出来，以声明的方式来实现事务管理。</li>
+<li>将事务管理作为横切关注点，通过aop方法模块化。Spring中通过Spring AOP框架支持声明式事务管理。</li>
+</ul>
+<p><strong>事务管理器</strong></p>
+<ul>
+<li>无论使用Spring的哪种事务管理策略（编程式或者声明式）事务管理器都是必须的。</li>
+<li>就是 Spring的核心事务管理抽象，管理封装了一组独立于技术的方法。</li>
+</ul>
+<h3 id="开启Spring的事务管理"><a href="#开启Spring的事务管理" class="headerlink" title="开启Spring的事务管理"></a>开启Spring的事务管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入Spring事务--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> 		        <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="然后配置事务的通知"><a href="#然后配置事务的通知" class="headerlink" title="然后配置事务的通知"></a>然后配置事务的通知</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置事务通知--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"txAdvice"</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--* 代表所有--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span> <span class="attr">propagation</span>=<span class="string">"REQUIRED"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>spring事务传播特性：</strong></p>
+<p>事务传播行为就是多个事务方法相互调用时，事务如何在这些方法间传播。spring支持7种事务传播行为：</p>
+<ul>
+<li>required：如果当前没有事务，就新建一个事务，如果已存在一个事务中，加入到这个事务中，这是最常见的选择。</li>
+<li>supports：支持当前事务，如果没有当前事务，就以非事务方法执行。</li>
+<li>mandatory：使用当前事务，如果没有当前事务，就抛出异常。</li>
+<li>required_new：新建事务，如果当前存在事务，把当前事务挂起。</li>
+<li>supported：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
+<li>never：以非事务方式执行操作，如果当前事务存在则抛出异常。</li>
+<li>nested：如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与required类似的操作</li>
+</ul>
+<p>Spring 默认的事务传播行为是 required，它适合于绝大多数的情况。</p>
+<h3 id="最后将其织入AOP"><a href="#最后将其织入AOP" class="headerlink" title="最后将其织入AOP"></a>最后将其织入AOP</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置AOP织入事务--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"txPointcut"</span> <span class="attr">expression</span>=<span class="string">"execution(* com.mybatis.*.*(..))"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"txAdvice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"txPointcut"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一个小例子"><a href="#一个小例子" class="headerlink" title="一个小例子"></a>一个小例子</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserMapperImpl</span> <span class="keyword">extends</span> <span class="title">SqlSessionDaoSupport</span> <span class="keyword">implements</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">select</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setUsername(<span class="string">"小明"</span>);</span><br><span class="line"></span><br><span class="line">        User user2 = <span class="keyword">new</span> User();</span><br><span class="line">        user2.setId(<span class="number">16</span>);</span><br><span class="line">        user2.setUsername(<span class="string">"小明"</span>);</span><br><span class="line"></span><br><span class="line">        UserMapper mapper = getSqlSession().getMapper(UserMapper.class);</span><br><span class="line">        mapper.insert(user);</span><br><span class="line">        mapper.insert(user2);</span><br><span class="line">        <span class="keyword">return</span> mapper.select();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    id为16得数据已经存在于数据库当中，上面代码当没有配置事务时，执行这个方法可以成功得将user对象得数据插入到数据库当中，但是user2并不能，但是当事务开启时，user得数据也不能插入，这就符合了事务得原子性。</p>
 
     
 
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222511875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="https://img-blog.csdnimg.cn/20191019222428801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dYXzEyMTg2MzkwMzA=,size_16,color_FFFFFF,t_70">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          苑勇
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://CodeYuan-Y.github.io/2020/06/01/Spring于Mybatis整合/" title="Spring于Mybatis整合" target="_blank">http://CodeYuan-Y.github.io/2020/06/01/Spring于Mybatis整合/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
     
 
   </div>
@@ -282,16 +469,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/06/01/Spring%E4%BA%8EMybatis%E6%95%B4%E5%90%88/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://codeyuan-y.github.io/2020/06/01/Spring%E4%BA%8EMybatis%E6%95%B4%E5%90%88/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/30/%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于Spring基础，用一篇文章了解一下</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -306,1075 +553,56 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于Spring基础，用一篇文章了解一下" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/05/30/%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/" target="_blank">关于Spring基础，用一篇文章了解一下</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/05/30/%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/" class="archive-article-date">
-        <time datetime="2020-05-30T13:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Spring介绍"><a href="#Spring介绍" class="headerlink" title="Spring介绍"></a>Spring介绍</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>Spring是一个免费开源的框架（容器）</li>
-<li>Spring是一个轻量级、非入侵式的框架：从框架的角度可以理解为：<strong>无需继承框架提供的任何类</strong><br>这样我们在更换框架时，之前写过的代码几乎可以继续使用。 </li>
-<li>反转控制（IoC)、面向切面编程（AOP）</li>
-<li>支持事务的处理，对框架整合支持</li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/05/30/%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/05/30/%E5%85%B3%E4%BA%8ESpring%E5%9F%BA%E7%A1%80%EF%BC%8C%E7%94%A8%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-MyBatis-Spring？"><span class="toc-number">1.</span> <span class="toc-text">什么是 MyBatis-Spring？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要配置"><span class="toc-number">2.</span> <span class="toc-text">主要配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置一个数据源"><span class="toc-number">2.1.</span> <span class="toc-text">配置一个数据源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建SqlSessionFactory"><span class="toc-number">2.2.</span> <span class="toc-text">创建SqlSessionFactory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册SqlSessionTemplate"><span class="toc-number">2.3.</span> <span class="toc-text">注册SqlSessionTemplate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个简单的实例"><span class="toc-number">3.</span> <span class="toc-text">创建一个简单的实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#另一种实现方式"><span class="toc-number">4.</span> <span class="toc-text">另一种实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">5.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启Spring的事务管理"><span class="toc-number">5.1.</span> <span class="toc-text">开启Spring的事务管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#然后配置事务的通知"><span class="toc-number">5.2.</span> <span class="toc-text">然后配置事务的通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后将其织入AOP"><span class="toc-number">5.3.</span> <span class="toc-text">最后将其织入AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个小例子"><span class="toc-number">5.4.</span> <span class="toc-text">一个小例子</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
 
-  
-    <article id="n-一文即Mybatis" class="article article-type-n  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/03/25/%E4%B8%80%E6%96%87%E5%8D%B3Mybatis/" target="_blank">一文即Mybatis</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/03/25/%E4%B8%80%E6%96%87%E5%8D%B3Mybatis/" class="archive-article-date">
-        <time datetime="2020-03-25T10:23:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="什么是Mybatis"><a href="#什么是Mybatis" class="headerlink" title="什么是Mybatis"></a>什么是Mybatis</h2><ul>
-<li>MyBatis 是一款优秀的<strong>持久层框架</strong>。</li>
-<li>它支持自定义 SQL、存储过程以及高级映射。</li>
-<li>MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。</li>
-<li>MyBatis 可以通过简单的 <strong>XML</strong> 或<strong>注解</strong>来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。 </li>
-</ul>
-    
-    <a class="article-more-a" href="/2020/03/25/%E4%B8%80%E6%96%87%E5%8D%B3Mybatis/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/03/25/%E4%B8%80%E6%96%87%E5%8D%B3Mybatis/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-子查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" target="_blank">子查询</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-        <time datetime="2019-12-05T02:26:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="4-1-自包含子查询"><a href="#4-1-自包含子查询" class="headerlink" title="4.1 自包含子查询"></a>4.1 自包含子查询</h3><h4 id="4-1-1-自包含标量子查询示例"><a href="#4-1-1-自包含标量子查询示例" class="headerlink" title="4.1.1 自包含标量子查询示例"></a>4.1.1 自包含标量子查询示例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--获取订单号最大的订单的信息</span></span><br><span class="line"><span class="keyword">DECLARE</span> @maxid <span class="built_in">INT</span> = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = @maxid</span><br><span class="line"></span><br><span class="line"><span class="comment">#嵌入式代码实现-标量子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid,orderdate,empid,custid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(orderid) <span class="keyword">FROM</span> Sales.Orders)</span><br><span class="line"><span class="comment">#标量子查询返回多个值,查询会失效</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回有姓氏以字母B开头的任意雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span></span><br><span class="line"><span class="comment">#先执行以上内容，发现以B开头的雇员只有一个，所以以下执行正常	 </span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'B%'</span>)</span><br><span class="line"><span class="comment">--返回有姓氏中含有a的雇员的订单id</span></span><br><span class="line"><span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span></span><br><span class="line"><span class="comment">#先执行以上代码发现姓氏中有a的雇员有三个所以导致下面查询无效</span></span><br><span class="line"><span class="keyword">SELECT</span> orderid </span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders </span><br><span class="line"><span class="keyword">WHERE</span> empid = (<span class="keyword">SELECT</span> E.empid <span class="keyword">FROM</span> HR.Employees <span class="keyword">AS</span> E </span><br><span class="line">	 <span class="keyword">WHERE</span> E.lastname <span class="keyword">LIKE</span> N<span class="string">'%a%'</span>)</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/05/%E5%AD%90%E6%9F%A5%E8%AF%A2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-联接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/12/02/%E8%81%94%E6%8E%A5/" target="_blank">联接</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/12/02/%E8%81%94%E6%8E%A5/" class="archive-article-date">
-        <time datetime="2019-12-02T09:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="交叉联接"><a href="#交叉联接" class="headerlink" title="交叉联接"></a>交叉联接</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	C.custid,</span><br><span class="line">	E.empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C</span><br><span class="line">	<span class="keyword">CROSS</span> <span class="keyword">JOIN</span> HR.Employees <span class="keyword">AS</span> E</span><br><span class="line"><span class="comment">--ANSI SQL-92语法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	C.custid,</span><br><span class="line">	E.empid</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers <span class="keyword">AS</span> C,HR.Employees <span class="keyword">AS</span> E</span><br><span class="line"><span class="comment">--ANSI SQL-89语法</span></span><br><span class="line"><span class="comment">--两者之间没有逻辑或性能差异，但建议使用ANSI SQL-92语法</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/12/02/%E8%81%94%E6%8E%A5/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/12/02/%E8%81%94%E6%8E%A5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis事务、脚本、连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/27/Redis%E4%BA%8B%E5%8A%A1%E3%80%81%E8%84%9A%E6%9C%AC%E3%80%81%E8%BF%9E%E6%8E%A5/" target="_blank">Redis事务、脚本、连接</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/27/Redis%E4%BA%8B%E5%8A%A1%E3%80%81%E8%84%9A%E6%9C%AC%E3%80%81%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
-        <time datetime="2019-11-27T07:58:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h2><p>Redis 事务可以一次执行多个命令，并且带有以下两个重要保证:</p>
-<ul>
-<li>事务是一个单独隔离操作：事务中所有命令都会序列化，按顺序地执行。事务在执行过程中，不会被其他客户端发来的请求打断。</li>
-<li>事务是一个原子操作：事务中的命令要么全被执行，要么全都不被执行。</li>
-</ul>
-<p>一个事务会经历以下三个阶段</p>
-<ol>
-<li>开始事务</li>
-<li>命令入队</li>
-<li>执行事务</li>
-</ol>
-    
-    <a class="article-more-a" href="/2019/11/27/Redis%E4%BA%8B%E5%8A%A1%E3%80%81%E8%84%9A%E6%9C%AC%E3%80%81%E8%BF%9E%E6%8E%A5/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/27/Redis%E4%BA%8B%E5%8A%A1%E3%80%81%E8%84%9A%E6%9C%AC%E3%80%81%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
-    </p>
-    
 
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
 
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
 
-  
-    <article id="post-Redis-HyperLogLog与发布订阅" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/26/Redis-HyperLogLog%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/" target="_blank">Redis HyperLogLog与发布订阅</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/26/Redis-HyperLogLog%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/" class="archive-article-date">
-        <time datetime="2019-11-26T11:28:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Redis-HyperLogLog"><a href="#Redis-HyperLogLog" class="headerlink" title="Redis HyperLogLog"></a>Redis HyperLogLog</h2><ul>
-<li>Redis 在2.8.9版本添加了HyperLogLog结构。</li>
-<li>Redis HyperLogLog 是用来做基数统计的算法，HyperLogLog的优点是，在输入数据元素数量或者体积非常非常大时，计算所需要的空间总是固定的、并且是很小的。</li>
-<li>在Redis里，每个HyperLogLog只需要花费12kb内存，就可以计算将近2^64个不同的基数。这和计算基数时，元素越多耗费内存乐队的集合形成鲜明对比。</li>
-<li>但是，因为HyperLogLog只会根据输入元素来计算基数，而不会存储输入元素本身，所以HyperLogLog不能像集合那样，返回输入的各个元素。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/11/26/Redis-HyperLogLog%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/26/Redis-HyperLogLog%E4%B8%8E%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis数据类型Sorted-Set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/" target="_blank">Redis数据类型Sorted Set</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/" class="archive-article-date">
-        <time datetime="2019-11-26T09:42:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Redis-有序集合-sorted-set-命令"><a href="#Redis-有序集合-sorted-set-命令" class="headerlink" title="Redis 有序集合(sorted set) 命令"></a>Redis 有序集合(sorted set) 命令</h2><table>
-<thead>
-<tr>
-<th align="left">命令</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3625.html" target="_blank" rel="noopener">Redis Zrevrank 命令</a></td>
-<td align="left">返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3614.html" target="_blank" rel="noopener">Redis Zlexcount 命令</a></td>
-<td align="left">在有序集合中计算指定字典区间内成员数量</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3627.html" target="_blank" rel="noopener">Redis Zunionstore 命令</a></td>
-<td align="left">计算给定的一个或多个有序集的并集，并存储在新的 key 中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3621.html" target="_blank" rel="noopener">Redis Zremrangebyrank 命令</a></td>
-<td align="left">移除有序集合中给定的排名区间的所有成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3610.html" target="_blank" rel="noopener">Redis Zcard 命令</a></td>
-<td align="left">获取有序集合的成员数</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3619.html" target="_blank" rel="noopener">Redis Zrem 命令</a></td>
-<td align="left">移除有序集合中的一个或多个成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3613.html" target="_blank" rel="noopener">Redis Zinterstore 命令</a></td>
-<td align="left">计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3618.html" target="_blank" rel="noopener">Redis Zrank 命令</a></td>
-<td align="left">返回有序集合中指定成员的索引</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3612.html" target="_blank" rel="noopener">Redis Zincrby 命令</a></td>
-<td align="left">有序集合中对指定成员的分数加上增量 increment</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3617.html" target="_blank" rel="noopener">Redis Zrangebyscore 命令</a></td>
-<td align="left">通过分数返回有序集合指定区间内的成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3616.html" target="_blank" rel="noopener">Redis Zrangebylex 命令</a></td>
-<td align="left">通过字典区间返回有序集合的成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3626.html" target="_blank" rel="noopener">Redis Zscore 命令</a></td>
-<td align="left">返回有序集中，成员的分数值</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3622.html" target="_blank" rel="noopener">Redis Zremrangebyscore 命令</a></td>
-<td align="left">移除有序集合中给定的分数区间的所有成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3628.html" target="_blank" rel="noopener">Redis Zscan 命令</a></td>
-<td align="left">迭代有序集合中的元素（包括元素成员和元素分值）</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3624.html" target="_blank" rel="noopener">Redis Zrevrangebyscore 命令</a></td>
-<td align="left">返回有序集中指定分数区间内的成员，分数从高到低排序</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3620.html" target="_blank" rel="noopener">Redis Zremrangebylex 命令</a></td>
-<td align="left">移除有序集合中给定的字典区间的所有成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3623.html" target="_blank" rel="noopener">Redis Zrevrange 命令</a></td>
-<td align="left">返回有序集中指定区间内的成员，通过索引，分数从高到底</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3615.html" target="_blank" rel="noopener">Redis Zrange 命令</a></td>
-<td align="left">通过索引区间返回有序集合成指定区间内的成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3611.html" target="_blank" rel="noopener">Redis Zcount 命令</a></td>
-<td align="left">计算在有序集合中指定区间分数的成员数</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3609.html" target="_blank" rel="noopener">Redis Zadd 命令</a></td>
-<td align="left">向有序集合添加一个或多个成员，或者更新已存在成员的分数</td>
-</tr>
-</tbody></table>
-    
-    <a class="article-more-a" href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/26/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSorted-Set/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
 
-
-
-  
-    <article id="post-Redis数据类型Set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/" target="_blank">Redis数据类型Set</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/" class="archive-article-date">
-        <time datetime="2019-11-24T13:36:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Redis-集合-Set-命令"><a href="#Redis-集合-Set-命令" class="headerlink" title="Redis 集合(Set) 命令"></a>Redis 集合(Set) 命令</h2><table>
-<thead>
-<tr>
-<th align="left">命令</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3606.html" target="_blank" rel="noopener">Redis Sunion 命令</a></td>
-<td align="left">返回所有给定集合的并集</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3595.html" target="_blank" rel="noopener">Redis Scard 命令</a></td>
-<td align="left">获取集合的成员数</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3604.html" target="_blank" rel="noopener">Redis Srandmember 命令</a></td>
-<td align="left">返回集合中一个或多个随机数</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3601.html" target="_blank" rel="noopener">Redis Smembers 命令</a></td>
-<td align="left">返回集合中的所有成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3598.html" target="_blank" rel="noopener">Redis Sinter 命令</a></td>
-<td align="left">返回给定所有集合的交集</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3605.html" target="_blank" rel="noopener">Redis Srem 命令</a></td>
-<td align="left">移除集合中一个或多个成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3602.html" target="_blank" rel="noopener">Redis Smove 命令</a></td>
-<td align="left">将 member 元素从 source 集合移动到 destination 集合</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3594.html" target="_blank" rel="noopener">Redis Sadd 命令</a></td>
-<td align="left">向集合添加一个或多个成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3600.html" target="_blank" rel="noopener">Redis Sismember 命令</a></td>
-<td align="left">判断 member 元素是否是集合 key 的成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3597.html" target="_blank" rel="noopener">Redis Sdiffstore 命令</a></td>
-<td align="left">返回给定所有集合的差集并存储在 destination 中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3596.html" target="_blank" rel="noopener">Redis Sdiff 命令</a></td>
-<td align="left">返回给定所有集合的差集</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3608.html" target="_blank" rel="noopener">Redis Sscan 命令</a></td>
-<td align="left">迭代集合中的元素</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3599.html" target="_blank" rel="noopener">Redis Sinterstore 命令</a></td>
-<td align="left">返回给定所有集合的交集并存储在 destination 中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3607.html" target="_blank" rel="noopener">Redis Sunionstore 命令</a></td>
-<td align="left">所有给定集合的并集存储在 destination 集合中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3603.html" target="_blank" rel="noopener">Redis Spop 命令</a></td>
-<td align="left">移除并返回集合中的一个随机元素</td>
-</tr>
-</tbody></table>
-    
-    <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis数据类型Hash" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BHash/" target="_blank">Redis数据类型Hash</a>
   
-    </h1>
+  <div id="gitment-ctn"></div>
   
-
-
-  
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
   
-<a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BHash/" class="archive-article-date">
-        <time datetime="2019-11-24T12:47:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
+  <script>
+    <!-- id: "Spring于Mybatis整合" -->
+    var gitment = new Gitment({
+      id: "20200601205624",
+      owner: 'CodeYuan-Y',
+      repo: 'CodeYuan-Y.github.io',
+      oauth: {
+        client_id: '54f1ffefcd7a55adb032',
+        client_secret: 'cc7661d367a068f5bf6ee2cb19d72b1f6fb11b67',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
 
-  
-  
-    
 
   
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Redis-哈希-Hash-命令"><a href="#Redis-哈希-Hash-命令" class="headerlink" title="Redis 哈希(Hash) 命令"></a>Redis 哈希(Hash) 命令</h2><table>
-<thead>
-<tr>
-<th align="left">命令</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3573.html" target="_blank" rel="noopener">Redis Hmset 命令</a></td>
-<td align="left">同时将多个 field-value (域-值)对设置到哈希表 key 中。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3572.html" target="_blank" rel="noopener">Redis Hmget 命令</a></td>
-<td align="left">获取所有给定字段的值</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3574.html" target="_blank" rel="noopener">Redis Hset 命令</a></td>
-<td align="left">将哈希表 key 中的字段 field 的值设为 value 。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3567.html" target="_blank" rel="noopener">Redis Hgetall 命令</a></td>
-<td align="left">获取在哈希表中指定 key 的所有字段和值</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3566.html" target="_blank" rel="noopener">Redis Hget 命令</a></td>
-<td align="left">获取存储在哈希表中指定字段的值/td&gt;</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3565.html" target="_blank" rel="noopener">Redis Hexists 命令</a></td>
-<td align="left">查看哈希表 key 中，指定的字段是否存在。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3568.html" target="_blank" rel="noopener">Redis Hincrby 命令</a></td>
-<td align="left">为哈希表 key 中的指定字段的整数值加上增量 increment 。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3571.html" target="_blank" rel="noopener">Redis Hlen 命令</a></td>
-<td align="left">获取哈希表中字段的数量</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3564.html" target="_blank" rel="noopener">Redis Hdel 命令</a></td>
-<td align="left">删除一个或多个哈希表字段</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3576.html" target="_blank" rel="noopener">Redis Hvals 命令</a></td>
-<td align="left">获取哈希表中所有值</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3569.html" target="_blank" rel="noopener">Redis Hincrbyfloat 命令</a></td>
-<td align="left">为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3570.html" target="_blank" rel="noopener">Redis Hkeys 命令</a></td>
-<td align="left">获取所有哈希表中的字段</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3575.html" target="_blank" rel="noopener">Redis Hsetnx 命令</a></td>
-<td align="left">只有在字段 field 不存在时，设置哈希表字段的值。</td>
-</tr>
-</tbody></table>
-    
-    <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BHash/#more">more >></a>
-    
-    
 
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BHash/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -1414,8 +642,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
