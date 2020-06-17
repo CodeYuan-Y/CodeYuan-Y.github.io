@@ -1247,7 +1247,7 @@
 
 
   
-    <article id="post-MySQL数据库常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mysql数据库常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1255,7 +1255,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/10/20/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">MySQL数据库常用命令</a>
+	  <a class="article-title" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">Mysql数据库常用命令</a>
   
     </h1>
   
@@ -1263,7 +1263,7 @@
 
   
   
-<a href="/2019/10/20/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+<a href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
         <time datetime="2019-10-20T07:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
 </a>
 
@@ -1281,7 +1281,7 @@
     
     <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先以管理员身份运行命令提示符</span></span><br><span class="line"><span class="comment">#查看MySQL服务是否启动</span></span><br><span class="line">netstat -an|findstr "3306"</span><br><span class="line"><span class="comment">#启动MySQL服务</span></span><br><span class="line">net <span class="keyword">start</span> mysql57   <span class="comment">-----57是版本</span></span><br><span class="line"><span class="comment">#关闭MySQL服务</span></span><br><span class="line">net <span class="keyword">stop</span> mysql57</span><br><span class="line"></span><br><span class="line"><span class="comment">#登录</span></span><br><span class="line">mysql -u username(root) -p <span class="keyword">password</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看所有数据库</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment">#选择数据库</span></span><br><span class="line"><span class="keyword">use</span> database_name；</span><br><span class="line"><span class="comment">#查看所有表</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">#创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br><span class="line"><span class="comment">#删除数据库</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> database_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Table_name(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">varchar</span>(<span class="number">12</span>),</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>),</span><br><span class="line">    age <span class="built_in">int</span>(<span class="number">3</span>),</span><br><span class="line">)</span><br><span class="line"><span class="comment">#查询表</span></span><br><span class="line"><span class="keyword">desc</span> table_name;</span><br><span class="line"><span class="comment">#查看表的创建语句</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> Table_name;</span><br><span class="line"><span class="comment">#删除表</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> table_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改表的内容</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">modify</span> +(<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">20</span>)...);</span><br><span class="line"><span class="comment">#增加字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> <span class="keyword">column</span> Tel <span class="built_in">int</span>(<span class="number">11</span>);</span><br><span class="line"><span class="comment">#删除字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">drop</span> <span class="keyword">column</span> Tel;</span><br><span class="line"><span class="comment">#字段更改名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">change</span> <span class="keyword">name</span> newName <span class="built_in">char</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">#新增字段并确定位置</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">after</span> <span class="keyword">name</span>;    <span class="comment">----将birth字段放在name后</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">before</span> <span class="keyword">name</span>;</span><br><span class="line"><span class="comment">#更改表名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">rename</span> new_table_name;</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2019/10/20/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
+    <a class="article-more-a" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
     
     
 
@@ -1308,7 +1308,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/20/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/10/20/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
     </p>
     
 
