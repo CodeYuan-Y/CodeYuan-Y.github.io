@@ -191,6 +191,97 @@
             
 
   
+    <article id="n-MySQL常用命令" class="article article-type-n  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/17/MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">MySQL常用命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/17/MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2020-06-17T07:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先以管理员身份运行命令提示符</span></span><br><span class="line"><span class="comment">#查看MySQL服务是否启动</span></span><br><span class="line">netstat -an|findstr "3306"</span><br><span class="line"><span class="comment">#启动MySQL服务</span></span><br><span class="line">net <span class="keyword">start</span> mysql57   <span class="comment">-----57是版本</span></span><br><span class="line"><span class="comment">#关闭MySQL服务</span></span><br><span class="line">net <span class="keyword">stop</span> mysql57</span><br><span class="line"></span><br><span class="line"><span class="comment">#登录</span></span><br><span class="line">mysql -u username(root) -p <span class="keyword">password</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看所有数据库</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment">#选择数据库</span></span><br><span class="line"><span class="keyword">use</span> database_name；</span><br><span class="line"><span class="comment">#查看所有表</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">#创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br><span class="line"><span class="comment">#删除数据库</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> database_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Table_name(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">varchar</span>(<span class="number">12</span>),</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">10</span>),</span><br><span class="line">    age <span class="built_in">int</span>(<span class="number">3</span>),</span><br><span class="line">)</span><br><span class="line"><span class="comment">#查询表</span></span><br><span class="line"><span class="keyword">desc</span> table_name;</span><br><span class="line"><span class="comment">#查看表的创建语句</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> Table_name;</span><br><span class="line"><span class="comment">#删除表</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> table_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改表的内容</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">modify</span> +(<span class="keyword">name</span> <span class="built_in">char</span>(<span class="number">20</span>)...);</span><br><span class="line"><span class="comment">#增加字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> <span class="keyword">column</span> Tel <span class="built_in">int</span>(<span class="number">11</span>);</span><br><span class="line"><span class="comment">#删除字段</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">drop</span> <span class="keyword">column</span> Tel;</span><br><span class="line"><span class="comment">#字段更改名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">change</span> <span class="keyword">name</span> newName <span class="built_in">char</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">#新增字段并确定位置</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">after</span> <span class="keyword">name</span>;    <span class="comment">----将birth字段放在name后</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">add</span> birth <span class="built_in">date</span> <span class="keyword">before</span> <span class="keyword">name</span>;</span><br><span class="line"><span class="comment">#更改表名</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> table_name <span class="keyword">rename</span> new_table_name;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2020/06/17/MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/17/MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL中一条SELECT语句的前生今世" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1153,167 +1244,9 @@
 
 
   
-    <article id="post-Redis数据类型Set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/" target="_blank">Redis数据类型Set</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/" class="archive-article-date">
-        <time datetime="2019-11-24T13:36:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Redis-集合-Set-命令"><a href="#Redis-集合-Set-命令" class="headerlink" title="Redis 集合(Set) 命令"></a>Redis 集合(Set) 命令</h2><table>
-<thead>
-<tr>
-<th align="left">命令</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3606.html" target="_blank" rel="noopener">Redis Sunion 命令</a></td>
-<td align="left">返回所有给定集合的并集</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3595.html" target="_blank" rel="noopener">Redis Scard 命令</a></td>
-<td align="left">获取集合的成员数</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3604.html" target="_blank" rel="noopener">Redis Srandmember 命令</a></td>
-<td align="left">返回集合中一个或多个随机数</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3601.html" target="_blank" rel="noopener">Redis Smembers 命令</a></td>
-<td align="left">返回集合中的所有成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3598.html" target="_blank" rel="noopener">Redis Sinter 命令</a></td>
-<td align="left">返回给定所有集合的交集</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3605.html" target="_blank" rel="noopener">Redis Srem 命令</a></td>
-<td align="left">移除集合中一个或多个成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3602.html" target="_blank" rel="noopener">Redis Smove 命令</a></td>
-<td align="left">将 member 元素从 source 集合移动到 destination 集合</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3594.html" target="_blank" rel="noopener">Redis Sadd 命令</a></td>
-<td align="left">向集合添加一个或多个成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3600.html" target="_blank" rel="noopener">Redis Sismember 命令</a></td>
-<td align="left">判断 member 元素是否是集合 key 的成员</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3597.html" target="_blank" rel="noopener">Redis Sdiffstore 命令</a></td>
-<td align="left">返回给定所有集合的差集并存储在 destination 中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3596.html" target="_blank" rel="noopener">Redis Sdiff 命令</a></td>
-<td align="left">返回给定所有集合的差集</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3608.html" target="_blank" rel="noopener">Redis Sscan 命令</a></td>
-<td align="left">迭代集合中的元素</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3599.html" target="_blank" rel="noopener">Redis Sinterstore 命令</a></td>
-<td align="left">返回给定所有集合的交集并存储在 destination 中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3607.html" target="_blank" rel="noopener">Redis Sunionstore 命令</a></td>
-<td align="left">所有给定集合的并集存储在 destination 集合中</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.redis.net.cn/order/3603.html" target="_blank" rel="noopener">Redis Spop 命令</a></td>
-<td align="left">移除并返回集合中的一个随机元素</td>
-</tr>
-</tbody></table>
-    
-    <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/11/24/Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8BSet/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
