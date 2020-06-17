@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。 MySQL结构总览  ​    上面是MySQL的逻辑架构图，由它可见MySQL大致分为Sever层和存储引擎层。 ​    用户通过SQL访问数据的基本过程，就是：客户端-Server层-存储引擎层-磁盘。 ​    客户端通过连接器与Sever层相连，SQL语句在Sever层中“畅游”一番后便知晓了用户想要干什">
+  <meta name="description" content="最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL中一条SELECT语句的前生今世">
 <meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2020&#x2F;06&#x2F;17&#x2F;MySQL%E4%B8%AD%E4%B8%80%E6%9D%A1SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%89%8D%E7%94%9F%E4%BB%8A%E4%B8%96&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。 MySQL结构总览  ​    上面是MySQL的逻辑架构图，由它可见MySQL大致分为Sever层和存储引擎层。 ​    用户通过SQL访问数据的基本过程，就是：客户端-Server层-存储引擎层-磁盘。 ​    客户端通过连接器与Sever层相连，SQL语句在Sever层中“畅游”一番后便知晓了用户想要干什">
+<meta property="og:description" content="最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-17T07:07:40.073Z">
+<meta property="og:updated_time" content="2020-06-17T07:11:00.051Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -243,6 +243,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。</p>
+<a id="more"></a>
+
 <h3 id="MySQL结构总览"><a href="#MySQL结构总览" class="headerlink" title="MySQL结构总览"></a>MySQL结构总览</h3>
 
 <p>​    上面是MySQL的逻辑架构图，由它可见MySQL大致分为Sever层和存储引擎层。</p>
