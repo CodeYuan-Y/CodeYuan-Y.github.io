@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://CodeYuan-Y.github.io">
-  <title>SELECT语句元素续 | CodeYuan-Y的博客</title>
+  <title>MySQL中一条SELECT语句的前生今世 | CodeYuan-Y的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="谓词和运算符123456789101112131415161718192021222324SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE orderid IN(10248,10249,10250)--获取orderid在()这个集合里面的行SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE">
-<meta name="keywords" content="sql">
+  <meta name="description" content="最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。 MySQL结构总览  ​    上面是MySQL的逻辑架构图，由它可见MySQL大致分为Sever层和存储引擎层。 ​    用户通过SQL访问数据的基本过程，就是：客户端-Server层-存储引擎层-磁盘。 ​    客户端通过连接器与Sever层相连，SQL语句在Sever层中“畅游”一番后便知晓了用户想要干什">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SELECT语句元素续">
-<meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2019&#x2F;11&#x2F;08&#x2F;SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD&#x2F;index.html">
+<meta property="og:title" content="MySQL中一条SELECT语句的前生今世">
+<meta property="og:url" content="http:&#x2F;&#x2F;codeyuan-y.github.io&#x2F;2020&#x2F;06&#x2F;17&#x2F;MySQL%E4%B8%AD%E4%B8%80%E6%9D%A1SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%89%8D%E7%94%9F%E4%BB%8A%E4%B8%96&#x2F;index.html">
 <meta property="og:site_name" content="CodeYuan-Y的博客">
-<meta property="og:description" content="谓词和运算符123456789101112131415161718192021222324SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE orderid IN(10248,10249,10250)--获取orderid在()这个集合里面的行SELECTorderid,empid,orderdateFROM Sales.OrdersWHERE">
+<meta property="og:description" content="最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。 MySQL结构总览  ​    上面是MySQL的逻辑架构图，由它可见MySQL大致分为Sever层和存储引擎层。 ​    用户通过SQL访问数据的基本过程，就是：客户端-Server层-存储引擎层-磁盘。 ​    客户端通过连接器与Sever层相连，SQL语句在Sever层中“畅游”一番后便知晓了用户想要干什">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-08T02:44:35.183Z">
+<meta property="og:updated_time" content="2020-06-17T07:07:40.073Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeYuan-Y的博客" type="application/atom+xml">
@@ -186,14 +186,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SELECT语句元素续" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL中一条SELECT语句的前生今世" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      SELECT语句元素续
+      MySQL中一条SELECT语句的前生今世
     </h1>
   
 
@@ -205,8 +205,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" class="archive-article-date">
-        <time datetime="2019-11-08T02:35:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
+<a href="/2020/06/17/MySQL%E4%B8%AD%E4%B8%80%E6%9D%A1SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%89%8D%E7%94%9F%E4%BB%8A%E4%B8%96/" class="archive-article-date">
+        <time datetime="2020-06-17T07:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
 </a>
 
   
@@ -219,7 +219,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.1k字</span>
+      <span class="post-count">1.9k字</span>
     </span>
   </span>
 
@@ -228,7 +228,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -242,45 +242,67 @@
 <!-- 目录内容结束 -->
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="谓词和运算符"><a href="#谓词和运算符" class="headerlink" title="谓词和运算符"></a>谓词和运算符</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">IN</span>(<span class="number">10248</span>,<span class="number">10249</span>,<span class="number">10250</span>)</span><br><span class="line"><span class="comment">--获取orderid在()这个集合里面的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">orderid,</span><br><span class="line">empid,</span><br><span class="line">orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> orderid <span class="keyword">BETWEEN</span> <span class="number">10300</span> <span class="keyword">AND</span> <span class="number">10310</span>;</span><br><span class="line"><span class="comment">--获取orderid在10300到10310中间的行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">empid,</span><br><span class="line">firstname,</span><br><span class="line">lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span>;</span><br><span class="line"><span class="comment">--获取lastname属性第一个字母为D的行</span></span><br><span class="line"><span class="comment">--前缀字母N的使用，代表National，用来表示字符串是一个Unicode数据类型(NCHAR或NVARCHAR)</span></span><br></pre></td></tr></table></figure>
+    <p>最近在读丁奇大佬的《MySQL实战45讲》，收获很大，所以准备跟着写一点笔记总结。</p>
+<h3 id="MySQL结构总览"><a href="#MySQL结构总览" class="headerlink" title="MySQL结构总览"></a>MySQL结构总览</h3>
 
-<a id="more"></a>
+<p>​    上面是MySQL的逻辑架构图，由它可见MySQL大致分为Sever层和存储引擎层。</p>
+<p>​    用户通过SQL访问数据的基本过程，就是：客户端-Server层-存储引擎层-磁盘。</p>
+<p>​    客户端通过连接器与Sever层相连，SQL语句在Sever层中“畅游”一番后便知晓了用户想要干什么，然后，执行器操作数据引擎，进行存储/获取数据。</p>
+<p>​    Server层除了图中各种“xx器”之外还含有MySQL中所有的内置函数(如:sum(),count()等)，所有跨存储引擎的功能也都存在于此，比如说：存储过程，触发器，视图等。</p>
+<p>​    存储引擎主要是：InnoDB、MyISAM、Memory三种，自MySQL5.5.5版本后InnoDB成为了MySQL的默认存储引擎。</p>
+<p>选择存储引擎的SQL语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span>  <span class="keyword">table</span> tableName(<span class="keyword">id</span> <span class="built_in">int</span>) <span class="keyword">engine</span>=<span class="keyword">innodb</span>;</span><br></pre></td></tr></table></figure>
 
-<p>其它运算符还有=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;(!=)、!&gt;和!&lt;</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	empid,</span><br><span class="line">	orderdate</span><br><span class="line"> <span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"> <span class="keyword">WHERE</span> orderdate &gt;= <span class="string">'20080101'</span></span><br><span class="line">	<span class="keyword">AND</span> empid <span class="keyword">IN</span> (<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>);</span><br><span class="line"><span class="comment">--2008年之后 和 雇员编号是 1或3或5 的订单</span></span><br></pre></td></tr></table></figure>
+<h3 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h$ip -P$port -u$user -p</span><br></pre></td></tr></table></figure>
 
-<p>算数运算符 +、-、*、/、%</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	productid,</span><br><span class="line">	qty,</span><br><span class="line">	unitprice,</span><br><span class="line">	discount,</span><br><span class="line">	qty * unitprice * (<span class="number">1</span> - discount) <span class="keyword">AS</span> VAL </span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderDetails</span><br></pre></td></tr></table></figure>
+<p>​    输入以上信息之后，连接器会跟服务器建立连接，在完成经典的TCP握手后，连接器开始通过你输入的用户名和密码来进行身份认证，认证不成功会返回“Access denied for user”的错误，认证成功会在权限表中查询你所拥有的权限，进而给你相应的操作权力。</p>
+<h4 id="连接时间"><a href="#连接时间" class="headerlink" title="连接时间"></a>连接时间</h4>
 
-<p>比较优先级</p>
-<p>1、（）</p>
-<p>2、*、/、%</p>
-<p>3、+、-</p>
-<p>4、=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;(!=)、!&gt;、!&lt;</p>
-<p>5、NOT</p>
-<p>6、AND</p>
-<p>7、BETWEEN、IN、NOT、OR</p>
-<p>8、=</p>
-<h4 id="CASE表达式"><a href="#CASE表达式" class="headerlink" title="CASE表达式"></a>CASE表达式</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	productid,</span><br><span class="line">	productname,</span><br><span class="line">	categoryid,</span><br><span class="line">	<span class="keyword">CASE</span> categoryid</span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'Beverages'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span> <span class="string">'Condiments'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">3</span> <span class="keyword">THEN</span> <span class="string">'Confections'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">4</span> <span class="keyword">THEN</span> <span class="string">'Dairy Products'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">5</span> <span class="keyword">THEN</span> <span class="string">'Grains/Cereals'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">6</span> <span class="keyword">THEN</span> <span class="string">'Meat/Poultry'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">7</span> <span class="keyword">THEN</span> <span class="string">'Produce'</span></span><br><span class="line">		<span class="keyword">WHEN</span> <span class="number">8</span> <span class="keyword">THEN</span> <span class="string">'Seafood'</span></span><br><span class="line">		<span class="keyword">ELSE</span> <span class="string">'Unknown Category'</span></span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">AS</span> categoryname</span><br><span class="line"><span class="keyword">FROM</span> Production.Products;</span><br><span class="line"><span class="comment">--当 categoryID = 1 时 categoryname 列显示 Beverages</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	custid,</span><br><span class="line">	val,</span><br><span class="line">	<span class="keyword">CASE</span></span><br><span class="line">		<span class="keyword">WHEN</span> val &lt; <span class="number">1000.0</span>				<span class="keyword">THEN</span> <span class="string">'lESS THAN 1000'</span></span><br><span class="line">		<span class="keyword">WHEN</span> val <span class="keyword">BETWEEN</span> <span class="number">1000.0</span> <span class="keyword">AND</span> <span class="number">3000.0</span>		<span class="keyword">THEN</span> <span class="string">'BETWEEN 1000 AND 3000'</span></span><br><span class="line">		<span class="keyword">WHEN</span> val &gt; <span class="number">3000.0</span>				<span class="keyword">THEN</span> <span class="string">'MORE THAN 3000'</span></span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">AS</span> VALUECATEGORY</span><br><span class="line"><span class="keyword">FROM</span> Sales.OrderValues</span><br></pre></td></tr></table></figure>
+<p>​    使用 show processlist 命令能够查询所有的连接，Commend这一行出现Sleep就表明这个连接处于空闲状态，如果长时间没有操作，这个连接就将在wait_timeout时间后断开，这个参数的默认值是8小时。</p>
+<h4 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h4><p>​    长连接是指连接成功后，客户端持续请求都一直使用的一个连接叫长连接。短连接是执行几次查询后就断开的连接，下次查询再重新建立一个连接。</p>
+<p>​    建立连接的过程是复杂的，所以要尽量少建立连接，也就是尽量使用长连接。</p>
+<p>​    如果全部使用长连接，MySQL会涨的特别快，有些资源只有再连接断开时才能释放，可能导致内存占用太大，被系统强行杀掉，造成MySQL异常重启。</p>
+<p>​    一般解决这种问题有下面两个方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.定期断开长连接。使用一段时间，或者程序里面判断执行过一个占用内存的大查询后，断开连接，之后要查询再重连。</span><br><span class="line"></span><br><span class="line">2,如果你用的是 MySQL 5.7 或更新版本，可以在每次执行一个比较大的操作后，通过执行 mysql_reset_connection 来重新初始化连接资源。这个过程不需要重连和重新做权限验证，但是会将连接恢复到刚刚创建完时的状态。</span><br></pre></td></tr></table></figure>
 
-<h4 id="NULL标记"><a href="#NULL标记" class="headerlink" title="NULL标记"></a>NULL标记</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	custid,</span><br><span class="line">	country,</span><br><span class="line">	region,</span><br><span class="line">	city</span><br><span class="line"><span class="keyword">FROM</span> Sales.Customers</span><br><span class="line"><span class="keyword">WHERE</span> region <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">--region = null 会返回 一个unknown结果</span></span><br></pre></td></tr></table></figure>
+<h3 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h3><p>​    MySQL缓存是个很鸡肋的东西，已经再MySQL 8.0版本后彻底删除。</p>
+<p>​    MySQL缓存将他的查询请求的结果放在缓存中，当再次查询这个语句时从缓存里直接把之前的结果拿出来，效率就很高，但是表中每增加或修改一次数据都会造成缓存的失效导致维护成本很高。</p>
+<p>​    下面是一个缓存查询的SQL</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select SQL_CACHE * from T where ID=10；</span><br></pre></td></tr></table></figure>
 
-<h4 id="运算符和函数"><a href="#运算符和函数" class="headerlink" title="运算符和函数"></a>运算符和函数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	firstname + N<span class="string">' '</span>+ lastname <span class="keyword">AS</span> fullname </span><br><span class="line"><span class="keyword">FROM</span> HR.Employees;</span><br></pre></td></tr></table></figure>
+<h3 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h3><p>​    分析器主要功能就是 处理语法 和 解析查询，分析SQL中的每一个关键字，判断语法是否正确、语句中的表和列是否存在，且select后面的列名有没有歧义，比如说：user表和type表中都有name字段，那么select name from use，type是肯定通过不了的。</p>
+<h3 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h3><p>​    优化器是在表里面有多个索引的时候，决定使用哪个索引；或者在一个语句有多表关联（join）的时候，决定各个表的连接顺序。</p>
+<p>​    就以下面为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * <span class="function">from t1 join t2 <span class="title">using</span><span class="params">(ID)</span>  where t1.c</span>=<span class="number">10</span> and t2.d=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
 
-<p>通过连接fisrstname、空格、lastname生成fullname结果列。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--从字符串中提取一个子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUBSTRING</span>(<span class="string">'ASDFSADF'</span>,<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line"><span class="comment">--结果是：SDFS - 从第2个位置提取其后4个字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--从左提取一个子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEFT</span>(<span class="string">'HELLOWORLD'</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">--结果是：HEl - 从左开始提取3个字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--从右提取一个子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RIGHT</span>(<span class="string">'HELLOWORLD'</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">--结果是：RLD - 从右开始提取3个字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回字符长度</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LEN</span>(<span class="string">'HELLOWORLD '</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATALENGTH</span>(<span class="string">'HELLOWORLD '</span>);</span><br><span class="line"><span class="comment">--结果是:10、11  - 区别是LEN会去掉尾部空格不计，而DATALENGTH并不会</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回子串在字符串中第一次出现的位置</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CHARINDEX</span>(<span class="string">'L'</span>,<span class="string">'HELLOWORLD'</span>);</span><br><span class="line"><span class="comment">--结果是：3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--返回模式在字符串中第一次出现的位置</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">PATINDEX</span>(<span class="string">'%[0-9]%'</span>,<span class="string">'HELLO343WORLD'</span>);</span><br><span class="line"><span class="comment">--结果是：6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--使用某一字符串 替代 另一字符串中的 子串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">REPLACE</span>(<span class="string">'1-S 3-ER'</span>,<span class="string">'-'</span>,<span class="string">':'</span>);</span><br><span class="line"><span class="comment">--结果是：1:S 3:ER</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--让某字符串重复几次</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">REPLICATE</span>(<span class="string">'ABC'</span>,<span class="number">3</span>);</span><br><span class="line"><span class="comment">--结果是：ABCABCABC</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--在字符串中的某个位置去除其后几个字符并插入字符串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">STUFF</span>(<span class="string">'HELLOWORLD'</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="string">'123'</span>);</span><br><span class="line"><span class="comment">--结果是：HE123OWORLD - 去除HELLOWORLD的第3个位置加他后面 共两个字符 再 插入 123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--转大小写</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UPPER</span>(<span class="string">'abc'</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LOWER</span>(<span class="string">'ABC'</span>);</span><br><span class="line"><span class="comment">--结果是：ABC、abc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--去除左右空格</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">RTRIM</span>(<span class="keyword">LTRIM</span>(<span class="string">'   ABC   '</span>));</span><br><span class="line"><span class="comment">--结果是：ABC - RTRIM去除右边空格 LTRIM去除左边空格</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--将输入值转化为字符串</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">FORMAT</span>(<span class="number">1759</span>,<span class="string">'0000000'</span>);</span><br><span class="line"><span class="comment">--结果：0001759</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>既可以先从表 t1 里面取出 c=10 的记录的 ID 值，再根据 ID 值关联到表 t2，再判断 t2 里面 d 的值是否等于 20。</li>
+<li>也可以先从表 t2 里面取出 d=20 的记录的 ID 值，再根据 ID 值关联到 t1，再判断 t1 里面 c 的值是否等于 10。</li>
+</ul>
+<p>优化器会根据执行效率的不同选择更优者。其实在这里面我遇到和考虑了一些问题，主要是SQL语句层面的：</p>
+<ol>
+<li><p>以前，一个同学跟我讲 where 后面的筛选条件的排序很重要，因为where后面的条件是顺序执行的，比如说下面一个查询。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> sex = <span class="string">'女'</span> <span class="keyword">and</span> age &gt; <span class="number">30</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="LIKE谓词"><a href="#LIKE谓词" class="headerlink" title="LIKE谓词"></a>LIKE谓词</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'D%'</span></span><br><span class="line"><span class="comment">--匹配以D开头的字符串</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> <span class="string">'_e%'</span></span><br><span class="line"><span class="comment">--匹配第二个字母是e</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'[ABC]%'</span></span><br><span class="line"><span class="comment">--第一个字母是ABC其中之一的</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	empid,</span><br><span class="line">	lastname</span><br><span class="line"><span class="keyword">FROM</span> HR.Employees</span><br><span class="line"><span class="keyword">WHERE</span> lastname <span class="keyword">LIKE</span> N<span class="string">'[A-E]%'</span></span><br><span class="line"><span class="comment">--第一个字母是A-E其中的一个</span></span><br></pre></td></tr></table></figure>
+<p>​    从实际情况来看 age &gt; 30 的学生很少，被筛选掉的可能更高，所以如果按照顺序执行的原则来说，讲age &gt; 30放在and前面的选择才是好的选择。</p>
+<p>​    但是！当我知道了优化器，我发现我想当然了，MySQL比我想象的更强大，它能够根据实际的情况来选择SQL执行的顺序</p>
+</li>
+<li><p>另外，在学习丁奇课程时上面那个例子的解释让我又有点迷茫了，是下面这段SQL</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t1 <span class="keyword">join</span> t2 <span class="keyword">using</span>(<span class="keyword">ID</span>)  <span class="keyword">where</span> t1.c=<span class="number">10</span> <span class="keyword">and</span> t2.d=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	orderid,</span><br><span class="line">	custid,</span><br><span class="line">	empid,</span><br><span class="line">	orderdate</span><br><span class="line"><span class="keyword">FROM</span> Sales.Orders</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">YEAR</span>(orderdate) = <span class="number">2007</span> <span class="keyword">AND</span> <span class="keyword">MONTH</span>(orderdate) = <span class="number">2</span>;</span><br><span class="line"><span class="comment">--查询2007年2月的订单</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="查询元数据"><a href="#查询元数据" class="headerlink" title="查询元数据"></a>查询元数据</h4><h5 id="目录视图"><a href="#目录视图" class="headerlink" title="目录视图"></a><strong>目录视图</strong></h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	SCHEMA_NAME(schema_id) <span class="keyword">AS</span> table_schema_name,</span><br><span class="line">	<span class="keyword">name</span> <span class="keyword">AS</span> table_name</span><br><span class="line"><span class="keyword">FROM</span> sys.tables;</span><br><span class="line"><span class="comment">--列出数据库中表的架构名称 和 表的名称</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="keyword">name</span> <span class="keyword">AS</span> columns_name,</span><br><span class="line">	TYPE_NAME(system_type_id) <span class="keyword">AS</span> columns_type,</span><br><span class="line">	max_length,</span><br><span class="line">	collation_name,</span><br><span class="line">	is_nullable</span><br><span class="line"><span class="keyword">FROM</span> sys.columns</span><br><span class="line"><span class="keyword">WHERE</span> object_id = OBJECT_ID(N<span class="string">'Sales.Orders'</span>);</span><br><span class="line"><span class="comment">--返回Sales.Orders表的：列名、数据类型、最大长度、排列规则名称、是否为空</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="信息架构视图"><a href="#信息架构视图" class="headerlink" title="信息架构视图"></a>信息架构视图</h5><p>信息架构视图是一个视图集合，其名位于<code>INFORMATION_SCHEMA</code>的架构中，并以标准方式提供元数据信息。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	TABLE_SCHEMA,</span><br><span class="line">	TABLE_NAME</span><br><span class="line"><span class="keyword">FROM</span> INFORMATION_SCHEMA.TABLES</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_TYPE = N<span class="string">'BASE TABLE'</span>;</span><br><span class="line"><span class="comment">--列出表的架构名称 和 表的名称</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	COLUMN_NAME,</span><br><span class="line">	DATA_TYPE,</span><br><span class="line">	CHARACTER_MAXIMUM_LENGTH,</span><br><span class="line">	COLLATION_NAME,</span><br><span class="line">	IS_NULLABLE</span><br><span class="line"><span class="keyword">FROM</span> INFORMATION_SCHEMA.COLUMNS</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA = N<span class="string">'Sales'</span></span><br><span class="line">	<span class="keyword">AND</span> TABLE_NAME = N<span class="string">'Orders'</span>;</span><br><span class="line"><span class="comment">--返回Sales.Orders表的：列名、数据类型、最大长度、排列规则名称、是否为空</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="系统存储过程和函数"><a href="#系统存储过程和函数" class="headerlink" title="系统存储过程和函数"></a>系统存储过程和函数</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">EXEC sys.sp_tables</span><br><span class="line"><span class="comment">--返回一个当前数据库中能查询到的对象列表</span></span><br><span class="line"></span><br><span class="line">EXEC sys.sp_help</span><br><span class="line">	@objname = N'Sales.Orders';</span><br><span class="line"><span class="comment">--返回Orders表的详情信息</span></span><br><span class="line"></span><br><span class="line">EXEC sys.sp_columns</span><br><span class="line">	@table_name = N'Orders',</span><br><span class="line">	@table_owner = N'Sales';</span><br><span class="line"><span class="comment">--返回Orders表中的列信息</span></span><br><span class="line"></span><br><span class="line">EXEC sys.sp_helpconstraint</span><br><span class="line">	@objname = N'Sales.Orders';</span><br><span class="line"><span class="comment">--返回Orders中的约束信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	SERVERPROPERTY(<span class="string">'ProductLevel'</span>);</span><br><span class="line"><span class="comment">--返回当前实例的产品级别</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	DATABASEPROPERTYEX(N<span class="string">'TSQL2012'</span>,<span class="string">'Collation'</span>);</span><br><span class="line"><span class="comment">--返回TSQL2012数据库的排序规则</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	OBJECTPROPERTY(OBJECT_ID(N<span class="string">'Sales.Orders'</span>),<span class="string">'TableHasPrimaryKey'</span>);</span><br><span class="line"><span class="comment">--判断Orders是否具有主键</span></span><br></pre></td></tr></table></figure>
-
+<p>​    他说：“既可以先从表 t1 里面取出 c=10 的记录的 ID 值，再根据 ID 值关联到表 t2，再判断 t2 里面 d 的值是否等于 20….”。</p>
+<p>​    我之前一直所认为的是 t1 与 t2表先连接成笛卡尔积之后才会通过 where 后面的条件进行筛选，但是，我又想当然了，在网上很多人给的执行顺序也是 from &gt; join &gt; on &gt; where … 的执行顺序，但是实际上SQL 中 得join是使用一种为<a href="javascript:;"><strong>Nest</strong></a> <a href="javascript:;"><strong>Loop</strong></a> <a href="javascript:;"><strong>Join</strong></a>嵌套循环（<a href="http://www.360doc.com/showweb/0/0/918978335.aspx" target="_blank" rel="noopener">具体文章请见</a>），优化器先会选择驱动表比如说当 t1中c=10的次数少于t2中d=20的次数那么选择器就会选择t1做驱动表，然后通过t1.c=10筛选出一行数据再在t2表中查找t2.d=20并且t1.id=t2.id的数据行，遍历完毕t2后，再重新在t1中查找符合t1.c=10的数据，依次交替，直到查询玩所有的数据。</p>
+</li>
+<li><p>我们写的SQL的表连接顺序，会尽量使用查询结果集最小的表作为驱动表(左表-自行理解)，前提是连接顺序改变不会改变查询结果，然后按照优化后的顺序和其他的表逐渐连接查询。 <strong>也就是说left join连接并不一定是从左边关联到右边，也有可能是从右边关联到左边，left join仅仅是保证左侧表符合条件的记录会进入到结果集中</strong>。</p>
+</li>
+</ol>
+<h3 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h3><p>​    进入执行器之后，先要判断一下你有没有操作这个表的权限，如果没有就会返回没有权限的错误，如果有就打开表，去调用存储引擎的接口。基本流程如下：</p>
+<ul>
+<li>调用 InnoDB 引擎接口取这个表的第一行，判断 ID 值是不是 10，如果不是则跳过，如果是则将这行存在结果集中；</li>
+<li>调用引擎接口取“下一行”，重复相同的判断逻辑，直到取到这个表的最后一行。</li>
+<li>执行器将上述遍历过程中所有满足条件的行组成的记录集作为结果集返回给客户端</li>
+</ul>
+<p>数据库的慢查询日志中会有一个rows_examined代表这个SQL语句执行过程中总共查询了多少行。</p>
 
     
 
@@ -327,7 +349,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://CodeYuan-Y.github.io/2019/11/08/SELECT语句元素续/" title="SELECT语句元素续" target="_blank">http://CodeYuan-Y.github.io/2019/11/08/SELECT语句元素续/</a>
+          <a href="http://CodeYuan-Y.github.io/2020/06/17/MySQL中一条SELECT语句的前生今世/" title="MySQL中一条SELECT语句的前生今世" target="_blank">http://CodeYuan-Y.github.io/2020/06/17/MySQL中一条SELECT语句的前生今世/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -346,7 +368,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -402,7 +424,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://codeyuan-y.github.io/2019/11/08/SELECT%E8%AF%AD%E5%8F%A5%E5%85%83%E7%B4%A0%E7%BB%AD/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://codeyuan-y.github.io/2020/06/17/MySQL%E4%B8%AD%E4%B8%80%E6%9D%A1SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%89%8D%E7%94%9F%E4%BB%8A%E4%B8%96/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -417,18 +439,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/11/24/Redis%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Redis基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/06/SELECT%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%85%83%E7%B4%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SELECT语句的元素</div>
+    <a href="/2020/06/01/Spring%E4%BA%8EMybatis%E6%95%B4%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring于Mybatis整合</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -469,9 +482,9 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "SELECT语句元素续" -->
+    <!-- id: "MySQL中一条SELECT语句的前生今世" -->
     var gitment = new Gitment({
-      id: "20191108103525",
+      id: "20200617150157",
       owner: 'CodeYuan-Y',
       repo: 'CodeYuan-Y.github.io',
       oauth: {
